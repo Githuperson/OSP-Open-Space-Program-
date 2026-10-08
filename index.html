@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OSP — Open Space Program</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 100%; height: 100%; overflow: hidden;
+      background: #05070d; color: #d7e3f4;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      user-select: none;
+    }
+    #gl { position: fixed; inset: 0; }
+    #gl canvas { display: block; width: 100%; height: 100%; }
+    #map {
+      position: fixed; inset: 0; width: 100%; height: 100%;
+      background: #070b14; z-index: 5;
+    }
+    .hidden { display: none !important; }
+
+    /* ---------------- HUD ---------------- */
+    #hud { position: fixed; inset: 0; pointer-events: none; z-index: 10; }
+    #hud button, #hud select, #hud input { pointer-events: auto; }
+
+    #topbar {
+      position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 18px; align-items: center;
+      font-family: monospace; font-size: 13px;
+      background: rgba(10,16,28,0.72); border: 1px solid rgba(120,160,220,0.25);
+      border-radius: 6px; padding: 5px 14px;
+    }
+    #warp { color: #ffb74d; font-weight: bold; }
+    #target-info { color: #7cf2ff; }
+
+    #msg-log {
+      position: absolute; top: 52px; left: 50%; transform: translateX(-50%);
+      font-family: monospace; font-size: 12px; color: #ffe0a3; text-align: center;
+      text-shadow: 0 1px 3px #000; line-height: 1.5; min-width: 300px;
+    }
+
+    .panel {
+      position: absolute;
+      background: rgba(10,16,28,0.82); border: 1px solid rgba(120,160,220,0.3);
+      border-radius: 8px; padding: 10px 12px;
+      font-family: monospace; font-size: 12px;
+      backdrop-filter: blur(3px);
+    }
+    #left-panel { left: 10px; top: 90px; width: 190px; }
+    #right-panel { right: 10px; top: 90px; width: 210px; }
+    .panel h3 {
+      font-size: 11px; color: #8fb8e8; text-transform: uppercase; letter-spacing: 1px;
+      margin-bottom: 6px; border-bottom: 1px solid rgba(120,160,220,0.25); padding-bottom: 3px;
+    }
+    .kv { display: flex; justify-content: space-between; line-height: 1.55; }
+    .kv span:first-child { color: #7d8ea8; }
+    .kv span:last-child { color: #e8f0fa; }
+
+    #navball-wrap {
+      position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%);
+      text-align: center;
+    }
+    #navball { display: block; }
+    #throttle-gauge {
+      position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%);
+      margin-left: 130px; width: 90px; height: 14px;
+      border: 1px solid rgba(120,160,220,0.4); border-radius: 3px;
+      background: rgba(10,16,28,0.7); overflow: hidden;
+    }
+    #throttle-bar {
+      height: 100%; width: 0%; background: linear-gradient(90deg, #4fc3f7, #ffb74d);
+      transition: width 0.05s linear;
+    }
+    #throttle-label { font-family: monospace; font-size: 9px; color: #7d8ea8; margin-top: 2px; }
+
+    #controls {
+      position: absolute; bottom: 14px; right: 10px;
+      display: flex; flex-direction: column; gap: 6px; align-items: flex-end;
+    }
+    #controls .row { display: flex; gap: 6px; }
+    button {
+      background: rgba(30,45,70,0.9); color: #d7e3f4; border: 1px solid rgba(120,160,220,0.4);
+      border-radius: 5px; padding: 5px 10px; font-family: monospace; font-size: 11px;
+      cursor: pointer;
+    }
+    button:hover { background: rgba(50,75,115,0.95); }
+    button.active { background: rgba(80,140,90,0.9); border-color: #9fe8a9; color: #fff; }
+    .sas-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; margin-top: 6px; }
+    .sas-grid button { padding: 3px 2px; font-size: 9px; }
+
+    /* ---------------- planner ---------------- */
+    #planner {
+      position: absolute; top: 60px; left: 50%; transform: translateX(-50%);
+      width: 430px; max-height: calc(100% - 90px); overflow-y: auto;
+      z-index: 20; pointer-events: auto;
+      background: rgba(8,13,24,0.94); border: 1px solid rgba(120,160,220,0.35);
+      border-radius: 10px; padding: 12px 14px;
+      font-family: monospace; font-size: 12px;
+    }
+    #planner .panel-header {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 14px; color: #8fb8e8; margin-bottom: 8px;
+    }
+    #planner .section { margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid rgba(120,160,220,0.18); }
+    #planner .section-title { color: #6fd3a7; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+    #planner label { display: inline-block; margin: 3px 8px 3px 0; color: #9fb2cc; }
+    #planner select, #planner input[type=number] {
+      background: rgba(20,30,50,0.9); color: #e8f0fa; border: 1px solid rgba(120,160,220,0.4);
+      border-radius: 4px; padding: 3px 6px; font-family: monospace;
+    }
+    #planner .row { display: flex; gap: 6px; flex-wrap: wrap; margin: 4px 0; }
+    .muted { color: #66788f; }
+    #pl-porkchop { background: #0a0f1a; border: 1px solid rgba(120,160,220,0.3); border-radius: 4px; cursor: crosshair; }
+    .node-row { border: 1px solid rgba(255,167,38,0.35); border-radius: 6px; padding: 6px 8px; margin-bottom: 6px; background: rgba(40,30,15,0.35); }
+    .node-head { display: flex; justify-content: space-between; color: #ffcc80; margin-bottom: 4px; }
+    .node-head button { padding: 0 6px; font-size: 10px; }
+    .node-row label { display: flex; align-items: center; gap: 6px; color: #9fb2cc; font-size: 10px; margin: 1px 0; }
+    .node-row input[type=range] { flex: 1; }
+    .mono { font-family: monospace; }
+
+    /* ---------------- overlays ---------------- */
+    #crash-overlay, #help {
+      position: fixed; inset: 0; z-index: 50;
+      background: rgba(5,8,15,0.88);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      font-family: monospace; text-align: center;
+    }
+    #crash-overlay h1 { color: #ff6b5e; font-size: 34px; margin-bottom: 10px; }
+    #help h1 { color: #8fb8e8; font-size: 24px; margin-bottom: 14px; }
+    #help table { border-collapse: collapse; font-size: 12px; line-height: 1.7; color: #c4d4e8; }
+    #help td { padding: 1px 12px; text-align: left; }
+    #help td:first-child { color: #ffb74d; white-space: nowrap; }
+    #help .hint { color: #66788f; margin-top: 12px; }
+    #crash-overlay p { color: #c4d4e8; margin-bottom: 16px; }
+  </style>
+</head>
+<body>
+  <div id="gl"></div>
+  <canvas id="map" class="hidden"></canvas>
+
+  <div id="hud">
+    <div id="topbar">
+      <span id="clock">UT 0d 00:00:00</span>
+      <span id="warp">WARP ×1</span>
+      <span id="target-info"></span>
+    </div>
+    <div id="msg-log"></div>
+
+    <div id="left-panel" class="panel">
+      <h3>Vessel</h3>
+      <div class="kv"><span>Mass</span><span id="v-mass">—</span></div>
+      <div class="kv"><span>Δv left</span><span id="v-dv">—</span></div>
+      <div class="kv"><span>TWR</span><span id="v-twr">—</span></div>
+      <div class="kv"><span>Stage</span><span id="v-stage">—</span></div>
+      <div class="kv"><span>Max Q</span><span id="v-q">—</span></div>
+      <div class="kv"><span>Env</span><span id="v-g">—</span></div>
+      <div class="kv"><span>Throttle</span><span id="v-throttle">0%</span></div>
+    </div>
+
+    <div id="right-panel" class="panel">
+      <h3>Orbit</h3>
+      <div class="kv"><span>Altitude</span><span id="o-alt">—</span></div>
+      <div class="kv"><span>Velocity</span><span id="o-vel">—</span></div>
+      <div class="kv"><span>Apoapsis</span><span id="o-ap">—</span></div>
+      <div class="kv"><span>Periapsis</span><span id="o-pe">—</span></div>
+      <div class="kv"><span>Time to Ap</span><span id="o-tap">—</span></div>
+      <div class="kv"><span>Time to Pe</span><span id="o-tpe">—</span></div>
+      <div class="kv"><span>Inclination</span><span id="o-inc">—</span></div>
+      <div class="kv"><span>Eccentricity</span><span id="o-ecc">—</span></div>
+      <div class="kv"><span>Period</span><span id="o-period">—</span></div>
+    </div>
+
+    <div id="navball-wrap">
+      <canvas id="navball" width="190" height="190"></canvas>
+      <div id="throttle-gauge"><div id="throttle-bar"></div></div>
+      <div id="throttle-label">THROTTLE</div>
+    </div>
+
+    <div id="controls">
+      <div class="row">
+        <button id="warp-minus" title="Warp down (,)">WARP −</button>
+        <button id="warp-plus" title="Warp up (.)">WARP +</button>
+      </div>
+      <div class="row">
+        <button id="btn-stage" title="Stage (Space)">STAGE</button>
+        <button id="btn-sas" title="Toggle SAS (T)">SAS</button>
+        <button id="btn-lights" title="Lights (G)">LIGHTS</button>
+      </div>
+      <div class="row">
+        <button id="btn-map" title="Map (M)">MAP</button>
+        <button id="btn-camera" title="Camera (C)">CAM</button>
+        <button id="btn-planner" title="Orbit planner (P)">PLANNER</button>
+        <button id="btn-revert" title="Revert to launch">REVERT</button>
+      </div>
+      <div class="sas-grid">
+        <button class="sas-btn" data-mode="off">OFF</button>
+        <button class="sas-btn" data-mode="stability">STAB</button>
+        <button class="sas-btn" data-mode="prograde">PRO</button>
+        <button class="sas-btn" data-mode="retrograde">RETRO</button>
+        <button class="sas-btn" data-mode="radial">RAD+</button>
+        <button class="sas-btn" data-mode="antiradial">RAD−</button>
+        <button class="sas-btn" data-mode="normal">NORM</button>
+        <button class="sas-btn" data-mode="antinormal">ANRM</button>
+        <button class="sas-btn" data-mode="target">TGT+</button>
+        <button class="sas-btn" data-mode="antitarget">TGT−</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="planner" class="hidden">
+    <div class="panel-header">
+      <span>🛰 ORBIT PLANNER</span>
+      <button id="planner-close">✕</button>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Lambert transfer</div>
+      <label>Target
+        <select id="pl-target"></select>
+      </label>
+      <label>Transfer time (days)
+        <input id="pl-tof" type="number" value="120" min="1" max="3000" step="1" />
+      </label>
+      <div class="row">
+        <button id="pl-lambert">Compute transfer</button>
+        <button id="pl-add-node">Add as maneuver node</button>
+        <button id="pl-draw">Draw on map</button>
+      </div>
+      <div id="pl-lambert-out" class="mono muted">Pick a target and compute a transfer.</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Porkchop plot — total Δv (departure date × flight time)</div>
+      <canvas id="pl-porkchop" width="400" height="250"></canvas>
+      <div class="row">
+        <button id="pl-pork-best">Use best window</button>
+        <span class="muted">click a cell to inspect it</span>
+      </div>
+      <div id="pl-pork-out" class="mono muted">Computing…</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Maneuver nodes</div>
+      <div class="row">
+        <button id="pl-node-add">+ Add node (N)</button>
+        <button id="pl-node-warp">Warp to next node</button>
+        <button id="pl-node-clear">Clear all</button>
+      </div>
+      <div id="pl-nodes"></div>
+    </div>
+  </div>
+
+  <div id="crash-overlay" class="hidden">
+    <h1>💥 VESSEL DESTROYED</h1>
+    <p>The flight recorder has been notified (it wasn't).</p>
+    <button id="crash-revert">Revert to launch pad</button>
+  </div>
+
+  <div id="help">
+    <h1>🚀 OSP — Open Space Program</h1>
+    <table>
+      <tr><td>Z / X</td><td>Throttle 100% / 0% (Shift/Ctrl to adjust)</td></tr>
+      <tr><td>Space</td><td>Stage</td></tr>
+      <tr><td>W A S D</td><td>Pitch / yaw</td></tr>
+      <tr><td>Q E</td><td>Roll</td></tr>
+      <tr><td>T</td><td>Toggle SAS (stability assist)</td></tr>
+      <tr><td>, .</td><td>Time warp down / up</td></tr>
+      <tr><td>M</td><td>Map view (drag pan, wheel zoom, click to target)</td></tr>
+      <tr><td>C</td><td>Camera mode</td></tr>
+      <tr><td>N</td><td>Add maneuver node</td></tr>
+      <tr><td>Y</td><td>Cycle target</td></tr>
+      <tr><td>P</td><td>Orbit planner (Lambert + porkchop)</td></tr>
+      <tr><td>G</td><td>Lights</td></tr>
+      <tr><td>Esc</td><td>Pause</td></tr>
+    </table>
+    <p class="hint">Mission: reach orbit, visit Munara, rendezvous with SAT-1 — or just try to land in one piece. Click to dismiss.</p>
+    <button id="help-close" style="margin-top:14px">Start</button>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
