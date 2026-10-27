@@ -1,0 +1,349 @@
+{
+  "format": "osp-vessel",
+  "version": 1,
+  "vessel": {
+    "name": "Tessar Lander",
+    "description": "A probe lander: deploy legs with G. Put it in orbit with a launcher to visit Tessar.",
+    "parts": [
+      {
+        "id": 1,
+        "part": "probe.orb",
+        "parent": -1,
+        "parentNode": null,
+        "selfNode": null,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "stage": -1,
+        "symmetryGroup": 0,
+        "resources": {},
+        "fuelLineTarget": -1,
+        "thrustLimit": 1,
+        "state": null,
+        "isSurfaceAttached": false,
+        "dryMass": 250,
+        "resourceMass": 0,
+        "totalMass": 250
+      },
+      {
+        "id": 2,
+        "part": "tank.t200",
+        "parent": 1,
+        "parentNode": "bottom",
+        "selfNode": "top",
+        "position": [
+          0,
+          -0.6699999999999999,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "stage": -1,
+        "symmetryGroup": 0,
+        "resources": {},
+        "fuelLineTarget": -1,
+        "thrustLimit": 1,
+        "state": null,
+        "isSurfaceAttached": false,
+        "dryMass": 125,
+        "resourceMass": 1000,
+        "totalMass": 1125
+      },
+      {
+        "id": 3,
+        "part": "tank.t200",
+        "parent": 2,
+        "parentNode": "bottom",
+        "selfNode": "top",
+        "position": [
+          0,
+          -1.6099999999999999,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "stage": -1,
+        "symmetryGroup": 0,
+        "resources": {},
+        "fuelLineTarget": -1,
+        "thrustLimit": 1,
+        "state": null,
+        "isSurfaceAttached": false,
+        "dryMass": 125,
+        "resourceMass": 1000,
+        "totalMass": 1125
+      },
+      {
+        "id": 4,
+        "part": "engine.vector",
+        "parent": 3,
+        "parentNode": "bottom",
+        "selfNode": "top",
+        "position": [
+          0,
+          -2.48,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "stage": 0,
+        "symmetryGroup": 0,
+        "resources": {},
+        "fuelLineTarget": -1,
+        "thrustLimit": 1,
+        "state": null,
+        "isSurfaceAttached": false,
+        "dryMass": 1500,
+        "resourceMass": 0,
+        "totalMass": 1500
+      },
+      {
+        "id": 5,
+        "part": "leg.lt1",
+        "parent": 3,
+        "parentNode": "surface",
+        "selfNode": "surface",
+        "position": [
+          0.7059489143887459,
+          -1.71,
+          -6.938893903907228E-18
+        ],
+        "rotation": [
+          0,
+          0.7071067811865476,
+          0,
+          0.7071067811865475
+        ],
+        "stage": -1,
+        "symmetryGroup": 1,
+        "resources": {},
+        "fuelLineTarget": -1,
+        "thrustLimit": 1,
+        "state": null,
+        "isSurfaceAttached": true,
+        "dryMass": 50,
+        "resourceMass": 0,
+        "totalMass": 50
+      },
+      {
+        "id": 6,
+        "part": "leg.lt1",
+        "parent": 3,
+        "parentNode": "surface",
+        "selfNode": "surface",
+        "position": [
+          1.1102230246251565E-16,
+          -1.71,
+          -0.7059489143887459
+        ],
+        "rotation": [
+          0,
+          1,
+          0,
+          0
+        ],
+        "stage": -1,
+        "symmetryGroup": 1,
+        "resources": {},
+        "fuelLineTarget": -1,
+        "thrustLimit": 1,
+        "state": null,
+        "isSurfaceAttached": true,
+        "dryMass": 50,
+        "resourceMass": 0,
+        "totalMass": 50
+      },
+      {
+        "id": 7,
+        "part": "leg.lt1",
+        "parent": 3,
+        "parentNode": "surface",
+        "selfNode": "surface",
+        "position": [
+          -0.7059489143887459,
+          -1.71,
+          -7.951491393286541E-17
+        ],
+        "rotation": [
+          0,
+          0.7071067811865475,
+          0,
+          -0.7071067811865476
+        ],
+        "stage": -1,
+        "symmetryGroup": 1,
+        "resources": {},
+        "fuelLineTarget": -1,
+        "thrustLimit": 1,
+        "state": null,
+        "isSurfaceAttached": true,
+        "dryMass": 50,
+        "resourceMass": 0,
+        "totalMass": 50
+      },
+      {
+        "id": 8,
+        "part": "leg.lt1",
+        "parent": 3,
+        "parentNode": "surface",
+        "selfNode": "surface",
+        "position": [
+          -1.1102230246251565E-16,
+          -1.71,
+          0.7059489143887459
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          -1
+        ],
+        "stage": -1,
+        "symmetryGroup": 1,
+        "resources": {},
+        "fuelLineTarget": -1,
+        "thrustLimit": 1,
+        "state": null,
+        "isSurfaceAttached": true,
+        "dryMass": 50,
+        "resourceMass": 0,
+        "totalMass": 50
+      },
+      {
+        "id": 9,
+        "part": "solar.fixed",
+        "parent": 2,
+        "parentNode": "surface",
+        "selfNode": "surface",
+        "position": [
+          0.6659489143887458,
+          -0.6699999999999999,
+          -3.469446951953614E-18
+        ],
+        "rotation": [
+          0,
+          0.7071067811865476,
+          0,
+          0.7071067811865475
+        ],
+        "stage": -1,
+        "symmetryGroup": 2,
+        "resources": {},
+        "fuelLineTarget": -1,
+        "thrustLimit": 1,
+        "state": null,
+        "isSurfaceAttached": true,
+        "dryMass": 5,
+        "resourceMass": 0,
+        "totalMass": 5
+      },
+      {
+        "id": 10,
+        "part": "solar.fixed",
+        "parent": 2,
+        "parentNode": "surface",
+        "selfNode": "surface",
+        "position": [
+          -0.3329744571943728,
+          -0.6699999999999999,
+          -0.5767286774833222
+        ],
+        "rotation": [
+          0,
+          0.9659258262890683,
+          0,
+          -0.2588190451025208
+        ],
+        "stage": -1,
+        "symmetryGroup": 2,
+        "resources": {},
+        "fuelLineTarget": -1,
+        "thrustLimit": 1,
+        "state": null,
+        "isSurfaceAttached": true,
+        "dryMass": 5,
+        "resourceMass": 0,
+        "totalMass": 5
+      },
+      {
+        "id": 11,
+        "part": "solar.fixed",
+        "parent": 2,
+        "parentNode": "surface",
+        "selfNode": "surface",
+        "position": [
+          -0.33297445719437313,
+          -0.6699999999999999,
+          0.576728677483322
+        ],
+        "rotation": [
+          0,
+          0.2588190451025209,
+          0,
+          -0.9659258262890683
+        ],
+        "stage": -1,
+        "symmetryGroup": 2,
+        "resources": {},
+        "fuelLineTarget": -1,
+        "thrustLimit": 1,
+        "state": null,
+        "isSurfaceAttached": true,
+        "dryMass": 5,
+        "resourceMass": 0,
+        "totalMass": 5
+      },
+      {
+        "id": 12,
+        "part": "sci.thermo",
+        "parent": 1,
+        "parentNode": "surface",
+        "selfNode": "surface",
+        "position": [
+          0.6688466169590332,
+          0,
+          -3.469446951953614E-18
+        ],
+        "rotation": [
+          0,
+          0.7071067811865476,
+          0,
+          0.7071067811865475
+        ],
+        "stage": -1,
+        "symmetryGroup": 0,
+        "resources": {},
+        "fuelLineTarget": -1,
+        "thrustLimit": 1,
+        "state": null,
+        "isSurfaceAttached": true,
+        "dryMass": 5,
+        "resourceMass": 0,
+        "totalMass": 5
+      }
+    ],
+    "nextId": 13,
+    "nextSymmetryGroup": 3,
+    "stageCount": 1
+  }
+}

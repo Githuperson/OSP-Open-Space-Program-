@@ -32,29 +32,46 @@ namespace OSP.Core.Vehicles
         public const double Step = 0.25;
         public const int MaxStepsPerStage = 400000;
 
-        public static List<StageStats> Compute(VesselDesign design, double referenceGravity)
+        public static List<StageStats> Compute(VesselDesign design, double referenceGravity) =>
+            Compute(design.Parts, 0, referenceGravity, null);
+
+        /// <summary>
+        /// Delta-v for the remaining stages of a vessel in flight: stages before <paramref name="nextStage"/> have
+        /// already fired and <paramref name="activeEngines"/> are burning. The first entry is the current stage
+        /// (index nextStage − 1) when engines are already active.
+        /// </summary>
+        public static List<StageStats> Compute(IReadOnlyList<PartInstance> sourceParts, int nextStage, double referenceGravity, ISet<int> activeEngines)
         {
             var result = new List<StageStats>();
-            if (design.Parts.Count == 0) return result;
+            if (sourceParts.Count == 0) return result;
 
-            var parts = design.Parts.Select(p => p.Clone()).ToDictionary(p => p.Id);
-            foreach (PartInstance p in parts.Values) p.Def = design.Get(p.Id).Def;
-            var current = new HashSet<int>(parts.Keys);
-            var active = new HashSet<int>();
-            int stageCount = design.StageCount;
-
-            for (int s = 0; s < stageCount; s++)
+            var parts = new Dictionary<int, PartInstance>();
+            foreach (PartInstance src in sourceParts)
             {
-                // Activate stage s.
-                foreach (PartInstance p in parts.Values.Where(p => p.Stage == s && current.Contains(p.Id)).ToList())
+                PartInstance c = src.Clone();
+                c.Def = src.Def;
+                parts[c.Id] = c;
+            }
+            var current = new HashSet<int>(parts.Keys);
+            var active = new HashSet<int>(activeEngines ?? (IEnumerable<int>)System.Array.Empty<int>());
+            int stageCount = parts.Values.Where(p => p.Stage >= 0).Select(p => p.Stage + 1).DefaultIfEmpty(0).Max();
+
+            int first = active.Count > 0 && nextStage > 0 ? nextStage - 1 : nextStage;
+            for (int s = first; s < stageCount; s++)
+            {
+                bool activate = s >= nextStage;
+                if (activate)
                 {
-                    if (p.Def.HasModule<EngineModuleDef>()) active.Add(p.Id);
-                    if (p.Def.HasModule<DecouplerModuleDef>() && p.Parent >= 0)
-                        foreach (int id in SubtreeIds(parts, p.Id)) { current.Remove(id); active.Remove(id); }
-                    if (p.Def.HasModule<JettisonModuleDef>())
+                    foreach (PartInstance p in parts.Values.Where(p => p.Stage == s && current.Contains(p.Id)).ToList())
                     {
-                        p.State ??= new PartFlightState();
-                        p.State.Jettisoned = true;
+                        if (p.Def.HasModule<EngineModuleDef>()) active.Add(p.Id);
+                        if (p.Def.HasModule<DecouplerModuleDef>() && p.Parent >= 0 && current.Contains(p.Parent))
+                            foreach (int id in SubtreeIds(parts, p.Id)) { current.Remove(id); active.Remove(id); }
+                        if (p.Def.HasModule<JettisonModuleDef>())
+                        {
+                            p.State ??= new PartFlightState();
+                            p.State.Jettisoned = true;
+                        }
                     }
                 }
 

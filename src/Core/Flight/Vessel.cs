@@ -50,6 +50,8 @@ namespace OSP.Core.Flight
         public QuaternionD Rotation { get; set; } = QuaternionD.Identity;
         /// <summary>Angular velocity in the inertial frame (rad/s).</summary>
         public Vector3d AngularVelocity { get; set; }
+        /// <summary>Rotation command actually applied last step (pilot or SAS), vessel frame (pitch, roll, yaw). For display.</summary>
+        public Vector3d LastRotationCommand { get; set; }
         /// <summary>Angular acceleration during the last physics step (rad/s²), used for joint loads.</summary>
         public Vector3d LastAngularAcceleration { get; set; }
 

@@ -1,0 +1,293 @@
+{
+  "format": "osp-vessel",
+  "version": 1,
+  "vessel": {
+    "name": "Skylark Hopper",
+    "description": "Suborbital hop with a thermometer. Separate the capsule for the parachute descent.",
+    "parts": [
+      {
+        "id": 1,
+        "part": "pod.aquila",
+        "parent": -1,
+        "parentNode": null,
+        "selfNode": null,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "stage": -1,
+        "symmetryGroup": 0,
+        "resources": {},
+        "fuelLineTarget": -1,
+        "thrustLimit": 1,
+        "state": null,
+        "isSurfaceAttached": false,
+        "dryMass": 840,
+        "resourceMass": 10,
+        "totalMass": 850
+      },
+      {
+        "id": 2,
+        "part": "chute.petal",
+        "parent": 1,
+        "parentNode": "top",
+        "selfNode": "bottom",
+        "position": [
+          0,
+          0.6,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "stage": 2,
+        "symmetryGroup": 0,
+        "resources": {},
+        "fuelLineTarget": -1,
+        "thrustLimit": 1,
+        "state": null,
+        "isSurfaceAttached": false,
+        "dryMass": 100,
+        "resourceMass": 0,
+        "totalMass": 100
+      },
+      {
+        "id": 3,
+        "part": "heatshield.h1",
+        "parent": 1,
+        "parentNode": "bottom",
+        "selfNode": "top",
+        "position": [
+          0,
+          -0.52,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "stage": -1,
+        "symmetryGroup": 0,
+        "resources": {},
+        "fuelLineTarget": -1,
+        "thrustLimit": 1,
+        "state": null,
+        "isSurfaceAttached": false,
+        "dryMass": 100,
+        "resourceMass": 0,
+        "totalMass": 100
+      },
+      {
+        "id": 4,
+        "part": "decoupler.td1",
+        "parent": 3,
+        "parentNode": "bottom",
+        "selfNode": "top",
+        "position": [
+          0,
+          -0.655,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "stage": 1,
+        "symmetryGroup": 0,
+        "resources": {},
+        "fuelLineTarget": -1,
+        "thrustLimit": 1,
+        "state": null,
+        "isSurfaceAttached": false,
+        "dryMass": 50,
+        "resourceMass": 0,
+        "totalMass": 50
+      },
+      {
+        "id": 5,
+        "part": "tank.t400",
+        "parent": 4,
+        "parentNode": "bottom",
+        "selfNode": "top",
+        "position": [
+          0,
+          -1.6675,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "stage": -1,
+        "symmetryGroup": 0,
+        "resources": {},
+        "fuelLineTarget": -1,
+        "thrustLimit": 1,
+        "state": null,
+        "isSurfaceAttached": false,
+        "dryMass": 250,
+        "resourceMass": 2000,
+        "totalMass": 2250
+      },
+      {
+        "id": 6,
+        "part": "engine.swift",
+        "parent": 5,
+        "parentNode": "bottom",
+        "selfNode": "top",
+        "position": [
+          0,
+          -2.98,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "stage": 0,
+        "symmetryGroup": 0,
+        "resources": {},
+        "fuelLineTarget": -1,
+        "thrustLimit": 1,
+        "state": null,
+        "isSurfaceAttached": false,
+        "dryMass": 1250,
+        "resourceMass": 0,
+        "totalMass": 1250
+      },
+      {
+        "id": 7,
+        "part": "fin.delta",
+        "parent": 5,
+        "parentNode": "surface",
+        "selfNode": "surface",
+        "position": [
+          0.6459489143887458,
+          -2.2675,
+          0
+        ],
+        "rotation": [
+          0,
+          0.7071067811865476,
+          0,
+          0.7071067811865475
+        ],
+        "stage": -1,
+        "symmetryGroup": 1,
+        "resources": {},
+        "fuelLineTarget": -1,
+        "thrustLimit": 1,
+        "state": null,
+        "isSurfaceAttached": true,
+        "dryMass": 40,
+        "resourceMass": 0,
+        "totalMass": 40
+      },
+      {
+        "id": 8,
+        "part": "fin.delta",
+        "parent": 5,
+        "parentNode": "surface",
+        "selfNode": "surface",
+        "position": [
+          -0.3229744571943729,
+          -2.2675,
+          -0.5594081694076335
+        ],
+        "rotation": [
+          0,
+          0.9659258262890683,
+          0,
+          -0.2588190451025208
+        ],
+        "stage": -1,
+        "symmetryGroup": 1,
+        "resources": {},
+        "fuelLineTarget": -1,
+        "thrustLimit": 1,
+        "state": null,
+        "isSurfaceAttached": true,
+        "dryMass": 40,
+        "resourceMass": 0,
+        "totalMass": 40
+      },
+      {
+        "id": 9,
+        "part": "fin.delta",
+        "parent": 5,
+        "parentNode": "surface",
+        "selfNode": "surface",
+        "position": [
+          -0.322974457194373,
+          -2.2675,
+          0.5594081694076332
+        ],
+        "rotation": [
+          0,
+          0.2588190451025209,
+          0,
+          -0.9659258262890683
+        ],
+        "stage": -1,
+        "symmetryGroup": 1,
+        "resources": {},
+        "fuelLineTarget": -1,
+        "thrustLimit": 1,
+        "state": null,
+        "isSurfaceAttached": true,
+        "dryMass": 40,
+        "resourceMass": 0,
+        "totalMass": 40
+      },
+      {
+        "id": 10,
+        "part": "sci.thermo",
+        "parent": 1,
+        "parentNode": "surface",
+        "selfNode": "surface",
+        "position": [
+          0.6699999999999997,
+          -0.1,
+          -3.469446951953614E-18
+        ],
+        "rotation": [
+          0,
+          0.7071067811865476,
+          0,
+          0.7071067811865475
+        ],
+        "stage": -1,
+        "symmetryGroup": 0,
+        "resources": {},
+        "fuelLineTarget": -1,
+        "thrustLimit": 1,
+        "state": null,
+        "isSurfaceAttached": true,
+        "dryMass": 5,
+        "resourceMass": 0,
+        "totalMass": 5
+      }
+    ],
+    "nextId": 11,
+    "nextSymmetryGroup": 2,
+    "stageCount": 3
+  }
+}

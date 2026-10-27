@@ -27,5 +27,7 @@ namespace OSP.Core.Flight
         public double SunExposure;
         public int ActiveEngines;
         public bool FlameOut;
+        /// <summary>False when no crewed pod or powered probe core can command the vessel.</summary>
+        public bool HasControl = true;
     }
 }

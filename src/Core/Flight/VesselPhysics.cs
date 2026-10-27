@@ -134,6 +134,8 @@ namespace OSP.Core.Flight
             {
                 rotCmd = Vector3d.Zero;
             }
+            v.LastRotationCommand = rotCmd;
+            v.Telemetry.HasControl = controllable;
 
             // ---- Engines --------------------------------------------------------------------------------
             double thrustTotal = 0, maxThrust = 0;

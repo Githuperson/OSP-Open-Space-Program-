@@ -1,0 +1,405 @@
+{
+  "format": "osp-vessel",
+  "version": 1,
+  "vessel": {
+    "name": "Pathfinder Orbiter",
+    "description": "Two-stage rocket that reaches a low orbit around Aster and returns its capsule.",
+    "parts": [
+      {
+        "id": 1,
+        "part": "pod.aquila",
+        "parent": -1,
+        "parentNode": null,
+        "selfNode": null,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "stage": -1,
+        "symmetryGroup": 0,
+        "resources": {},
+        "fuelLineTarget": -1,
+        "thrustLimit": 1,
+        "state": null,
+        "isSurfaceAttached": false,
+        "dryMass": 840,
+        "resourceMass": 10,
+        "totalMass": 850
+      },
+      {
+        "id": 2,
+        "part": "chute.petal",
+        "parent": 1,
+        "parentNode": "top",
+        "selfNode": "bottom",
+        "position": [
+          0,
+          0.6,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "stage": 3,
+        "symmetryGroup": 0,
+        "resources": {},
+        "fuelLineTarget": -1,
+        "thrustLimit": 1,
+        "state": null,
+        "isSurfaceAttached": false,
+        "dryMass": 100,
+        "resourceMass": 0,
+        "totalMass": 100
+      },
+      {
+        "id": 3,
+        "part": "heatshield.h1",
+        "parent": 1,
+        "parentNode": "bottom",
+        "selfNode": "top",
+        "position": [
+          0,
+          -0.52,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "stage": -1,
+        "symmetryGroup": 0,
+        "resources": {},
+        "fuelLineTarget": -1,
+        "thrustLimit": 1,
+        "state": null,
+        "isSurfaceAttached": false,
+        "dryMass": 100,
+        "resourceMass": 0,
+        "totalMass": 100
+      },
+      {
+        "id": 4,
+        "part": "decoupler.td1",
+        "parent": 3,
+        "parentNode": "bottom",
+        "selfNode": "top",
+        "position": [
+          0,
+          -0.655,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "stage": 2,
+        "symmetryGroup": 0,
+        "resources": {},
+        "fuelLineTarget": -1,
+        "thrustLimit": 1,
+        "state": null,
+        "isSurfaceAttached": false,
+        "dryMass": 50,
+        "resourceMass": 0,
+        "totalMass": 50
+      },
+      {
+        "id": 5,
+        "part": "tank.t400",
+        "parent": 4,
+        "parentNode": "bottom",
+        "selfNode": "top",
+        "position": [
+          0,
+          -1.6675,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "stage": -1,
+        "symmetryGroup": 0,
+        "resources": {},
+        "fuelLineTarget": -1,
+        "thrustLimit": 1,
+        "state": null,
+        "isSurfaceAttached": false,
+        "dryMass": 250,
+        "resourceMass": 2000,
+        "totalMass": 2250
+      },
+      {
+        "id": 6,
+        "part": "engine.ember",
+        "parent": 5,
+        "parentNode": "bottom",
+        "selfNode": "top",
+        "position": [
+          0,
+          -2.805,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "stage": 1,
+        "symmetryGroup": 0,
+        "resources": {},
+        "fuelLineTarget": -1,
+        "thrustLimit": 1,
+        "state": null,
+        "isSurfaceAttached": false,
+        "dryMass": 500,
+        "resourceMass": 0,
+        "totalMass": 500
+      },
+      {
+        "id": 7,
+        "part": "decoupler.td1",
+        "parent": 6,
+        "parentNode": "bottom",
+        "selfNode": "top",
+        "position": [
+          0,
+          -4.48,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "stage": 1,
+        "symmetryGroup": 0,
+        "resources": {},
+        "fuelLineTarget": -1,
+        "thrustLimit": 1,
+        "state": null,
+        "isSurfaceAttached": false,
+        "dryMass": 50,
+        "resourceMass": 0,
+        "totalMass": 50
+      },
+      {
+        "id": 8,
+        "part": "tank.t800",
+        "parent": 7,
+        "parentNode": "bottom",
+        "selfNode": "top",
+        "position": [
+          0,
+          -6.430000000000001,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "stage": -1,
+        "symmetryGroup": 0,
+        "resources": {},
+        "fuelLineTarget": -1,
+        "thrustLimit": 1,
+        "state": null,
+        "isSurfaceAttached": false,
+        "dryMass": 500,
+        "resourceMass": 4000,
+        "totalMass": 4500
+      },
+      {
+        "id": 9,
+        "part": "tank.t400",
+        "parent": 8,
+        "parentNode": "bottom",
+        "selfNode": "top",
+        "position": [
+          0,
+          -9.2425,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "stage": -1,
+        "symmetryGroup": 0,
+        "resources": {},
+        "fuelLineTarget": -1,
+        "thrustLimit": 1,
+        "state": null,
+        "isSurfaceAttached": false,
+        "dryMass": 250,
+        "resourceMass": 2000,
+        "totalMass": 2250
+      },
+      {
+        "id": 10,
+        "part": "engine.vector",
+        "parent": 9,
+        "parentNode": "bottom",
+        "selfNode": "top",
+        "position": [
+          0,
+          -10.58,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "stage": 0,
+        "symmetryGroup": 0,
+        "resources": {},
+        "fuelLineTarget": -1,
+        "thrustLimit": 1,
+        "state": null,
+        "isSurfaceAttached": false,
+        "dryMass": 1500,
+        "resourceMass": 0,
+        "totalMass": 1500
+      },
+      {
+        "id": 11,
+        "part": "fin.delta",
+        "parent": 9,
+        "parentNode": "surface",
+        "selfNode": "surface",
+        "position": [
+          0.6459489143887458,
+          -9.7925,
+          0
+        ],
+        "rotation": [
+          0,
+          0.7071067811865476,
+          0,
+          0.7071067811865475
+        ],
+        "stage": -1,
+        "symmetryGroup": 1,
+        "resources": {},
+        "fuelLineTarget": -1,
+        "thrustLimit": 1,
+        "state": null,
+        "isSurfaceAttached": true,
+        "dryMass": 40,
+        "resourceMass": 0,
+        "totalMass": 40
+      },
+      {
+        "id": 12,
+        "part": "fin.delta",
+        "parent": 9,
+        "parentNode": "surface",
+        "selfNode": "surface",
+        "position": [
+          1.1102230246251565E-16,
+          -9.7925,
+          -0.6459489143887458
+        ],
+        "rotation": [
+          0,
+          1,
+          0,
+          0
+        ],
+        "stage": -1,
+        "symmetryGroup": 1,
+        "resources": {},
+        "fuelLineTarget": -1,
+        "thrustLimit": 1,
+        "state": null,
+        "isSurfaceAttached": true,
+        "dryMass": 40,
+        "resourceMass": 0,
+        "totalMass": 40
+      },
+      {
+        "id": 13,
+        "part": "fin.delta",
+        "parent": 9,
+        "parentNode": "surface",
+        "selfNode": "surface",
+        "position": [
+          -0.6459489143887458,
+          -9.7925,
+          -7.910592704188853E-17
+        ],
+        "rotation": [
+          0,
+          0.7071067811865475,
+          0,
+          -0.7071067811865476
+        ],
+        "stage": -1,
+        "symmetryGroup": 1,
+        "resources": {},
+        "fuelLineTarget": -1,
+        "thrustLimit": 1,
+        "state": null,
+        "isSurfaceAttached": true,
+        "dryMass": 40,
+        "resourceMass": 0,
+        "totalMass": 40
+      },
+      {
+        "id": 14,
+        "part": "fin.delta",
+        "parent": 9,
+        "parentNode": "surface",
+        "selfNode": "surface",
+        "position": [
+          -1.1102230246251565E-16,
+          -9.7925,
+          0.6459489143887458
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          -1
+        ],
+        "stage": -1,
+        "symmetryGroup": 1,
+        "resources": {},
+        "fuelLineTarget": -1,
+        "thrustLimit": 1,
+        "state": null,
+        "isSurfaceAttached": true,
+        "dryMass": 40,
+        "resourceMass": 0,
+        "totalMass": 40
+      }
+    ],
+    "nextId": 15,
+    "nextSymmetryGroup": 2,
+    "stageCount": 4
+  }
+}
