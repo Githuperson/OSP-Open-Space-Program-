@@ -34,6 +34,7 @@ public sealed partial class FlightScene : Node3D
     private PadView? _pad;
     private double _yaw = 0.6, _pitch = 0.2, _dist = 25;
     private bool _orbiting;
+    private bool _camVesselLocked;
     private bool _paused;
     private bool _loaded;
     private double _throttleKeyRate = 0.6;
@@ -75,6 +76,7 @@ public sealed partial class FlightScene : Node3D
         _loaded = true;
         DevAutopilotEnabled = gs.DevAutopilot;
         if (gs.DevWarp > 0) Sim.SetWarp(gs.DevWarp);
+        if (gs.DevDeploy) { Sim.SetGear(true); Sim.SetPanels(true); foreach (var p in Sim.Active!.Parts) { p.LegDeploy = p.LegsDeployedTarget ? 1 : 0; p.SolarDeploy = p.SolarDeployedTarget ? 1 : 0; } _dist = 14; _yaw = 0.9; _pitch = 0.1; }
         if (gs.DevMap) { ToggleMap(); if (Sim.Active != null && Sim.Active.Mode != CraftMode.Landed) { var o0 = Orbit.FromState(Sim.Active.Position, Sim.Active.Velocity, Sim.Active.Body.Mu, Sim.Time); _selNode = Sim.AddNode(Sim.Active, Sim.Time + o0.TimeToApoapsis(Sim.Time), 650, 0, 0); } }
         CenterCameraOnVessel(true);
         UpdateRender(0);
@@ -85,7 +87,6 @@ public sealed partial class FlightScene : Node3D
     /// <summary>First universal time (within one day) at which the sun is about 35 degrees up and rising at the pad.</summary>
     public static double FindMorningTime(CelestialBody home, LaunchSiteDef site)
     {
-        var sys = home;  // placeholder to keep signature simple
         var dirLocal = CelestialBody.DirectionFromLatLon(site.LatitudeDeg * MathUtil.Deg2Rad, site.LongitudeDeg * MathUtil.Deg2Rad);
         double bestT = 0, bestErr = 1e9;
         for (double t = 0; t < home.RotationPeriod; t += 120)
@@ -174,12 +175,14 @@ public sealed partial class FlightScene : Node3D
         var body = a.Body;
         double t = Sim.Time;
         var camOff = CameraOffset();
+        if (_camVesselLocked) camOff = a.Orientation.Rotate(camOff);
         _pitch = Math.Clamp(_pitch, -1.5, 1.5);
         _cam.Position = new Vector3((float)camOff.X, (float)camOff.Y, (float)camOff.Z);
         var camPos = _cam.Position;
         // Orbit camera around the CoM at the origin. Up vector: use the craft's up (local vertical) in the low atmosphere for a steady horizon.
         var upRef = (a.Position).Normalized;
         var upV = new Vector3((float)upRef.X, (float)upRef.Y, (float)upRef.Z);
+        if (_camVesselLocked) { var cu = a.Orientation.Rotate(new Vec3d(0, 0, -1)); upV = new Vector3((float)cu.X, (float)cu.Y, (float)cu.Z); }
         if (Mathf.Abs(camPos.Normalized().Dot(upV)) > 0.995f) upV = Vector3.Right;
         _cam.LookAt(Vector3.Zero, upV);
         _cam.Near = (float)Math.Clamp(_dist * 0.02, 0.3, 4.0);
@@ -287,6 +290,7 @@ public sealed partial class FlightScene : Node3D
             else if (k.Matches(ke, "chutes")) { Sim.ArmParachutes(); }
             else if (k.Matches(ke, "map")) ToggleMap();
             else if (k.Matches(ke, "camera_reset")) CenterCameraOnVessel(true);
+            else if (k.Matches(ke, "camera_mode")) { _camVesselLocked = !_camVesselLocked; Log("Camera: " + (_camVesselLocked ? "locked to the vessel" : "locked to the world")); }
             else if (k.Matches(ke, "hide_ui")) _hudRoot.Visible = !_hudRoot.Visible;
             else if (k.Matches(ke, "controls_help")) ShowControls();
             else if (k.Matches(ke, "warp_up")) { Sim.SetWarp(Sim.WarpIndex + 1); }

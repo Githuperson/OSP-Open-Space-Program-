@@ -24,9 +24,11 @@ public readonly struct QuatD : IEquatable<QuatD>
         if (d > 1.0 - 1e-14) return Identity;
         if (d < -1.0 + 1e-14)
         {
-            // 180 degrees: pick any perpendicular axis.
-            var axis = Vec3d.Cross(f, Math.Abs(f.X) < 0.9 ? Vec3d.UnitX : Vec3d.UnitY);
-            return FromAxisAngle(axis, Math.PI);
+            // 180 degrees: the shortest arc is ambiguous. Rotate about the perpendicular axis closest to world +Y so that
+            // parts attached "back to front" (e.g. a booster on the far side of a radial decoupler) stay upright.
+            var axis = Vec3d.UnitY - f * f.Y;
+            if (axis.LengthSquared < 1e-12) axis = Vec3d.UnitX - f * f.X;     // f is parallel to Y: any perpendicular axis will do
+            return FromAxisAngle(axis.Normalized, Math.PI);
         }
         var c = Vec3d.Cross(f, t);
         return new QuatD(1 + d, c.X, c.Y, c.Z).Normalized;

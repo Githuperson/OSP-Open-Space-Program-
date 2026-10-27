@@ -27,7 +27,7 @@ public sealed class Bindings
         new("rcs_up", "RCS translate toward heading", Key.I, "RCS"), new("rcs_down", "RCS translate away from heading", Key.K, "RCS"),
         new("rcs_left", "RCS translate left", Key.J, "RCS"), new("rcs_right", "RCS translate right", Key.L, "RCS"),
         new("gear", "Landing gear", Key.G, "Systems"), new("solar", "Solar panels", Key.U, "Systems"), new("chutes", "Arm parachutes", Key.P, "Systems"),
-        new("map", "Toggle map view", Key.M, "View"), new("camera_reset", "Reset camera", Key.V, "View"),
+        new("map", "Toggle map view", Key.M, "View"), new("camera_reset", "Reset camera", Key.V, "View"), new("camera_mode", "Camera: world-locked / vessel-locked", Key.C, "View"),
         new("hide_ui", "Hide / show interface", Key.F2, "View"), new("controls_help", "Controls reference", Key.F1, "View"),
         new("warp_up", "Time warp faster", Key.Period, "Time"), new("warp_down", "Time warp slower", Key.Comma, "Time"), new("warp_stop", "Stop time warp", Key.Slash, "Time"),
         new("next_craft", "Next vessel", Key.Bracketright, "Vessels"), new("prev_craft", "Previous vessel", Key.Bracketleft, "Vessels"),

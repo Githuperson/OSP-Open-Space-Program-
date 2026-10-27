@@ -37,6 +37,7 @@ public partial class GameState : Node
     public bool DevAutopilot { get; set; }
     public int DevWarp { get; set; }
     public bool DevMap { get; set; }
+    public bool DevDeploy { get; set; }
 
     // ---- developer screenshot hook (--osp-shot=path@frames) ----
     private string? _shotPath; private int _shotFrames = -1, _frame;

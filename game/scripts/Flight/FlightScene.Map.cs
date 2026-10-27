@@ -134,7 +134,6 @@ public sealed partial class FlightScene
         {
             _mapFocus = null; _mapSelected = Sim.Active;
             _mDist = Math.Max(500, (Sim.Active?.Body.Radius ?? 600000) / 1000.0 * 4);
-            var envPitch = OS.GetEnvironment("OSP_MAPPITCH"); if (envPitch != "") _mPitch = double.Parse(envPitch);
             _selNode = Sim.Active != null ? Sim.NodesFor(Sim.Active).FirstOrDefault() : null;
             _patchAge = 99;
             _mapHint.Text = "Right-drag orbit · wheel zoom · click a body/vessel to select · Focus centres the view";

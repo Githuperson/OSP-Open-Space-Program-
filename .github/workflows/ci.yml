@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-and-test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]   # macos-latest is Apple Silicon (arm64)
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - name: Simulation build + tests
+        run: dotnet test OSP.Core.sln --nologo
+      - name: Godot game assembly compiles (Godot.NET.Sdk 4.3 from NuGet; no editor needed)
+        run: dotnet build game/OSP.csproj --nologo

@@ -313,8 +313,8 @@
    },
    "blocksFlow": true,
    "crashTolerance": 7,
-   "jointStrength": 700000.0,
-   "jointTorque": 140000.0
+   "jointStrength": 1200000.0,
+   "jointTorque": 320000.0
   }
  ]
 }

@@ -118,10 +118,10 @@ public partial class MainMenu : Node3D
         v.AddChild(Ui.Label("Ready-made vehicles. Opening one loads it into the Vehicle Assembly Building.", 14, Ui.Dim, true));
         var notes = new System.Collections.Generic.Dictionary<string, string>
         {
-            ["Pathfinder-1"] = "Two-stage orbiter. Reaches a 75×140 km orbit with the autopilot-free gravity turn described in the README.",
+            ["Pathfinder-1"] = "Two-stage orbiter (Δv ≈ 5.0 km/s). A scripted gravity-turn ascent reaches a 75×140 km orbit; the README walks you through flying it by hand.",
             ["Boosted_Swift"] = "Strap-on SRB sounding rocket: great for learning staging and the first suborbital hop.",
             ["Hopper_Lander"] = "Capsule + vacuum engine + legs + chute + solar: a lander that needs an orbital stage to carry it.",
-            ["Heavy_Lifter"] = "2.5 m two-stage heavy lifter with ~5.6 km/s of vacuum delta-v, enough to reach Lumen with a good ascent.",
+            ["Heavy_Lifter"] = "2.5 m two-stage heavy lifter, ~5.6 km/s of vacuum delta-v: reaches orbit with Δv to spare for a transfer toward Lumen.",
         };
         var modal = (Modal?)null;
         foreach (var name in gs.ListExampleDesigns())

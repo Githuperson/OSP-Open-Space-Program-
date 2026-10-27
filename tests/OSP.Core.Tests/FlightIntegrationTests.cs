@@ -72,3 +72,34 @@ public class FlightIntegrationTests
         Assert.True(fo.Eccentricity < 0.05);
     }
 }
+
+public class HeavyLifterTests
+{
+    private readonly ITestOutputHelper _out;
+    public HeavyLifterTests(ITestOutputHelper o) { _out = o; }
+
+    [Fact]
+    public void HeavyLifterReachesOrbit()
+    {
+        var path = Path.Combine(TestEnv.DataDir, "vehicles", "Heavy_Lifter.osp-vehicle.json");
+        var d = OSP.Core.Save.SaveSerializer.DeserializeDesign(File.ReadAllText(path), TestEnv.Catalog);
+        var sys = TestEnv.NewSystem(); var sim = new FlightSimulation(sys, TestEnv.Catalog);
+        var craft = sim.Launch(d, sys.Home, sys.Home.LaunchSites[0]);
+        var ap = new Autopilot(sim, craft) { KickAltitude = 1500, KickDegrees = 3.0 };
+        sim.ActivateStage();
+        int steps = 0;
+        while (sim.Time < 420 && ap.Current != Autopilot.Phase.Done && !craft.IsDestroyed)
+        {
+            ap.Update(0.02); sim.StepFixed(0.02);
+            if (steps++ % 3000 == 0) { var o = Orbit.FromState(craft.Position, craft.Velocity, craft.Body.Mu, sim.Time); _out.WriteLine($"t={sim.Time:F0} alt={craft.Position.Length - craft.Body.Radius:F0} v={craft.Velocity.Length:F0} ap={o.ApoapsisRadius - craft.Body.Radius:F0} pe={o.PeriapsisRadius - craft.Body.Radius:F0} phase={ap.Current} m={craft.TotalMass:F0}"); }
+        }
+        foreach (var l in ap.Log) _out.WriteLine(l);
+        foreach (var e in sim.EventLog.Where(e => e.Kind != SimEventKind.Info)) _out.WriteLine(e.ToString());
+        // The simple autopilot does not throttle back, so the heavy upper stage overshoots circular orbit; what matters here is that the
+        // lifter gets its payload to a periapsis outside the atmosphere with plenty of delta-v left (it ends on a bound or escape orbit).
+        Assert.False(craft.IsDestroyed);
+        var fin = Orbit.FromState(craft.Position, craft.Velocity, craft.Body.Mu, sim.Time);
+        Assert.True(fin.PeriapsisRadius - craft.Body.Radius > 50_000, $"periapsis {fin.PeriapsisRadius - craft.Body.Radius:F0}");
+        Assert.DoesNotContain(sim.EventLog, e => e.Kind == SimEventKind.JointFailed);
+    }
+}

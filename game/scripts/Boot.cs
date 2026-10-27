@@ -36,6 +36,7 @@ public partial class Boot : Node
         gs.DevAutopilot = opts.ContainsKey("osp-autopilot");
         if (opts.TryGetValue("osp-save", out var sv)) gs.PendingFlightJson = gs.ReadExampleSave(sv);
         gs.DevMap = opts.ContainsKey("osp-map");
+        gs.DevDeploy = opts.ContainsKey("osp-deploy");
         if (opts.TryGetValue("osp-warp", out var wp)) gs.DevWarp = int.Parse(wp);
         string scene = opts.TryGetValue("osp-scene", out var sc) ? sc : "MainMenu";
         if (scene == "Flight" && !gs.CurrentDesign.IsEmpty && gs.PendingFlightJson == null) gs.PendingLaunch = gs.CurrentDesign.Clone();

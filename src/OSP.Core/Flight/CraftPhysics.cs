@@ -91,7 +91,11 @@ public static class CraftPhysics
         if (craft.InContact && craft.LastTotalThrust > 0 && env2.AltitudeTerrain > 2) craft.HasLaunched = true;
 
         // --- structure ---
-        if (craft.HasLaunched || craft.InContact)
+        // A vehicle still held on its pad (not yet launched, moving slowly) is supported by the launch clamps, so contact
+        // reactions are not treated as flight loads; any real impact or flight is analysed.
+        var surfaceSpeed = (craft.Velocity - body.SurfaceVelocityAt(craft.Position)).Length;
+        bool clamped = !craft.HasLaunched && surfaceSpeed < 4.0;
+        if (!clamped && (craft.HasLaunched || craft.InContact))
         {
             var failed = StructureSystem.Analyze(craft, acc, alpha, dt);
             outcome.BrokenJoints.AddRange(failed);

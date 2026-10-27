@@ -226,7 +226,7 @@ public class SubtreeTests
         ed.AttachDesign(d, sub, cand);
         Assert.Equal(4, d.Parts.Count);
         Assert.Equal(massBefore, Craft.FromDesign(d, Cat).TotalMass, 6);
-        Assert.Empty(VehicleValidator.Validate(d, Cat).Where(i => i.Severity == IssueSeverity.Error));
+        Assert.DoesNotContain(VehicleValidator.Validate(d, Cat), i => i.Severity == IssueSeverity.Error);
     }
 
     [Fact]
@@ -251,6 +251,35 @@ public class SubtreeTests
         ed.AttachDesign(b.Design, held, cand, 3);
         Assert.Equal(3, b.Design.Parts.Count(p => p.PartId == "srb_hammer"));
         Assert.Equal(3, b.Design.Parts.Count(p => p.PartId == "nose_radial"));
-        Assert.Empty(VehicleValidator.Validate(b.Design, Cat).Where(i => i.Severity == IssueSeverity.Error));
+        Assert.DoesNotContain(VehicleValidator.Validate(b.Design, Cat), i => i.Severity == IssueSeverity.Error);
+    }
+}
+
+public class GeometryRegressionTests
+{
+    [Fact]
+    public void BoosterOnFarSideOfRadialDecouplerStaysUpright()
+    {
+        var b = new RocketBuilder().Root("tank_s4");
+        b.Radial("dec_radial", b.Design.Parts[0].Id, 2, 0, 0);
+        var dec = b.Design.Parts.First(p => p.PartId == "dec_radial");
+        b.OnSocket("srb_hammer", dec.Id);
+        foreach (var srb in b.Design.Parts.Where(p => p.PartId == "srb_hammer"))
+        {
+            var up = srb.Rotation.Rotate(Vec3d.UnitY);
+            Assert.True(up.Y > 0.999, $"booster at {b.Design.Get(srb.ParentId).AngleDeg}° has its nose pointing {up}");
+        }
+    }
+
+    [Theory]
+    [InlineData(1, 0, 0, -1, 0, 0)]
+    [InlineData(0, 0, 1, 0, 0, -1)]
+    [InlineData(0, 1, 0, 0, -1, 0)]
+    public void FromToHandlesAntiparallelVectors(double ax, double ay, double az, double bx, double by, double bz)
+    {
+        var q = QuatD.FromTo(new Vec3d(ax, ay, az), new Vec3d(bx, by, bz));
+        var r = q.Rotate(new Vec3d(ax, ay, az));
+        Assert.True((r - new Vec3d(bx, by, bz)).Length < 1e-9);
+        Assert.Equal(1.0, q.Length, 9);
     }
 }

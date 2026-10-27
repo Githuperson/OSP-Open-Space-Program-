@@ -47,8 +47,21 @@
       },
       {
         "id": 4,
-        "partId": "eng_swift",
+        "partId": "tank_s4",
         "parentId": 3,
+        "mode": 1,
+        "parentNode": "bottom",
+        "childNode": "top",
+        "rollDeg": 0,
+        "angleDeg": 0,
+        "offsetY": 0,
+        "stage": -1,
+        "symmetryGroup": 0
+      },
+      {
+        "id": 5,
+        "partId": "eng_swift",
+        "parentId": 4,
         "mode": 1,
         "parentNode": "bottom",
         "childNode": "top",
@@ -59,9 +72,9 @@
         "symmetryGroup": 0
       },
       {
-        "id": 5,
+        "id": 6,
         "partId": "fin_delta",
-        "parentId": 3,
+        "parentId": 4,
         "mode": 2,
         "parentNode": "",
         "childNode": "srf",
@@ -72,9 +85,9 @@
         "symmetryGroup": 1
       },
       {
-        "id": 6,
+        "id": 7,
         "partId": "fin_delta",
-        "parentId": 3,
+        "parentId": 4,
         "mode": 2,
         "parentNode": "",
         "childNode": "srf",
@@ -85,9 +98,9 @@
         "symmetryGroup": 1
       },
       {
-        "id": 7,
+        "id": 8,
         "partId": "fin_delta",
-        "parentId": 3,
+        "parentId": 4,
         "mode": 2,
         "parentNode": "",
         "childNode": "srf",
@@ -98,9 +111,9 @@
         "symmetryGroup": 1
       },
       {
-        "id": 8,
+        "id": 9,
         "partId": "dec_radial",
-        "parentId": 3,
+        "parentId": 4,
         "mode": 2,
         "parentNode": "",
         "childNode": "srf",
@@ -111,9 +124,9 @@
         "symmetryGroup": 2
       },
       {
-        "id": 9,
+        "id": 10,
         "partId": "dec_radial",
-        "parentId": 3,
+        "parentId": 4,
         "mode": 2,
         "parentNode": "",
         "childNode": "srf",
@@ -122,19 +135,6 @@
         "offsetY": 0.3,
         "stage": 0,
         "symmetryGroup": 2
-      },
-      {
-        "id": 10,
-        "partId": "srb_hammer",
-        "parentId": 8,
-        "mode": 1,
-        "parentNode": "outer",
-        "childNode": "srf",
-        "rollDeg": 0,
-        "angleDeg": 0,
-        "offsetY": 0,
-        "stage": 1,
-        "symmetryGroup": 3
       },
       {
         "id": 11,
@@ -151,16 +151,16 @@
       },
       {
         "id": 12,
-        "partId": "nose_radial",
+        "partId": "srb_hammer",
         "parentId": 10,
         "mode": 1,
-        "parentNode": "top",
-        "childNode": "bottom",
+        "parentNode": "outer",
+        "childNode": "srf",
         "rollDeg": 0,
         "angleDeg": 0,
         "offsetY": 0,
-        "stage": -1,
-        "symmetryGroup": 4
+        "stage": 1,
+        "symmetryGroup": 3
       },
       {
         "id": 13,
@@ -174,9 +174,22 @@
         "offsetY": 0,
         "stage": -1,
         "symmetryGroup": 4
+      },
+      {
+        "id": 14,
+        "partId": "nose_radial",
+        "parentId": 12,
+        "mode": 1,
+        "parentNode": "top",
+        "childNode": "bottom",
+        "rollDeg": 0,
+        "angleDeg": 0,
+        "offsetY": 0,
+        "stage": -1,
+        "symmetryGroup": 4
       }
     ],
-    "nextPartId": 14,
+    "nextPartId": 15,
     "nextSymmetryGroup": 5
   }
 }

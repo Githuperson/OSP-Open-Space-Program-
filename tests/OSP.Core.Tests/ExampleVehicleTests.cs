@@ -20,8 +20,8 @@ public class ExampleVehicleTests
         yield return FlightIntegrationTests.TwoStageRocket();
 
         // Strap-on boosters
-        var b = new RocketBuilder().Root("pod_aster").Below("rw_unit").Below("tank_s4").Below("eng_swift");
-        int core = b.Design.Parts[2].Id;
+        var b = new RocketBuilder().Root("pod_aster").Below("rw_unit").Below("tank_s4").Below("tank_s4").Below("eng_swift");
+        int core = b.Design.Parts[3].Id;
         b.Radial("fin_delta", core, 3, 90, -1.4);
         var sym = b.Radial("dec_radial", core, 2, 0, 0.3);
         int dec = b.Design.Parts.First(p => p.PartId == "dec_radial").Id;
