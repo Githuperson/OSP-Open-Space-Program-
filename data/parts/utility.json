@@ -1,0 +1,214 @@
+{
+  // Landing gear, parachutes, power, attitude control, plumbing, docking and communications.
+  "parts": [
+    {
+      "id": "leg.lt1", "name": "LT-1 Landing Strut", "category": "ground", "manufacturer": "Tern Landing Systems",
+      "description": "A folding, spring-damped landing leg. Press G to deploy or retract. Mount at least three in symmetry.",
+      "cost": 440, "mass": 50, "tech": "landing", "crashTolerance": 12, "breakingForce": 400000,
+      "drag": { "top": 0.4, "bottom": 0.4, "side": 0.4 },
+      "surfaceAttach": { "position": [0, 0, -0.06], "direction": [0, 0, -1] },
+      "allowSurfaceAttachOnThis": false,
+      "modules": [
+        { "type": "LandingLeg", "footStowed": [0, 0.9, 0.12], "footDeployed": [0, -1.28, 0.81], "stroke": 0.3, "springFrequency": 1.6, "dampingRatio": 0.9, "friction": 1.0,
+          "animation": { "group": "leg", "pivot": [0, -0.3, 0.12], "axis": [1, 0, 0], "angleStowed": 0, "angleDeployed": 145, "duration": 1.6 } }
+      ],
+      "mesh": [
+        { "type": "box", "size": [0.18, 0.7, 0.12], "material": "darkgray" },
+        { "type": "box", "size": [0.07, 1.2, 0.07], "offset": [0, 0.3, 0.12], "material": "steel", "group": "leg" },
+        { "type": "box", "size": [0.04, 0.6, 0.04], "offset": [0, 0.0, 0.12], "material": "black", "group": "leg" },
+        { "type": "cylinder", "radius": 0.16, "height": 0.05, "offset": [0, 0.9, 0.12], "material": "darkgray", "group": "leg" }
+      ]
+    },
+    {
+      "id": "chute.petal", "name": "Petal Nose Parachute", "category": "utility", "manufacturer": "Tern Landing Systems",
+      "description": "Stage it to arm. Opens a drogue when the air is thick enough, then fully deploys 800 m above the ground.",
+      "cost": 420, "mass": 100, "tech": "start", "crashTolerance": 12,
+      "drag": { "top": 0.3, "bottom": 0.9, "side": 0.5 },
+      "attachNodes": [ { "id": "bottom", "position": [0, -0.1, 0], "direction": [0, -1, 0], "size": 0 } ],
+      "modules": [
+        { "type": "Parachute", "deployedDragArea": 500, "semiDeployedFraction": 0.05, "deployAltitude": 800, "minPressure": 0.04, "maxDynamicPressure": 25000,
+          "animation": { "group": "canopy", "pivot": [0, 0.25, 0], "scaleStowed": [0.02, 0.02, 0.02], "scaleDeployed": [1, 1, 1], "duration": 3 } }
+      ],
+      "mesh": [
+        { "type": "lathe", "profile": [[0.3, -0.1], [0.28, 0.05], [0.16, 0.2], [0.05, 0.25]], "material": "orange", "segments": 28 },
+        { "type": "lathe", "profile": [[3.6, 6.6], [3.1, 7.4], [2.0, 8.0], [0.6, 8.25], [0.0, 8.3]], "material": "canopy", "capTop": false, "capBottom": false, "segments": 24, "group": "canopy" },
+        { "type": "box", "size": [0.025, 7.3, 0.025], "offset": [1.8, 3.43, 0], "rotation": [0, 0, -29.5], "material": "lightgray", "repeat": 8, "group": "canopy" }
+      ]
+    },
+    {
+      "id": "chute.radial", "name": "Radial Drogue Pack", "category": "utility", "manufacturer": "Tern Landing Systems",
+      "description": "A side-mounted parachute. Use several in symmetry for heavier landers.",
+      "cost": 400, "mass": 100, "tech": "landing", "crashTolerance": 12,
+      "drag": { "top": 0.4, "bottom": 0.4, "side": 0.4 },
+      "surfaceAttach": { "position": [0, 0, -0.1], "direction": [0, 0, -1] },
+      "modules": [
+        { "type": "Parachute", "deployedDragArea": 400, "semiDeployedFraction": 0.05, "deployAltitude": 700, "minPressure": 0.04, "maxDynamicPressure": 25000,
+          "animation": { "group": "canopy", "pivot": [0, 0.3, 0], "scaleStowed": [0.02, 0.02, 0.02], "scaleDeployed": [1, 1, 1], "duration": 3 } }
+      ],
+      "mesh": [
+        { "type": "box", "size": [0.3, 0.6, 0.2], "material": "orange" },
+        { "type": "box", "size": [0.31, 0.06, 0.21], "offset": [0, 0.2, 0], "material": "darkgray" },
+        { "type": "lathe", "profile": [[3.2, 6.0], [2.8, 6.7], [1.8, 7.25], [0.5, 7.5], [0.0, 7.55]], "material": "canopy", "capTop": false, "capBottom": false, "segments": 24, "group": "canopy", "offset": [0, 0.3, 0] },
+        { "type": "box", "size": [0.025, 6.6, 0.025], "offset": [1.6, 3.4, 0], "rotation": [0, 0, -29], "material": "lightgray", "repeat": 8, "group": "canopy" }
+      ]
+    },
+    {
+      "id": "battery.z100", "name": "Z-100 Battery Pack", "category": "electrical", "manufacturer": "Lumen Electric",
+      "description": "A small radial battery: 100 EC.",
+      "cost": 80, "mass": 5, "tech": "electrics",
+      "drag": { "top": 0.4, "bottom": 0.4, "side": 0.4 },
+      "surfaceAttach": { "position": [0, 0, -0.05], "direction": [0, 0, -1] },
+      "resources": [ { "resource": "ElectricCharge", "amount": 100, "max": 100 } ],
+      "mesh": [
+        { "type": "box", "size": [0.24, 0.12, 0.1], "material": "darkgray" },
+        { "type": "box", "size": [0.25, 0.03, 0.101], "offset": [0, 0.02, 0], "material": "yellow" }
+      ]
+    },
+    {
+      "id": "battery.z400", "name": "Z-400 Stack Battery", "category": "electrical", "manufacturer": "Lumen Electric",
+      "description": "A 1.25 m battery disc: 400 EC.",
+      "cost": 500, "mass": 25, "tech": "electrics",
+      "drag": { "top": 0.9, "bottom": 0.9, "side": 0.6 },
+      "attachNodes": [
+        { "id": "top", "position": [0, 0.06, 0], "direction": [0, 1, 0], "size": 1 },
+        { "id": "bottom", "position": [0, -0.06, 0], "direction": [0, -1, 0], "size": 1 }
+      ],
+      "resources": [ { "resource": "ElectricCharge", "amount": 400, "max": 400 } ],
+      "mesh": [
+        { "type": "cylinder", "radius": 0.62, "height": 0.12, "material": "darkgray", "segments": 40 },
+        { "type": "box", "size": [0.18, 0.06, 0.05], "offset": [0.6, 0, 0], "material": "yellow", "repeat": 6 }
+      ]
+    },
+    {
+      "id": "solar.fixed", "name": "SX-1 Fixed Solar Panel", "category": "electrical", "manufacturer": "Lumen Electric",
+      "description": "A rigid photovoltaic panel. Produces power when its face points at the star.",
+      "cost": 75, "mass": 5, "tech": "electrics", "crashTolerance": 8,
+      "drag": { "top": 0.3, "bottom": 0.3, "side": 0.3 },
+      "surfaceAttach": { "position": [0, 0, -0.02], "direction": [0, 0, -1] },
+      "allowSurfaceAttachOnThis": false,
+      "modules": [ { "type": "SolarPanel", "powerOutput": 0.35, "panelNormal": [0, 0, 1] } ],
+      "mesh": [
+        { "type": "box", "size": [0.5, 0.8, 0.03], "material": "solar" },
+        { "type": "box", "size": [0.52, 0.03, 0.035], "offset": [0, 0.39, 0], "material": "lightgray" },
+        { "type": "box", "size": [0.52, 0.03, 0.035], "offset": [0, -0.39, 0], "material": "lightgray" }
+      ]
+    },
+    {
+      "id": "solar.array", "name": "SP-4 Extending Solar Array", "category": "electrical", "manufacturer": "Lumen Electric",
+      "description": "An extending solar array. Press U to deploy. Fragile: retract it before entering an atmosphere.",
+      "cost": 380, "mass": 20, "tech": "electrics", "crashTolerance": 8,
+      "drag": { "top": 0.3, "bottom": 0.3, "side": 0.4 },
+      "surfaceAttach": { "position": [0, 0, -0.06], "direction": [0, 0, -1] },
+      "allowSurfaceAttachOnThis": false,
+      "modules": [
+        { "type": "SolarPanel", "powerOutput": 1.6, "panelNormal": [0, 0, 1], "deployable": true, "maxDynamicPressure": 2500,
+          "animation": { "group": "panel", "pivot": [0, 0.15, 0.08], "scaleStowed": [1, 0.06, 1], "scaleDeployed": [1, 1, 1], "duration": 3 } }
+      ],
+      "mesh": [
+        { "type": "box", "size": [0.22, 0.32, 0.12], "material": "darkgray" },
+        { "type": "box", "size": [0.6, 2.0, 0.02], "offset": [0, 1.15, 0.08], "material": "solar", "group": "panel" },
+        { "type": "box", "size": [0.04, 2.0, 0.03], "offset": [0, 1.15, 0.08], "material": "lightgray", "group": "panel" }
+      ]
+    },
+    {
+      "id": "rw.inertia", "name": "Gyre Inertia Wheel", "category": "control", "manufacturer": "Pellucid Systems",
+      "description": "A 1.25 m stack reaction wheel. Strong torque without propellant, at the cost of electricity.",
+      "cost": 600, "mass": 100, "tech": "stability",
+      "drag": { "top": 0.9, "bottom": 0.9, "side": 0.6 },
+      "attachNodes": [
+        { "id": "top", "position": [0, 0.1, 0], "direction": [0, 1, 0], "size": 1 },
+        { "id": "bottom", "position": [0, -0.1, 0], "direction": [0, -1, 0], "size": 1 }
+      ],
+      "modules": [ { "type": "ReactionWheel", "torque": 12000, "electricUsage": 0.3 } ],
+      "mesh": [
+        { "type": "cylinder", "radius": 0.62, "height": 0.2, "material": "darkgray", "segments": 40 },
+        { "type": "cylinder", "radius": 0.5, "height": 0.21, "material": "gold", "segments": 40 },
+        { "type": "box", "size": [0.12, 0.21, 0.04], "offset": [0.56, 0, 0], "material": "lightgray", "repeat": 8 }
+      ]
+    },
+    {
+      "id": "rcs.quad", "name": "RV-5 RCS Thruster Block", "category": "control", "manufacturer": "Pellucid Systems",
+      "description": "Five monopropellant nozzles. Place four in symmetry for full translation and rotation control (press R).",
+      "cost": 450, "mass": 40, "tech": "advancedFlight",
+      "drag": { "top": 0.4, "bottom": 0.4, "side": 0.4 },
+      "surfaceAttach": { "position": [0, 0, -0.05], "direction": [0, 0, -1] },
+      "allowSurfaceAttachOnThis": false,
+      "modules": [
+        { "type": "RCS", "thrustPerNozzle": 1000, "isp": 240, "propellant": "Monopropellant",
+          "nozzles": [
+            { "position": [0, 0.12, 0.05], "direction": [0, 1, 0] },
+            { "position": [0, -0.12, 0.05], "direction": [0, -1, 0] },
+            { "position": [0.12, 0, 0.05], "direction": [1, 0, 0] },
+            { "position": [-0.12, 0, 0.05], "direction": [-1, 0, 0] },
+            { "position": [0, 0, 0.12], "direction": [0, 0, 1] }
+          ] }
+      ],
+      "mesh": [
+        { "type": "box", "size": [0.14, 0.14, 0.1], "offset": [0, 0, 0.02], "material": "white" },
+        { "type": "cone", "radius": 0.015, "radiusTop": 0.04, "height": 0.07, "offset": [0, 0.1, 0.05], "material": "darkgray" },
+        { "type": "cone", "radius": 0.015, "radiusTop": 0.04, "height": 0.07, "offset": [0, -0.1, 0.05], "rotation": [180, 0, 0], "material": "darkgray" },
+        { "type": "cone", "radius": 0.015, "radiusTop": 0.04, "height": 0.07, "offset": [0.1, 0, 0.05], "rotation": [0, 0, -90], "material": "darkgray" },
+        { "type": "cone", "radius": 0.015, "radiusTop": 0.04, "height": 0.07, "offset": [-0.1, 0, 0.05], "rotation": [0, 0, 90], "material": "darkgray" },
+        { "type": "cone", "radius": 0.015, "radiusTop": 0.04, "height": 0.07, "offset": [0, 0, 0.1], "rotation": [90, 0, 0], "material": "darkgray" }
+      ]
+    },
+    {
+      "id": "fuelline.fl1", "name": "FL-1 Fuel Duct", "category": "utility", "manufacturer": "Halcyon Tankworks",
+      "description": "Mount on a source tank pointing at a neighbouring stack: engines on the target side drain the source first. Enables asparagus staging.",
+      "cost": 150, "mass": 50, "tech": "fuelSystems",
+      "drag": { "top": 0.3, "bottom": 0.3, "side": 0.3 },
+      "surfaceAttach": { "position": [0, 0, -0.04], "direction": [0, 0, -1] },
+      "allowSurfaceAttachOnThis": false,
+      "modules": [ { "type": "FuelLine", "reach": 4 } ],
+      "mesh": [
+        { "type": "cylinder", "radius": 0.07, "height": 0.2, "offset": [0, 0, 0.06], "rotation": [90, 0, 0], "material": "darkgray", "segments": 16 },
+        { "type": "cylinder", "radius": 0.075, "height": 0.05, "offset": [0, 0, 0.1], "rotation": [90, 0, 0], "material": "yellow", "segments": 16 }
+      ]
+    },
+    {
+      "id": "dock.port", "name": "Clasp-1 Docking Port", "category": "utility", "manufacturer": "Pellucid Systems",
+      "description": "Approach another Clasp-1 port slowly (under 1.5 m/s) and nearly aligned to dock. Right-click to undock in flight.",
+      "cost": 280, "mass": 50, "tech": "docking",
+      "drag": { "top": 0.8, "bottom": 0.9, "side": 0.6 },
+      "attachNodes": [
+        { "id": "top", "position": [0, 0.15, 0], "direction": [0, 1, 0], "size": 1 },
+        { "id": "bottom", "position": [0, -0.15, 0], "direction": [0, -1, 0], "size": 1 }
+      ],
+      "surfaceAttach": { "position": [0, -0.15, 0], "direction": [0, -1, 0] },
+      "modules": [ { "type": "DockingPort", "node": "top", "size": 1, "captureRange": 0.6, "captureAngle": 15, "undockImpulse": 80 } ],
+      "mesh": [
+        { "type": "lathe", "profile": [[0.5, -0.15], [0.5, 0.0], [0.44, 0.08], [0.44, 0.15]], "material": "lightgray", "segments": 32 },
+        { "type": "torus", "radius": 0.42, "tube": 0.03, "offset": [0, 0.14, 0], "material": "darkgray", "segments": 32 },
+        { "type": "box", "size": [0.1, 0.06, 0.08], "offset": [0.38, 0.17, 0], "material": "yellow", "repeat": 3 }
+      ]
+    },
+    {
+      "id": "antenna.whip", "name": "Whisker Antenna", "category": "communication", "manufacturer": "Lumen Electric",
+      "description": "A short-range antenna for transmitting science data home (range 5,000 km).",
+      "cost": 300, "mass": 5, "tech": "electrics",
+      "drag": { "top": 0.2, "bottom": 0.2, "side": 0.2 },
+      "surfaceAttach": { "position": [0, 0, -0.04], "direction": [0, 0, -1] },
+      "allowSurfaceAttachOnThis": false,
+      "modules": [ { "type": "Antenna", "range": 5000000, "transmitRate": 3, "electricPerData": 6 } ],
+      "mesh": [
+        { "type": "box", "size": [0.1, 0.1, 0.06], "material": "darkgray" },
+        { "type": "cylinder", "radius": 0.012, "height": 1.2, "offset": [0, 0.6, 0.02], "material": "steel", "segments": 8 },
+        { "type": "sphere", "radius": 0.025, "offset": [0, 1.2, 0.02], "material": "red", "segments": 8 }
+      ]
+    },
+    {
+      "id": "antenna.dish", "name": "Halo Relay Dish", "category": "communication", "manufacturer": "Lumen Electric",
+      "description": "A high-gain dish that can reach home from anywhere in the system.",
+      "cost": 1500, "mass": 60, "tech": "docking",
+      "drag": { "top": 0.6, "bottom": 0.6, "side": 0.6 },
+      "surfaceAttach": { "position": [0, 0, -0.05], "direction": [0, 0, -1] },
+      "allowSurfaceAttachOnThis": false,
+      "modules": [ { "type": "Antenna", "range": 100000000000, "transmitRate": 10, "electricPerData": 10 } ],
+      "mesh": [
+        { "type": "box", "size": [0.12, 0.2, 0.1], "material": "darkgray" },
+        { "type": "lathe", "profile": [[0.05, 0.0], [0.3, 0.05], [0.55, 0.16]], "offset": [0, 0, 0.12], "rotation": [90, 0, 0], "material": "lightgray", "capTop": false, "capBottom": false, "segments": 32 },
+        { "type": "cylinder", "radius": 0.01, "height": 0.3, "offset": [0, 0, 0.25], "rotation": [90, 0, 0], "material": "steel" }
+      ]
+    }
+  ]
+}

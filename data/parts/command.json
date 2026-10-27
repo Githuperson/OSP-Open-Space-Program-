@@ -1,0 +1,117 @@
+{
+  // Command pods and probe cores. Units: kg, m, N, N*m, EC/s.
+  "parts": [
+    {
+      "id": "pod.aquila",
+      "name": "Aquila Mk1 Command Pod",
+      "category": "command",
+      "manufacturer": "Meridian Aerospace",
+      "description": "A sturdy single-seat capsule with an integrated heat shield, reaction wheel and a small monopropellant reserve.",
+      "cost": 600, "mass": 840, "tech": "start",
+      "crashTolerance": 14, "breakingForce": 3000000,
+      "drag": { "top": 0.55, "bottom": 1.0, "side": 0.55 },
+      "attachNodes": [
+        { "id": "top", "position": [0, 0.5, 0], "direction": [0, 1, 0], "size": 0 },
+        { "id": "bottom", "position": [0, -0.46, 0], "direction": [0, -1, 0], "size": 1 }
+      ],
+      "resources": [
+        { "resource": "ElectricCharge", "amount": 50, "max": 50 },
+        { "resource": "Monopropellant", "amount": 10, "max": 10 }
+      ],
+      "modules": [
+        { "type": "Command", "crewCapacity": 1 },
+        { "type": "ReactionWheel", "torque": 5000, "electricUsage": 0.05 },
+        { "type": "Experiment", "experimentId": "crewReport" }
+      ],
+      "mesh": [
+        { "type": "lathe", "profile": [[0.62, -0.38], [0.6, -0.3], [0.32, 0.38], [0.3, 0.42]], "material": "white", "segments": 40 },
+        { "type": "cylinder", "radius": 0.64, "height": 0.08, "offset": [0, -0.42, 0], "material": "heatshield", "segments": 40 },
+        { "type": "cylinder", "radius": 0.3, "height": 0.08, "offset": [0, 0.46, 0], "material": "darkgray", "segments": 24 },
+        { "type": "box", "size": [0.22, 0.16, 0.04], "offset": [0, 0.08, 0.43], "rotation": [-22, 0, 0], "material": "glass" },
+        { "type": "box", "size": [0.03, 0.34, 0.3], "offset": [0.45, -0.05, 0], "rotation": [0, 0, 22], "material": "lightgray" },
+        { "type": "box", "size": [0.05, 0.05, 0.05], "offset": [0.42, 0.18, 0.2], "rotation": [0, 30, 22], "material": "darkgray", "repeat": 4 }
+      ]
+    },
+    {
+      "id": "pod.corvus",
+      "name": "Corvus Three-Seat Capsule",
+      "category": "command",
+      "manufacturer": "Meridian Aerospace",
+      "description": "A roomy 2.5 m capsule for three crew. Heavy, but well protected and with strong reaction wheels.",
+      "cost": 3800, "mass": 2700, "tech": "advancedFlight",
+      "crashTolerance": 14, "breakingForce": 8000000,
+      "drag": { "top": 0.55, "bottom": 1.0, "side": 0.55 },
+      "attachNodes": [
+        { "id": "top", "position": [0, 0.88, 0], "direction": [0, 1, 0], "size": 1 },
+        { "id": "bottom", "position": [0, -0.82, 0], "direction": [0, -1, 0], "size": 2 }
+      ],
+      "resources": [
+        { "resource": "ElectricCharge", "amount": 150, "max": 150 },
+        { "resource": "Monopropellant", "amount": 30, "max": 30 }
+      ],
+      "modules": [
+        { "type": "Command", "crewCapacity": 3 },
+        { "type": "ReactionWheel", "torque": 15000, "electricUsage": 0.15 },
+        { "type": "Experiment", "experimentId": "crewReport" }
+      ],
+      "mesh": [
+        { "type": "lathe", "profile": [[1.24, -0.7], [1.2, -0.6], [0.64, 0.7], [0.6, 0.76]], "material": "white", "segments": 48 },
+        { "type": "cylinder", "radius": 1.27, "height": 0.12, "offset": [0, -0.76, 0], "material": "heatshield", "segments": 48 },
+        { "type": "cylinder", "radius": 0.6, "height": 0.12, "offset": [0, 0.82, 0], "material": "darkgray", "segments": 32 },
+        { "type": "box", "size": [0.3, 0.22, 0.05], "offset": [0.28, 0.25, 0.83], "rotation": [-23, 0, 0], "material": "glass", "repeat": 3 },
+        { "type": "box", "size": [0.05, 0.6, 0.5], "offset": [0.98, -0.15, 0], "rotation": [0, 0, 23], "material": "lightgray" },
+        { "type": "box", "size": [1.3, 0.04, 0.04], "offset": [0, -0.55, 0], "material": "darkgray", "repeat": 3, "rotation": [0, 0, 0] }
+      ]
+    },
+    {
+      "id": "probe.sprite",
+      "name": "Sprite Probe Core",
+      "category": "command",
+      "manufacturer": "Kestrel Robotics",
+      "description": "An octagonal 0.625 m avionics core. Flies the vessel without crew but needs electricity to work.",
+      "cost": 450, "mass": 100, "tech": "start",
+      "crashTolerance": 10,
+      "drag": { "top": 0.8, "bottom": 0.8, "side": 0.6 },
+      "attachNodes": [
+        { "id": "top", "position": [0, 0.125, 0], "direction": [0, 1, 0], "size": 0 },
+        { "id": "bottom", "position": [0, -0.125, 0], "direction": [0, -1, 0], "size": 0 }
+      ],
+      "surfaceAttach": { "position": [0, 0, -0.29], "direction": [0, 0, -1] },
+      "resources": [ { "resource": "ElectricCharge", "amount": 10, "max": 10 } ],
+      "modules": [
+        { "type": "Command", "crewCapacity": 0, "isProbe": true, "electricUsage": 0.025 },
+        { "type": "ReactionWheel", "torque": 500, "electricUsage": 0.03 }
+      ],
+      "mesh": [
+        { "type": "cylinder", "radius": 0.31, "height": 0.25, "segments": 8, "smooth": false, "material": "darkgray" },
+        { "type": "cylinder", "radius": 0.315, "height": 0.06, "segments": 8, "smooth": false, "material": "gold" },
+        { "type": "box", "size": [0.08, 0.08, 0.02], "offset": [0, 0.06, 0.29], "material": "glass", "repeat": 4 },
+        { "type": "cylinder", "radius": 0.012, "height": 0.25, "offset": [0.18, 0.24, 0.0], "material": "lightgray" }
+      ]
+    },
+    {
+      "id": "probe.orb",
+      "name": "Orbiter OKTO Probe Core",
+      "category": "command",
+      "manufacturer": "Kestrel Robotics",
+      "description": "A 1.25 m probe core with a stronger reaction wheel and a larger battery.",
+      "cost": 900, "mass": 250, "tech": "electrics",
+      "crashTolerance": 10,
+      "drag": { "top": 0.8, "bottom": 0.8, "side": 0.6 },
+      "attachNodes": [
+        { "id": "top", "position": [0, 0.2, 0], "direction": [0, 1, 0], "size": 1 },
+        { "id": "bottom", "position": [0, -0.2, 0], "direction": [0, -1, 0], "size": 1 }
+      ],
+      "resources": [ { "resource": "ElectricCharge", "amount": 50, "max": 50 } ],
+      "modules": [
+        { "type": "Command", "crewCapacity": 0, "isProbe": true, "electricUsage": 0.04 },
+        { "type": "ReactionWheel", "torque": 2000, "electricUsage": 0.08 }
+      ],
+      "mesh": [
+        { "type": "lathe", "profile": [[0.6, -0.2], [0.62, -0.15], [0.62, 0.15], [0.6, 0.2]], "material": "gold", "segments": 12, "smooth": false },
+        { "type": "cylinder", "radius": 0.625, "height": 0.05, "material": "darkgray", "segments": 32 },
+        { "type": "box", "size": [0.14, 0.14, 0.03], "offset": [0, 0.0, 0.62], "material": "solar", "repeat": 6 }
+      ]
+    }
+  ]
+}

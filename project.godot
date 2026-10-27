@@ -1,0 +1,34 @@
+; Engine configuration file.
+; Open Space Program - Godot 4.4 (.NET) project.
+
+config_version=5
+
+[application]
+
+config/name="Open Space Program"
+config/description="An original 3D spaceflight sandbox."
+run/main_scene="res://scenes/Main.tscn"
+config/features=PackedStringArray("4.4", "C#", "Forward Plus")
+config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1600
+window/size/viewport_height=900
+window/dpi/allow_hidpi=true
+window/vsync/vsync_mode=1
+
+[dotnet]
+
+project/assembly_name="OSP"
+
+[physics]
+
+common/physics_ticks_per_second=50
+
+[rendering]
+
+anti_aliasing/quality/msaa_3d=2
+lights_and_shadows/directional_shadow/size=4096
+lights_and_shadows/directional_shadow/soft_shadow_filter_quality=2
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

@@ -1,0 +1,17 @@
+{
+  // Research tree for Science and Career modes. Parts reference these ids in their "tech" field.
+  "nodes": [
+    { "id": "start", "name": "Start", "cost": 0, "description": "Basic capsules, tanks and engines.", "requires": [] },
+    { "id": "basicRocketry", "name": "Basic Rocketry", "cost": 5, "description": "Gimballed engines, strap-on boosters and larger tanks.", "requires": ["start"] },
+    { "id": "basicScience", "name": "Basic Science", "cost": 5, "description": "Barometers and material bays.", "requires": ["start"] },
+    { "id": "generalRocketry", "name": "General Rocketry", "cost": 20, "description": "Vacuum engines, long tanks and payload fairings.", "requires": ["basicRocketry"] },
+    { "id": "stability", "name": "Stability", "cost": 18, "description": "Control surfaces and inertia wheels.", "requires": ["basicRocketry"] },
+    { "id": "electrics", "name": "Electrics", "cost": 30, "description": "Batteries, solar power, probe cores and antennas.", "requires": ["basicScience"] },
+    { "id": "landing", "name": "Landing", "cost": 45, "description": "Landing legs, radial parachutes and seismic sensors.", "requires": ["generalRocketry", "basicScience"] },
+    { "id": "advancedFlight", "name": "Advanced Flight Control", "cost": 45, "description": "RCS, monopropellant and the three-seat capsule.", "requires": ["stability"] },
+    { "id": "fuelSystems", "name": "Fuel Systems", "cost": 60, "description": "Fuel ducts for crossfeed and asparagus staging.", "requires": ["generalRocketry"] },
+    { "id": "heavyRocketry", "name": "Heavy Rocketry", "cost": 90, "description": "2.5 m tanks, decouplers and the Titan engine.", "requires": ["fuelSystems"] },
+    { "id": "advancedScience", "name": "Advanced Science", "cost": 90, "description": "Gravimetry.", "requires": ["electrics", "landing"] },
+    { "id": "docking", "name": "Docking", "cost": 120, "description": "Docking ports and high-gain dishes.", "requires": ["advancedFlight", "electrics"] }
+  ]
+}

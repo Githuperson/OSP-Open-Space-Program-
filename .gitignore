@@ -1,0 +1,14 @@
+# Godot
+.godot/
+.import/
+*.translation
+export_credentials.cfg
+# .NET
+bin/
+obj/
+*.user
+.vs/
+# Build output
+build/
+# OS
+.DS_Store

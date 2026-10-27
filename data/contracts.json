@@ -1,0 +1,17 @@
+{
+  // Career contracts. Objectives are checked against the simulated state of the active vessel.
+  "contracts": [
+    { "id": "firstLaunch", "title": "First Flight", "description": "Launch any rocket and climb above 1 km.", "objective": "reachAltitude", "body": "aster", "altitude": 1000, "rewardFunds": 5000, "rewardScience": 2, "advanceFunds": 1000 },
+    { "id": "highAltitude", "title": "Into the Blue Yonder", "description": "Reach 20 km above Aster.", "objective": "reachAltitude", "body": "aster", "altitude": 20000, "rewardFunds": 9000, "rewardScience": 4, "advanceFunds": 2000, "requires": ["firstLaunch"] },
+    { "id": "splash", "title": "Safe Return", "description": "Splash down in one of Aster's oceans.", "objective": "splashDown", "body": "aster", "rewardFunds": 6000, "rewardScience": 3, "advanceFunds": 1000, "requires": ["firstLaunch"] },
+    { "id": "space", "title": "Edge of Space", "description": "Leave Aster's atmosphere (70 km).", "objective": "reachSpace", "body": "aster", "rewardFunds": 20000, "rewardScience": 10, "advanceFunds": 4000, "requires": ["highAltitude"] },
+    { "id": "thermoAster", "title": "Climate Survey", "description": "Collect a temperature scan around Aster.", "objective": "collectScience", "body": "aster", "experiment": "thermometer", "rewardFunds": 7000, "rewardScience": 5, "advanceFunds": 1500, "requires": ["firstLaunch"] },
+    { "id": "orbit", "title": "Orbital Pioneer", "description": "Achieve a stable orbit around Aster.", "objective": "orbit", "body": "aster", "rewardFunds": 45000, "rewardScience": 20, "advanceFunds": 8000, "requires": ["space"] },
+    { "id": "tessarSoi", "title": "Lunar Flyby", "description": "Enter Tessar's sphere of influence.", "objective": "enterSoi", "body": "tessar", "rewardFunds": 60000, "rewardScience": 25, "advanceFunds": 12000, "requires": ["orbit"] },
+    { "id": "tessarOrbit", "title": "Lunar Orbit", "description": "Orbit Tessar.", "objective": "orbit", "body": "tessar", "rewardFunds": 80000, "rewardScience": 35, "advanceFunds": 15000, "requires": ["tessarSoi"] },
+    { "id": "tessarLand", "title": "Lunar Landing", "description": "Land on Tessar.", "objective": "land", "body": "tessar", "rewardFunds": 140000, "rewardScience": 60, "advanceFunds": 25000, "requires": ["tessarOrbit"] },
+    { "id": "tessarReturn", "title": "Return from Tessar", "description": "Visit Tessar and recover the vessel on Aster.", "objective": "returnHome", "body": "tessar", "rewardFunds": 180000, "rewardScience": 80, "advanceFunds": 30000, "requires": ["tessarLand"] },
+    { "id": "veskSoi", "title": "The Outer Moon", "description": "Enter Vesk's sphere of influence.", "objective": "enterSoi", "body": "vesk", "rewardFunds": 90000, "rewardScience": 40, "advanceFunds": 15000, "requires": ["orbit"] },
+    { "id": "ferrusSoi", "title": "Red Horizon", "description": "Reach the sphere of influence of Ferrus.", "objective": "enterSoi", "body": "ferrus", "rewardFunds": 250000, "rewardScience": 120, "advanceFunds": 50000, "requires": ["tessarOrbit"] }
+  ]
+}

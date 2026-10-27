@@ -1,0 +1,173 @@
+{
+  // Decouplers, adapters, structural and aerodynamic parts.
+  "parts": [
+    {
+      "id": "decoupler.td1", "name": "TD-1 Stack Decoupler", "category": "coupling", "manufacturer": "Pellucid Systems",
+      "description": "Separates the stage below it with explosive bolts. Blocks fuel flow between stages.",
+      "cost": 200, "mass": 50, "tech": "start",
+      "drag": { "top": 0.9, "bottom": 0.9, "side": 0.6 },
+      "attachNodes": [
+        { "id": "top", "position": [0, 0.075, 0], "direction": [0, 1, 0], "size": 1 },
+        { "id": "bottom", "position": [0, -0.075, 0], "direction": [0, -1, 0], "size": 1 }
+      ],
+      "modules": [ { "type": "Decoupler", "ejectionImpulse": 2500 } ],
+      "mesh": [
+        { "type": "cylinder", "radius": 0.625, "height": 0.15, "material": "darkgray", "segments": 40 },
+        { "type": "cylinder", "radius": 0.632, "height": 0.04, "material": "yellow", "segments": 40 },
+        { "type": "box", "size": [0.08, 0.1, 0.06], "offset": [0.61, 0, 0], "material": "black", "repeat": 8 }
+      ]
+    },
+    {
+      "id": "decoupler.td2", "name": "TD-2 Heavy Decoupler", "category": "coupling", "manufacturer": "Pellucid Systems",
+      "description": "A 2.5 m stack decoupler.",
+      "cost": 600, "mass": 400, "tech": "heavyRocketry", "breakingForce": 8000000,
+      "drag": { "top": 0.9, "bottom": 0.9, "side": 0.6 },
+      "attachNodes": [
+        { "id": "top", "position": [0, 0.1, 0], "direction": [0, 1, 0], "size": 2 },
+        { "id": "bottom", "position": [0, -0.1, 0], "direction": [0, -1, 0], "size": 2 }
+      ],
+      "modules": [ { "type": "Decoupler", "ejectionImpulse": 9000 } ],
+      "mesh": [
+        { "type": "cylinder", "radius": 1.25, "height": 0.2, "material": "darkgray", "segments": 56 },
+        { "type": "cylinder", "radius": 1.26, "height": 0.05, "material": "yellow", "segments": 56 },
+        { "type": "box", "size": [0.12, 0.14, 0.1], "offset": [1.23, 0, 0], "material": "black", "repeat": 12 }
+      ]
+    },
+    {
+      "id": "decoupler.radial", "name": "RD-1 Radial Decoupler", "category": "coupling", "manufacturer": "Pellucid Systems",
+      "description": "Mount on the side of a stack and attach a booster to its outer face. Pushes the booster away when fired.",
+      "cost": 300, "mass": 50, "tech": "basicRocketry",
+      "drag": { "top": 0.5, "bottom": 0.5, "side": 0.5 },
+      "surfaceAttach": { "position": [0, 0, -0.06], "direction": [0, 0, -1] },
+      "modules": [ { "type": "Decoupler", "ejectionImpulse": 1500, "isRadial": true } ],
+      "mesh": [
+        { "type": "box", "size": [0.24, 0.6, 0.12], "material": "darkgray" },
+        { "type": "box", "size": [0.25, 0.07, 0.13], "offset": [0, 0.15, 0], "material": "yellow" },
+        { "type": "box", "size": [0.25, 0.07, 0.13], "offset": [0, -0.15, 0], "material": "yellow" }
+      ]
+    },
+    {
+      "id": "adapter.a12", "name": "A12 Stack Adapter", "category": "structural", "manufacturer": "Open Space Works",
+      "description": "Joins a 1.25 m stack (top) to a 2.5 m stack (bottom).",
+      "cost": 300, "mass": 200, "tech": "heavyRocketry", "breakingForce": 8000000,
+      "drag": { "top": 0.6, "bottom": 0.9, "side": 0.6 },
+      "attachNodes": [
+        { "id": "top", "position": [0, 0.5, 0], "direction": [0, 1, 0], "size": 1 },
+        { "id": "bottom", "position": [0, -0.5, 0], "direction": [0, -1, 0], "size": 2 }
+      ],
+      "mesh": [
+        { "type": "lathe", "profile": [[1.25, -0.5], [0.625, 0.5]], "material": "white", "segments": 56 },
+        { "type": "cylinder", "radius": 1.26, "height": 0.06, "offset": [0, -0.47, 0], "material": "darkgray", "segments": 56 },
+        { "type": "cylinder", "radius": 0.635, "height": 0.06, "offset": [0, 0.47, 0], "material": "darkgray", "segments": 40 }
+      ]
+    },
+    {
+      "id": "adapter.a01", "name": "A01 Stack Adapter", "category": "structural", "manufacturer": "Open Space Works",
+      "description": "Joins a 0.625 m stack (top) to a 1.25 m stack (bottom).",
+      "cost": 120, "mass": 40, "tech": "start",
+      "drag": { "top": 0.6, "bottom": 0.9, "side": 0.6 },
+      "attachNodes": [
+        { "id": "top", "position": [0, 0.25, 0], "direction": [0, 1, 0], "size": 0 },
+        { "id": "bottom", "position": [0, -0.25, 0], "direction": [0, -1, 0], "size": 1 }
+      ],
+      "mesh": [
+        { "type": "lathe", "profile": [[0.625, -0.25], [0.3125, 0.25]], "material": "white", "segments": 40 },
+        { "type": "cylinder", "radius": 0.632, "height": 0.04, "offset": [0, -0.23, 0], "material": "darkgray", "segments": 40 }
+      ]
+    },
+    {
+      "id": "struct.truss", "name": "Lattice Truss Segment", "category": "structural", "manufacturer": "Open Space Works",
+      "description": "A light open truss for spacing parts apart. Allows radial attachment.",
+      "cost": 150, "mass": 90, "tech": "generalRocketry",
+      "drag": { "top": 0.3, "bottom": 0.3, "side": 0.4 },
+      "attachNodes": [
+        { "id": "top", "position": [0, 0.5, 0], "direction": [0, 1, 0], "size": 1 },
+        { "id": "bottom", "position": [0, -0.5, 0], "direction": [0, -1, 0], "size": 1 }
+      ],
+      "mesh": [
+        { "type": "cylinder", "radius": 0.6, "height": 0.06, "offset": [0, 0.47, 0], "material": "darkgray", "segments": 32 },
+        { "type": "cylinder", "radius": 0.6, "height": 0.06, "offset": [0, -0.47, 0], "material": "darkgray", "segments": 32 },
+        { "type": "box", "size": [0.06, 1.0, 0.06], "offset": [0.52, 0, 0], "material": "lightgray", "repeat": 6 },
+        { "type": "box", "size": [0.04, 1.15, 0.04], "offset": [0.52, 0, 0.0], "rotation": [0, 0, 32], "material": "steel", "repeat": 6 }
+      ]
+    },
+    {
+      "id": "nose.ogive", "name": "Ogive Nose Cone", "category": "aerodynamic", "manufacturer": "Streamline Co.",
+      "description": "A smooth 1.25 m nose cone that greatly reduces drag on an exposed stack top.",
+      "cost": 180, "mass": 30, "tech": "start", "crashTolerance": 9,
+      "drag": { "top": 0.12, "bottom": 0.9, "side": 0.5 },
+      "attachNodes": [ { "id": "bottom", "position": [0, -0.4, 0], "direction": [0, -1, 0], "size": 1 } ],
+      "surfaceAttach": { "position": [0, -0.4, 0], "direction": [0, -1, 0] },
+      "mesh": [
+        { "type": "lathe", "profile": [[0.625, -0.4], [0.61, -0.1], [0.52, 0.22], [0.36, 0.52], [0.18, 0.73], [0.03, 0.85]], "material": "white", "segments": 40 },
+        { "type": "cylinder", "radius": 0.63, "height": 0.05, "offset": [0, -0.37, 0], "material": "darkgray", "segments": 40 }
+      ]
+    },
+    {
+      "id": "nose.small", "name": "Small Nose Cone", "category": "aerodynamic", "manufacturer": "Streamline Co.",
+      "description": "A 0.625 m nose cone. Also fits on top of radial boosters.",
+      "cost": 80, "mass": 10, "tech": "start", "crashTolerance": 9,
+      "drag": { "top": 0.15, "bottom": 0.9, "side": 0.5 },
+      "attachNodes": [ { "id": "bottom", "position": [0, -0.2, 0], "direction": [0, -1, 0], "size": 0 } ],
+      "surfaceAttach": { "position": [0, -0.2, 0], "direction": [0, -1, 0] },
+      "mesh": [
+        { "type": "lathe", "profile": [[0.3125, -0.2], [0.3, -0.05], [0.25, 0.11], [0.17, 0.27], [0.08, 0.37], [0.01, 0.42]], "material": "white", "segments": 28 }
+      ]
+    },
+    {
+      "id": "fairing.cap", "name": "Aero Shroud Fairing", "category": "aerodynamic", "manufacturer": "Streamline Co.",
+      "description": "A jettisonable streamlined shroud over a small payload stack. Stage it once you are out of the thick atmosphere.",
+      "cost": 350, "mass": 220, "tech": "generalRocketry",
+      "drag": { "top": 0.15, "bottom": 0.9, "side": 0.5 },
+      "attachNodes": [
+        { "id": "top", "position": [0, 0.06, 0], "direction": [0, 1, 0], "size": 0 },
+        { "id": "bottom", "position": [0, -0.06, 0], "direction": [0, -1, 0], "size": 1 }
+      ],
+      "modules": [ { "type": "Jettison", "group": "shell", "jettisonMass": 170, "impulse": 60 } ],
+      "mesh": [
+        { "type": "cylinder", "radius": 0.625, "height": 0.12, "material": "darkgray", "segments": 40 },
+        { "type": "lathe", "profile": [[0.64, 0.0], [0.65, 0.9], [0.58, 1.5], [0.42, 2.0], [0.2, 2.35], [0.03, 2.5]], "material": "white", "segments": 40, "group": "shell", "capBottom": false },
+        { "type": "box", "size": [0.02, 2.2, 0.04], "offset": [0.62, 1.1, 0], "material": "black", "group": "shell", "repeat": 2 }
+      ]
+    },
+    {
+      "id": "fin.delta", "name": "Delta Stabiliser Fin", "category": "aerodynamic", "manufacturer": "Streamline Co.",
+      "description": "A fixed fin that keeps rockets pointing into the airflow. Mount near the bottom, in symmetry.",
+      "cost": 120, "mass": 40, "tech": "start", "crashTolerance": 10,
+      "drag": { "top": 0.3, "bottom": 0.3, "side": 0.3 },
+      "surfaceAttach": { "position": [0, 0, 0], "direction": [0, 0, -1] },
+      "allowSurfaceAttachOnThis": false,
+      "modules": [ { "type": "LiftingSurface", "area": 0.35, "normal": [1, 0, 0], "centerOfPressure": [0, -0.2, 0.25] } ],
+      "mesh": [
+        { "type": "prism", "points": [[0, -0.45], [0.6, -0.45], [0.6, -0.22], [0, 0.4]], "thickness": 0.04, "rotation": [0, -90, 0], "material": "white" },
+        { "type": "prism", "points": [[0.5, -0.45], [0.6, -0.45], [0.6, -0.22], [0.5, -0.12]], "thickness": 0.045, "rotation": [0, -90, 0], "material": "red" }
+      ]
+    },
+    {
+      "id": "fin.canard", "name": "Avian Control Canard", "category": "aerodynamic", "manufacturer": "Streamline Co.",
+      "description": "An all-moving control surface that steers with pitch, yaw and roll input in the atmosphere.",
+      "cost": 400, "mass": 50, "tech": "stability", "crashTolerance": 10,
+      "drag": { "top": 0.3, "bottom": 0.3, "side": 0.3 },
+      "surfaceAttach": { "position": [0, 0, 0], "direction": [0, 0, -1] },
+      "allowSurfaceAttachOnThis": false,
+      "modules": [ { "type": "LiftingSurface", "area": 0.3, "normal": [1, 0, 0], "centerOfPressure": [0, 0, 0.25], "isControlSurface": true, "maxDeflection": 18, "hingeAxis": [0, 0, 1], "deflectionGroup": "flap" } ],
+      "mesh": [
+        { "type": "box", "size": [0.1, 0.16, 0.08], "offset": [0, 0, 0.04], "material": "darkgray" },
+        { "type": "prism", "points": [[0.06, -0.28], [0.5, -0.12], [0.5, 0.12], [0.06, 0.28]], "thickness": 0.035, "rotation": [0, -90, 0], "material": "white", "group": "flap" }
+      ]
+    },
+    {
+      "id": "heatshield.h1", "name": "H-1 Heat Shield", "category": "structural", "manufacturer": "Meridian Aerospace",
+      "description": "An ablative shield for the bottom of a 1.25 m capsule. Blunt and draggy, it stabilises re-entry.",
+      "cost": 300, "mass": 100, "tech": "start", "crashTolerance": 9,
+      "drag": { "top": 0.9, "bottom": 1.25, "side": 0.6 },
+      "attachNodes": [
+        { "id": "top", "position": [0, 0.06, 0], "direction": [0, 1, 0], "size": 1 },
+        { "id": "bottom", "position": [0, -0.06, 0], "direction": [0, -1, 0], "size": 1 }
+      ],
+      "mesh": [
+        { "type": "lathe", "profile": [[0.4, -0.08], [0.6, -0.06], [0.66, -0.02], [0.66, 0.06]], "material": "heatshield", "segments": 40 }
+      ]
+    }
+  ]
+}

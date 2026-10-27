@@ -1,0 +1,170 @@
+{
+  // Liquid engines and solid rocket boosters. thrustVacuum in N, Isp in s.
+  // Mass flow is fixed by vacuum performance; thrust at sea level = flow * IspSeaLevel * g0.
+  "parts": [
+    {
+      "id": "engine.swift", "name": "Swift LV-30 Liquid Engine", "category": "engine", "manufacturer": "Corvid Propulsion",
+      "description": "A simple, reliable first-stage engine. No gimbal: pair it with fins or reaction wheels for steering.",
+      "cost": 850, "mass": 1250, "tech": "start", "crashTolerance": 7,
+      "drag": { "top": 0.9, "bottom": 0.5, "side": 0.6 },
+      "attachNodes": [
+        { "id": "top", "position": [0, 0.375, 0], "direction": [0, 1, 0], "size": 1 },
+        { "id": "bottom", "position": [0, -1.05, 0], "direction": [0, -1, 0], "size": 1 }
+      ],
+      "modules": [
+        { "type": "Engine", "thrustVacuum": 215000, "ispVacuum": 310, "ispSeaLevel": 265, "gimbalRange": 0,
+          "propellants": [ { "resource": "Fuel", "ratio": 0.45 }, { "resource": "Oxidizer", "ratio": 0.55 } ],
+          "thrustPoint": [0, -1.05, 0], "exhaustDirection": [0, -1, 0],
+          "plume": { "length": 5.0, "radius": 0.45, "color": [1.0, 0.62, 0.28] } }
+      ],
+      "mesh": [
+        { "type": "cylinder", "radius": 0.62, "height": 0.25, "offset": [0, 0.25, 0], "material": "darkgray", "segments": 40 },
+        { "type": "lathe", "profile": [[0.32, -0.05], [0.6, 0.125]], "material": "darkgray", "segments": 40 },
+        { "type": "cylinder", "radius": 0.22, "height": 0.32, "offset": [0, -0.16, 0], "material": "steel", "segments": 24 },
+        { "type": "lathe", "profile": [[0.52, -1.05], [0.47, -0.85], [0.36, -0.6], [0.24, -0.38], [0.17, -0.3]], "material": "bell", "capTop": false, "capBottom": false, "segments": 40 },
+        { "type": "box", "size": [0.06, 0.45, 0.06], "offset": [0.3, -0.12, 0], "material": "copper", "repeat": 3 },
+        { "type": "cylinder", "radius": 0.09, "height": 0.25, "offset": [0.28, 0.0, 0.2], "material": "steel", "segments": 12 }
+      ]
+    },
+    {
+      "id": "engine.vector", "name": "Vector LV-45 Gimballed Engine", "category": "engine", "manufacturer": "Corvid Propulsion",
+      "description": "A 1.25 m engine with 3 degrees of thrust vectoring. Good sea-level efficiency.",
+      "cost": 1200, "mass": 1500, "tech": "basicRocketry", "crashTolerance": 7,
+      "drag": { "top": 0.9, "bottom": 0.5, "side": 0.6 },
+      "attachNodes": [
+        { "id": "top", "position": [0, 0.4, 0], "direction": [0, 1, 0], "size": 1 },
+        { "id": "bottom", "position": [0, -1.15, 0], "direction": [0, -1, 0], "size": 1 }
+      ],
+      "modules": [
+        { "type": "Engine", "thrustVacuum": 200000, "ispVacuum": 320, "ispSeaLevel": 250, "gimbalRange": 3,
+          "propellants": [ { "resource": "Fuel", "ratio": 0.45 }, { "resource": "Oxidizer", "ratio": 0.55 } ],
+          "thrustPoint": [0, -1.15, 0], "exhaustDirection": [0, -1, 0], "gimbalGroup": "gimbal", "gimbalPivot": [0, -0.2, 0],
+          "plume": { "length": 5.0, "radius": 0.45, "color": [1.0, 0.7, 0.35] } }
+      ],
+      "mesh": [
+        { "type": "lathe", "profile": [[0.4, -0.1], [0.62, 0.25], [0.62, 0.4]], "material": "darkgray", "segments": 40 },
+        { "type": "torus", "radius": 0.3, "tube": 0.04, "offset": [0, -0.15, 0], "material": "steel", "segments": 24 },
+        { "type": "cylinder", "radius": 0.26, "height": 0.3, "offset": [0, -0.32, 0], "material": "steel", "segments": 24, "group": "gimbal" },
+        { "type": "lathe", "profile": [[0.56, -1.15], [0.46, -0.88], [0.32, -0.62], [0.22, -0.47]], "material": "bell", "capTop": false, "capBottom": false, "segments": 40, "group": "gimbal" },
+        { "type": "box", "size": [0.08, 0.35, 0.08], "offset": [0.33, 0.05, 0], "material": "copper", "repeat": 4 }
+      ]
+    },
+    {
+      "id": "engine.ember", "name": "Ember Vacuum Engine", "category": "engine", "manufacturer": "Corvid Propulsion",
+      "description": "An upper-stage engine with a huge expansion bell. Excellent in vacuum, nearly useless at sea level.",
+      "cost": 950, "mass": 500, "tech": "generalRocketry", "crashTolerance": 6,
+      "drag": { "top": 0.9, "bottom": 0.5, "side": 0.6 },
+      "attachNodes": [
+        { "id": "top", "position": [0, 0.2, 0], "direction": [0, 1, 0], "size": 1 },
+        { "id": "bottom", "position": [0, -1.6, 0], "direction": [0, -1, 0], "size": 1 }
+      ],
+      "modules": [
+        { "type": "Engine", "thrustVacuum": 60000, "ispVacuum": 345, "ispSeaLevel": 90, "gimbalRange": 4,
+          "propellants": [ { "resource": "Fuel", "ratio": 0.45 }, { "resource": "Oxidizer", "ratio": 0.55 } ],
+          "thrustPoint": [0, -1.6, 0], "exhaustDirection": [0, -1, 0], "gimbalGroup": "gimbal", "gimbalPivot": [0, -0.1, 0],
+          "plume": { "length": 3.0, "radius": 0.55, "color": [0.55, 0.7, 1.0] } }
+      ],
+      "mesh": [
+        { "type": "cylinder", "radius": 0.62, "height": 0.12, "offset": [0, 0.14, 0], "material": "darkgray", "segments": 40 },
+        { "type": "box", "size": [0.05, 0.3, 0.05], "offset": [0.4, -0.02, 0], "rotation": [0, 0, 35], "material": "steel", "repeat": 4 },
+        { "type": "cylinder", "radius": 0.13, "height": 0.25, "offset": [0, -0.12, 0], "material": "copper", "segments": 16, "group": "gimbal" },
+        { "type": "lathe", "profile": [[0.6, -1.6], [0.52, -1.25], [0.34, -0.75], [0.17, -0.38], [0.12, -0.25]], "material": "bell", "capTop": false, "capBottom": false, "segments": 48, "group": "gimbal" },
+        { "type": "torus", "radius": 0.6, "tube": 0.02, "offset": [0, -1.6, 0], "material": "copper", "segments": 48, "group": "gimbal" }
+      ]
+    },
+    {
+      "id": "engine.spark", "name": "Spark Micro Engine", "category": "engine", "manufacturer": "Corvid Propulsion",
+      "description": "A tiny 0.625 m engine for probes and landers.",
+      "cost": 240, "mass": 130, "tech": "start", "crashTolerance": 7,
+      "drag": { "top": 0.9, "bottom": 0.5, "side": 0.6 },
+      "attachNodes": [
+        { "id": "top", "position": [0, 0.12, 0], "direction": [0, 1, 0], "size": 0 },
+        { "id": "bottom", "position": [0, -0.45, 0], "direction": [0, -1, 0], "size": 0 }
+      ],
+      "surfaceAttach": { "position": [0, 0, -0.3], "direction": [0, 0, -1] },
+      "modules": [
+        { "type": "Engine", "thrustVacuum": 20000, "ispVacuum": 320, "ispSeaLevel": 270, "gimbalRange": 3,
+          "propellants": [ { "resource": "Fuel", "ratio": 0.45 }, { "resource": "Oxidizer", "ratio": 0.55 } ],
+          "thrustPoint": [0, -0.45, 0], "exhaustDirection": [0, -1, 0],
+          "plume": { "length": 1.6, "radius": 0.2, "color": [1.0, 0.7, 0.35] } }
+      ],
+      "mesh": [
+        { "type": "lathe", "profile": [[0.15, -0.05], [0.3, 0.06], [0.3, 0.12]], "material": "darkgray", "segments": 24 },
+        { "type": "lathe", "profile": [[0.24, -0.45], [0.17, -0.27], [0.09, -0.1], [0.08, -0.05]], "material": "bell", "capTop": false, "capBottom": false, "segments": 24 }
+      ]
+    },
+    {
+      "id": "engine.titan", "name": "Titan Heavy Lifter", "category": "engine", "manufacturer": "Corvid Propulsion",
+      "description": "An enormous 2.5 m booster engine for heavy launch vehicles.",
+      "cost": 13000, "mass": 6000, "tech": "heavyRocketry", "crashTolerance": 7, "breakingForce": 9000000,
+      "drag": { "top": 0.9, "bottom": 0.5, "side": 0.6 },
+      "attachNodes": [
+        { "id": "top", "position": [0, 0.6, 0], "direction": [0, 1, 0], "size": 2 },
+        { "id": "bottom", "position": [0, -2.2, 0], "direction": [0, -1, 0], "size": 2 }
+      ],
+      "modules": [
+        { "type": "Engine", "thrustVacuum": 1500000, "ispVacuum": 310, "ispSeaLevel": 285, "gimbalRange": 2,
+          "propellants": [ { "resource": "Fuel", "ratio": 0.45 }, { "resource": "Oxidizer", "ratio": 0.55 } ],
+          "thrustPoint": [0, -2.2, 0], "exhaustDirection": [0, -1, 0], "gimbalGroup": "gimbal", "gimbalPivot": [0, -0.4, 0],
+          "plume": { "length": 12.0, "radius": 1.0, "color": [1.0, 0.65, 0.3] } }
+      ],
+      "mesh": [
+        { "type": "cylinder", "radius": 1.24, "height": 0.4, "offset": [0, 0.4, 0], "material": "darkgray", "segments": 56 },
+        { "type": "lathe", "profile": [[0.7, -0.35], [1.2, 0.2]], "material": "darkgray", "segments": 56 },
+        { "type": "box", "size": [0.4, 0.6, 0.3], "offset": [0.75, -0.2, 0], "material": "steel", "repeat": 2 },
+        { "type": "cylinder", "radius": 0.45, "height": 0.4, "offset": [0, -0.5, 0], "material": "steel", "segments": 32, "group": "gimbal" },
+        { "type": "lathe", "profile": [[1.1, -2.2], [0.95, -1.65], [0.65, -1.05], [0.42, -0.7]], "material": "bell", "capTop": false, "capBottom": false, "segments": 56, "group": "gimbal" },
+        { "type": "box", "size": [0.1, 0.9, 0.1], "offset": [0.55, -0.25, 0.3], "material": "copper", "repeat": 5 }
+      ]
+    },
+    {
+      "id": "srb.flea", "name": "Mite Solid Booster", "category": "engine", "manufacturer": "Bramble Solids",
+      "description": "A cheap, short-burning solid motor. Cannot be throttled or shut down once lit.",
+      "cost": 200, "mass": 450, "tech": "start", "crashTolerance": 7,
+      "drag": { "top": 0.9, "bottom": 0.5, "side": 0.6 },
+      "attachNodes": [
+        { "id": "top", "position": [0, 0.8, 0], "direction": [0, 1, 0], "size": 1 },
+        { "id": "bottom", "position": [0, -1.05, 0], "direction": [0, -1, 0], "size": 1 }
+      ],
+      "surfaceAttach": { "position": [0, 0, -0.62], "direction": [0, 0, -1] },
+      "resources": [ { "resource": "SolidFuel", "amount": 1200, "max": 1200 } ],
+      "modules": [
+        { "type": "Engine", "thrustVacuum": 162000, "ispVacuum": 165, "ispSeaLevel": 140, "isSolid": true,
+          "propellants": [ { "resource": "SolidFuel", "ratio": 1.0 } ],
+          "thrustPoint": [0, -1.05, 0], "exhaustDirection": [0, -1, 0],
+          "plume": { "length": 6.0, "radius": 0.5, "color": [1.0, 0.75, 0.4], "smoky": true } }
+      ],
+      "mesh": [
+        { "type": "cylinder", "radius": 0.6, "height": 1.5, "offset": [0, 0.05, 0], "material": "white", "segments": 32 },
+        { "type": "cylinder", "radius": 0.61, "height": 0.12, "offset": [0, 0.74, 0], "material": "red", "segments": 32 },
+        { "type": "cylinder", "radius": 0.61, "height": 0.12, "offset": [0, -0.64, 0], "material": "red", "segments": 32 },
+        { "type": "lathe", "profile": [[0.4, -1.05], [0.28, -0.82], [0.24, -0.7]], "material": "darkgray", "capTop": false, "capBottom": false, "segments": 24 }
+      ]
+    },
+    {
+      "id": "srb.hammer", "name": "Hammer Solid Booster", "category": "engine", "manufacturer": "Bramble Solids",
+      "description": "A tall solid booster with a built-in nose cone. Ideal for radial strap-on boosters.",
+      "cost": 400, "mass": 750, "tech": "basicRocketry", "crashTolerance": 7,
+      "drag": { "top": 0.2, "bottom": 0.5, "side": 0.6 },
+      "attachNodes": [
+        { "id": "bottom", "position": [0, -2.3, 0], "direction": [0, -1, 0], "size": 1 }
+      ],
+      "surfaceAttach": { "position": [0, 0, -0.62], "direction": [0, 0, -1] },
+      "resources": [ { "resource": "SolidFuel", "amount": 2800, "max": 2800 } ],
+      "modules": [
+        { "type": "Engine", "thrustVacuum": 230000, "ispVacuum": 210, "ispSeaLevel": 180, "isSolid": true,
+          "propellants": [ { "resource": "SolidFuel", "ratio": 1.0 } ],
+          "thrustPoint": [0, -2.3, 0], "exhaustDirection": [0, -1, 0],
+          "plume": { "length": 7.0, "radius": 0.55, "color": [1.0, 0.75, 0.4], "smoky": true } }
+      ],
+      "mesh": [
+        { "type": "cylinder", "radius": 0.6, "height": 3.65, "offset": [0, -0.025, 0], "material": "white", "segments": 32 },
+        { "type": "lathe", "profile": [[0.6, 1.8], [0.52, 2.15], [0.34, 2.42], [0.12, 2.58], [0.02, 2.62]], "material": "white", "segments": 32 },
+        { "type": "cylinder", "radius": 0.61, "height": 0.15, "offset": [0, 1.0, 0], "material": "red", "segments": 32 },
+        { "type": "cylinder", "radius": 0.61, "height": 0.15, "offset": [0, -1.4, 0], "material": "red", "segments": 32 },
+        { "type": "cylinder", "radius": 0.6, "height": 0.1, "offset": [0, -1.85, 0], "material": "darkgray", "segments": 32 },
+        { "type": "lathe", "profile": [[0.42, -2.3], [0.3, -2.05], [0.26, -1.9]], "material": "darkgray", "capTop": false, "capBottom": false, "segments": 24 }
+      ]
+    }
+  ]
+}

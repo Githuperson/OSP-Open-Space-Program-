@@ -1,0 +1,141 @@
+{
+  // Propellant tanks. Liquid propellant is stored as Fuel:Oxidizer in a 45:55 mass ratio (amounts in kg).
+  "parts": [
+    {
+      "id": "tank.oscar", "name": "Pip Miniature Tank", "category": "fuelTank", "manufacturer": "Halcyon Tankworks",
+      "description": "A tiny 0.625 m tank for probes and landers.",
+      "cost": 70, "mass": 25, "tech": "start",
+      "drag": { "top": 0.9, "bottom": 0.9, "side": 0.6 },
+      "attachNodes": [
+        { "id": "top", "position": [0, 0.18, 0], "direction": [0, 1, 0], "size": 0 },
+        { "id": "bottom", "position": [0, -0.18, 0], "direction": [0, -1, 0], "size": 0 }
+      ],
+      "surfaceAttach": { "position": [0, 0, -0.31], "direction": [0, 0, -1] },
+      "resources": [ { "resource": "Fuel", "amount": 36, "max": 36 }, { "resource": "Oxidizer", "amount": 44, "max": 44 } ],
+      "mesh": [
+        { "type": "lathe", "profile": [[0.26, -0.18], [0.31, -0.13], [0.31, 0.13], [0.26, 0.18]], "material": "white", "segments": 24 },
+        { "type": "cylinder", "radius": 0.315, "height": 0.03, "material": "darkgray", "segments": 24 }
+      ]
+    },
+    {
+      "id": "tank.t100", "name": "FT-100 Fuel Tank", "category": "fuelTank", "manufacturer": "Halcyon Tankworks",
+      "description": "A short 1.25 m liquid fuel and oxidiser tank.",
+      "cost": 150, "mass": 62.5, "tech": "start",
+      "drag": { "top": 0.9, "bottom": 0.9, "side": 0.6 },
+      "attachNodes": [
+        { "id": "top", "position": [0, 0.235, 0], "direction": [0, 1, 0], "size": 1 },
+        { "id": "bottom", "position": [0, -0.235, 0], "direction": [0, -1, 0], "size": 1 }
+      ],
+      "resources": [ { "resource": "Fuel", "amount": 225, "max": 225 }, { "resource": "Oxidizer", "amount": 275, "max": 275 } ],
+      "mesh": [
+        { "type": "cylinder", "radius": 0.625, "height": 0.47, "material": "white", "segments": 40 },
+        { "type": "cylinder", "radius": 0.635, "height": 0.05, "offset": [0, 0.2, 0], "material": "lightgray", "segments": 40 },
+        { "type": "cylinder", "radius": 0.635, "height": 0.05, "offset": [0, -0.2, 0], "material": "lightgray", "segments": 40 }
+      ]
+    },
+    {
+      "id": "tank.t200", "name": "FT-200 Fuel Tank", "category": "fuelTank", "manufacturer": "Halcyon Tankworks",
+      "description": "A 1.25 m tank holding one tonne of propellant.",
+      "cost": 275, "mass": 125, "tech": "start",
+      "drag": { "top": 0.9, "bottom": 0.9, "side": 0.6 },
+      "attachNodes": [
+        { "id": "top", "position": [0, 0.47, 0], "direction": [0, 1, 0], "size": 1 },
+        { "id": "bottom", "position": [0, -0.47, 0], "direction": [0, -1, 0], "size": 1 }
+      ],
+      "resources": [ { "resource": "Fuel", "amount": 450, "max": 450 }, { "resource": "Oxidizer", "amount": 550, "max": 550 } ],
+      "mesh": [
+        { "type": "cylinder", "radius": 0.625, "height": 0.94, "material": "white", "segments": 40 },
+        { "type": "cylinder", "radius": 0.635, "height": 0.06, "offset": [0, 0.43, 0], "material": "lightgray", "segments": 40 },
+        { "type": "cylinder", "radius": 0.635, "height": 0.06, "offset": [0, -0.43, 0], "material": "lightgray", "segments": 40 },
+        { "type": "box", "size": [0.03, 0.8, 0.07], "offset": [0.63, 0, 0], "material": "lightgray", "repeat": 4 }
+      ]
+    },
+    {
+      "id": "tank.t400", "name": "FT-400 Fuel Tank", "category": "fuelTank", "manufacturer": "Halcyon Tankworks",
+      "description": "The workhorse 1.25 m tank: two tonnes of propellant.",
+      "cost": 500, "mass": 250, "tech": "basicRocketry",
+      "drag": { "top": 0.9, "bottom": 0.9, "side": 0.6 },
+      "attachNodes": [
+        { "id": "top", "position": [0, 0.9375, 0], "direction": [0, 1, 0], "size": 1 },
+        { "id": "bottom", "position": [0, -0.9375, 0], "direction": [0, -1, 0], "size": 1 }
+      ],
+      "resources": [ { "resource": "Fuel", "amount": 900, "max": 900 }, { "resource": "Oxidizer", "amount": 1100, "max": 1100 } ],
+      "mesh": [
+        { "type": "cylinder", "radius": 0.625, "height": 1.875, "material": "white", "segments": 40 },
+        { "type": "cylinder", "radius": 0.635, "height": 0.07, "offset": [0, 0.9, 0], "material": "lightgray", "segments": 40 },
+        { "type": "cylinder", "radius": 0.635, "height": 0.07, "offset": [0, -0.9, 0], "material": "lightgray", "segments": 40 },
+        { "type": "cylinder", "radius": 0.632, "height": 0.25, "offset": [0, 0.25, 0], "material": "black", "segments": 40 },
+        { "type": "box", "size": [0.03, 1.7, 0.07], "offset": [0.63, 0, 0], "material": "lightgray", "repeat": 4 }
+      ]
+    },
+    {
+      "id": "tank.t800", "name": "FT-800 Fuel Tank", "category": "fuelTank", "manufacturer": "Halcyon Tankworks",
+      "description": "A long 1.25 m tank with four tonnes of propellant.",
+      "cost": 800, "mass": 500, "tech": "generalRocketry",
+      "drag": { "top": 0.9, "bottom": 0.9, "side": 0.6 },
+      "attachNodes": [
+        { "id": "top", "position": [0, 1.875, 0], "direction": [0, 1, 0], "size": 1 },
+        { "id": "bottom", "position": [0, -1.875, 0], "direction": [0, -1, 0], "size": 1 }
+      ],
+      "resources": [ { "resource": "Fuel", "amount": 1800, "max": 1800 }, { "resource": "Oxidizer", "amount": 2200, "max": 2200 } ],
+      "mesh": [
+        { "type": "cylinder", "radius": 0.625, "height": 3.75, "material": "white", "segments": 40 },
+        { "type": "cylinder", "radius": 0.635, "height": 0.08, "offset": [0, 1.83, 0], "material": "lightgray", "segments": 40 },
+        { "type": "cylinder", "radius": 0.635, "height": 0.08, "offset": [0, -1.83, 0], "material": "lightgray", "segments": 40 },
+        { "type": "cylinder", "radius": 0.635, "height": 0.08, "offset": [0, 0, 0], "material": "lightgray", "segments": 40 },
+        { "type": "cylinder", "radius": 0.632, "height": 0.5, "offset": [0, 1.2, 0], "material": "black", "segments": 40 },
+        { "type": "box", "size": [0.03, 3.6, 0.07], "offset": [0.63, 0, 0], "material": "lightgray", "repeat": 4 }
+      ]
+    },
+    {
+      "id": "tank.x200", "name": "XL-200 Tank", "category": "fuelTank", "manufacturer": "Halcyon Tankworks",
+      "description": "A 2.5 m foam-insulated tank holding eight tonnes of propellant.",
+      "cost": 1550, "mass": 1000, "tech": "heavyRocketry",
+      "breakingForce": 8000000,
+      "drag": { "top": 0.9, "bottom": 0.9, "side": 0.6 },
+      "attachNodes": [
+        { "id": "top", "position": [0, 0.9375, 0], "direction": [0, 1, 0], "size": 2 },
+        { "id": "bottom", "position": [0, -0.9375, 0], "direction": [0, -1, 0], "size": 2 }
+      ],
+      "resources": [ { "resource": "Fuel", "amount": 3600, "max": 3600 }, { "resource": "Oxidizer", "amount": 4400, "max": 4400 } ],
+      "mesh": [
+        { "type": "cylinder", "radius": 1.25, "height": 1.875, "material": "orange", "segments": 56 },
+        { "type": "cylinder", "radius": 1.265, "height": 0.1, "offset": [0, 0.89, 0], "material": "darkgray", "segments": 56 },
+        { "type": "cylinder", "radius": 1.265, "height": 0.1, "offset": [0, -0.89, 0], "material": "darkgray", "segments": 56 },
+        { "type": "box", "size": [0.05, 1.7, 0.12], "offset": [1.26, 0, 0], "material": "darkgray", "repeat": 6 }
+      ]
+    },
+    {
+      "id": "tank.x400", "name": "XL-400 Tank", "category": "fuelTank", "manufacturer": "Halcyon Tankworks",
+      "description": "A heavy 2.5 m tank with sixteen tonnes of propellant.",
+      "cost": 3000, "mass": 2000, "tech": "heavyRocketry",
+      "breakingForce": 8000000,
+      "drag": { "top": 0.9, "bottom": 0.9, "side": 0.6 },
+      "attachNodes": [
+        { "id": "top", "position": [0, 1.875, 0], "direction": [0, 1, 0], "size": 2 },
+        { "id": "bottom", "position": [0, -1.875, 0], "direction": [0, -1, 0], "size": 2 }
+      ],
+      "resources": [ { "resource": "Fuel", "amount": 7200, "max": 7200 }, { "resource": "Oxidizer", "amount": 8800, "max": 8800 } ],
+      "mesh": [
+        { "type": "cylinder", "radius": 1.25, "height": 3.75, "material": "orange", "segments": 56 },
+        { "type": "cylinder", "radius": 1.265, "height": 0.1, "offset": [0, 1.82, 0], "material": "darkgray", "segments": 56 },
+        { "type": "cylinder", "radius": 1.265, "height": 0.1, "offset": [0, -1.82, 0], "material": "darkgray", "segments": 56 },
+        { "type": "cylinder", "radius": 1.265, "height": 0.08, "offset": [0, 0, 0], "material": "darkgray", "segments": 56 },
+        { "type": "box", "size": [0.05, 3.6, 0.12], "offset": [1.26, 0, 0], "material": "darkgray", "repeat": 6 }
+      ]
+    },
+    {
+      "id": "tank.mono", "name": "Globe Monopropellant Tank", "category": "fuelTank", "manufacturer": "Halcyon Tankworks",
+      "description": "A radially mounted spherical tank of monopropellant for RCS thrusters.",
+      "cost": 200, "mass": 40, "tech": "advancedFlight",
+      "drag": { "top": 0.5, "bottom": 0.5, "side": 0.5 },
+      "surfaceAttach": { "position": [0, 0, -0.3], "direction": [0, 0, -1] },
+      "resources": [ { "resource": "Monopropellant", "amount": 75, "max": 75 } ],
+      "mesh": [
+        { "type": "sphere", "radius": 0.28, "material": "white", "segments": 24 },
+        { "type": "torus", "radius": 0.28, "tube": 0.025, "material": "darkgray", "segments": 24 },
+        { "type": "box", "size": [0.12, 0.3, 0.06], "offset": [0, 0, -0.26], "material": "darkgray" }
+      ]
+    }
+  ]
+}

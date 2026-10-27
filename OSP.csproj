@@ -1,0 +1,15 @@
+<Project Sdk="Godot.NET.Sdk/4.4.1">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <RootNamespace>OSP</RootNamespace>
+    <LangVersion>12</LangVersion>
+    <Nullable>disable</Nullable>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- The test project compiles src/Core separately; keep it out of the game assembly. -->
+    <Compile Remove="tests/**" />
+    <Compile Remove="build/**" />
+  </ItemGroup>
+</Project>
