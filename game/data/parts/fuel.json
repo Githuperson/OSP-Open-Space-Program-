@@ -1,0 +1,1222 @@
+{
+ "parts": [
+  {
+   "id": "tank_s1",
+   "name": "Cask S-1 Fuel Tank",
+   "category": "Fuel",
+   "description": "Compact 1.25 m propellant tank (0.9 t).",
+   "dryMass": 90,
+   "cost": 150,
+   "shape": {
+    "kind": "cylinder",
+    "radius": 0.625,
+    "length": 1.0
+   },
+   "nodes": [
+    {
+     "id": "top",
+     "kind": "stack",
+     "position": [
+      0,
+      0.5,
+      0
+     ],
+     "direction": [
+      0,
+      1,
+      0
+     ],
+     "size": 1
+    },
+    {
+     "id": "bottom",
+     "kind": "stack",
+     "position": [
+      0,
+      -0.5,
+      0
+     ],
+     "direction": [
+      0,
+      -1,
+      0
+     ],
+     "size": 1
+    }
+   ],
+   "visual": {
+    "elements": [
+     {
+      "type": "lathe",
+      "profile": [
+       [
+        -0.5,
+        0
+       ],
+       [
+        -0.5,
+        0.55
+       ],
+       [
+        -0.45,
+        0.625
+       ],
+       [
+        0.45,
+        0.625
+       ],
+       [
+        0.5,
+        0.55
+       ],
+       [
+        0.5,
+        0
+       ]
+      ],
+      "material": "white",
+      "segments": 32,
+      "smooth": true,
+      "offset": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 0.6325000000000001,
+      "length": 0.07,
+      "material": "orange",
+      "offset": [
+       0,
+       -0.44,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 32,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 0.6325000000000001,
+      "length": 0.07,
+      "material": "orange",
+      "offset": [
+       0,
+       0.44,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 32,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     }
+    ]
+   },
+   "resources": [
+    {
+     "name": "Propellant",
+     "capacity": 900
+    }
+   ],
+   "acceptsRadial": true,
+   "crashTolerance": 6,
+   "aero": {
+    "cdTop": 0.8,
+    "cdBottom": 0.6,
+    "cdBase": 0.15,
+    "cdSide": 1.0
+   },
+   "jointStrength": 1600000.0,
+   "jointTorque": 450000.0
+  },
+  {
+   "id": "tank_s2",
+   "name": "Cask S-2 Fuel Tank",
+   "category": "Fuel",
+   "description": "Standard 1.25 m propellant tank (1.8 t).",
+   "dryMass": 170,
+   "cost": 270,
+   "shape": {
+    "kind": "cylinder",
+    "radius": 0.625,
+    "length": 2.0
+   },
+   "nodes": [
+    {
+     "id": "top",
+     "kind": "stack",
+     "position": [
+      0,
+      1.0,
+      0
+     ],
+     "direction": [
+      0,
+      1,
+      0
+     ],
+     "size": 1
+    },
+    {
+     "id": "bottom",
+     "kind": "stack",
+     "position": [
+      0,
+      -1.0,
+      0
+     ],
+     "direction": [
+      0,
+      -1,
+      0
+     ],
+     "size": 1
+    }
+   ],
+   "visual": {
+    "elements": [
+     {
+      "type": "lathe",
+      "profile": [
+       [
+        -1.0,
+        0
+       ],
+       [
+        -1.0,
+        0.55
+       ],
+       [
+        -0.95,
+        0.625
+       ],
+       [
+        0.95,
+        0.625
+       ],
+       [
+        1.0,
+        0.55
+       ],
+       [
+        1.0,
+        0
+       ]
+      ],
+      "material": "white",
+      "segments": 32,
+      "smooth": true,
+      "offset": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 0.6325000000000001,
+      "length": 0.07,
+      "material": "orange",
+      "offset": [
+       0,
+       -0.94,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 32,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 0.6325000000000001,
+      "length": 0.07,
+      "material": "orange",
+      "offset": [
+       0,
+       0.0,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 32,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 0.6325000000000001,
+      "length": 0.07,
+      "material": "orange",
+      "offset": [
+       0,
+       0.94,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 32,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     }
+    ]
+   },
+   "resources": [
+    {
+     "name": "Propellant",
+     "capacity": 1800
+    }
+   ],
+   "acceptsRadial": true,
+   "crashTolerance": 6,
+   "aero": {
+    "cdTop": 0.8,
+    "cdBottom": 0.6,
+    "cdBase": 0.15,
+    "cdSide": 1.0
+   },
+   "jointStrength": 1600000.0,
+   "jointTorque": 450000.0
+  },
+  {
+   "id": "tank_s4",
+   "name": "Cask S-4 Fuel Tank",
+   "category": "Fuel",
+   "description": "Long 1.25 m propellant tank (3.6 t).",
+   "dryMass": 330,
+   "cost": 500,
+   "shape": {
+    "kind": "cylinder",
+    "radius": 0.625,
+    "length": 4.0
+   },
+   "nodes": [
+    {
+     "id": "top",
+     "kind": "stack",
+     "position": [
+      0,
+      2.0,
+      0
+     ],
+     "direction": [
+      0,
+      1,
+      0
+     ],
+     "size": 1
+    },
+    {
+     "id": "bottom",
+     "kind": "stack",
+     "position": [
+      0,
+      -2.0,
+      0
+     ],
+     "direction": [
+      0,
+      -1,
+      0
+     ],
+     "size": 1
+    }
+   ],
+   "visual": {
+    "elements": [
+     {
+      "type": "lathe",
+      "profile": [
+       [
+        -2.0,
+        0
+       ],
+       [
+        -2.0,
+        0.55
+       ],
+       [
+        -1.95,
+        0.625
+       ],
+       [
+        1.95,
+        0.625
+       ],
+       [
+        2.0,
+        0.55
+       ],
+       [
+        2.0,
+        0
+       ]
+      ],
+      "material": "white",
+      "segments": 32,
+      "smooth": true,
+      "offset": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 0.6325000000000001,
+      "length": 0.07,
+      "material": "orange",
+      "offset": [
+       0,
+       -1.94,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 32,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 0.6325000000000001,
+      "length": 0.07,
+      "material": "orange",
+      "offset": [
+       0,
+       -0.97,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 32,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 0.6325000000000001,
+      "length": 0.07,
+      "material": "orange",
+      "offset": [
+       0,
+       0.0,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 32,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 0.6325000000000001,
+      "length": 0.07,
+      "material": "orange",
+      "offset": [
+       0,
+       0.9700000000000002,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 32,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 0.6325000000000001,
+      "length": 0.07,
+      "material": "orange",
+      "offset": [
+       0,
+       1.94,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 32,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     }
+    ]
+   },
+   "resources": [
+    {
+     "name": "Propellant",
+     "capacity": 3600
+    }
+   ],
+   "acceptsRadial": true,
+   "crashTolerance": 6,
+   "aero": {
+    "cdTop": 0.8,
+    "cdBottom": 0.6,
+    "cdBase": 0.15,
+    "cdSide": 1.0
+   },
+   "jointStrength": 1600000.0,
+   "jointTorque": 450000.0
+  },
+  {
+   "id": "tank_l2",
+   "name": "Bulk L-2 Fuel Tank",
+   "category": "Fuel",
+   "description": "Short 2.5 m propellant tank (7.2 t).",
+   "dryMass": 640,
+   "cost": 800,
+   "shape": {
+    "kind": "cylinder",
+    "radius": 1.25,
+    "length": 2.0
+   },
+   "nodes": [
+    {
+     "id": "top",
+     "kind": "stack",
+     "position": [
+      0,
+      1.0,
+      0
+     ],
+     "direction": [
+      0,
+      1,
+      0
+     ],
+     "size": 2
+    },
+    {
+     "id": "bottom",
+     "kind": "stack",
+     "position": [
+      0,
+      -1.0,
+      0
+     ],
+     "direction": [
+      0,
+      -1,
+      0
+     ],
+     "size": 2
+    }
+   ],
+   "visual": {
+    "elements": [
+     {
+      "type": "lathe",
+      "profile": [
+       [
+        -1.0,
+        0
+       ],
+       [
+        -1.0,
+        1.1
+       ],
+       [
+        -0.95,
+        1.25
+       ],
+       [
+        0.95,
+        1.25
+       ],
+       [
+        1.0,
+        1.1
+       ],
+       [
+        1.0,
+        0
+       ]
+      ],
+      "material": "white",
+      "segments": 40,
+      "smooth": true,
+      "offset": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 1.2650000000000001,
+      "length": 0.07,
+      "material": "grey",
+      "offset": [
+       0,
+       -0.94,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 40,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 1.2650000000000001,
+      "length": 0.07,
+      "material": "grey",
+      "offset": [
+       0,
+       0.0,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 40,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 1.2650000000000001,
+      "length": 0.07,
+      "material": "grey",
+      "offset": [
+       0,
+       0.94,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 40,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     }
+    ]
+   },
+   "resources": [
+    {
+     "name": "Propellant",
+     "capacity": 7200
+    }
+   ],
+   "acceptsRadial": true,
+   "crashTolerance": 8,
+   "aero": {
+    "cdTop": 0.8,
+    "cdBottom": 0.6,
+    "cdBase": 0.15,
+    "cdSide": 1.0
+   },
+   "jointStrength": 6500000.0,
+   "jointTorque": 2200000.0
+  },
+  {
+   "id": "tank_l4",
+   "name": "Bulk L-4 Fuel Tank",
+   "category": "Fuel",
+   "description": "Standard 2.5 m propellant tank (14.4 t).",
+   "dryMass": 1200,
+   "cost": 1500,
+   "shape": {
+    "kind": "cylinder",
+    "radius": 1.25,
+    "length": 4.0
+   },
+   "nodes": [
+    {
+     "id": "top",
+     "kind": "stack",
+     "position": [
+      0,
+      2.0,
+      0
+     ],
+     "direction": [
+      0,
+      1,
+      0
+     ],
+     "size": 2
+    },
+    {
+     "id": "bottom",
+     "kind": "stack",
+     "position": [
+      0,
+      -2.0,
+      0
+     ],
+     "direction": [
+      0,
+      -1,
+      0
+     ],
+     "size": 2
+    }
+   ],
+   "visual": {
+    "elements": [
+     {
+      "type": "lathe",
+      "profile": [
+       [
+        -2.0,
+        0
+       ],
+       [
+        -2.0,
+        1.1
+       ],
+       [
+        -1.95,
+        1.25
+       ],
+       [
+        1.95,
+        1.25
+       ],
+       [
+        2.0,
+        1.1
+       ],
+       [
+        2.0,
+        0
+       ]
+      ],
+      "material": "white",
+      "segments": 40,
+      "smooth": true,
+      "offset": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 1.2650000000000001,
+      "length": 0.07,
+      "material": "grey",
+      "offset": [
+       0,
+       -1.94,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 40,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 1.2650000000000001,
+      "length": 0.07,
+      "material": "grey",
+      "offset": [
+       0,
+       -0.97,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 40,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 1.2650000000000001,
+      "length": 0.07,
+      "material": "grey",
+      "offset": [
+       0,
+       0.0,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 40,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 1.2650000000000001,
+      "length": 0.07,
+      "material": "grey",
+      "offset": [
+       0,
+       0.9700000000000002,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 40,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 1.2650000000000001,
+      "length": 0.07,
+      "material": "grey",
+      "offset": [
+       0,
+       1.94,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 40,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     }
+    ]
+   },
+   "resources": [
+    {
+     "name": "Propellant",
+     "capacity": 14400
+    }
+   ],
+   "acceptsRadial": true,
+   "crashTolerance": 8,
+   "aero": {
+    "cdTop": 0.8,
+    "cdBottom": 0.6,
+    "cdBase": 0.15,
+    "cdSide": 1.0
+   },
+   "jointStrength": 6500000.0,
+   "jointTorque": 2200000.0
+  },
+  {
+   "id": "tank_l8",
+   "name": "Bulk L-8 Fuel Tank",
+   "category": "Fuel",
+   "description": "Tall 2.5 m propellant tank (28.8 t).",
+   "dryMass": 2300,
+   "cost": 2800,
+   "shape": {
+    "kind": "cylinder",
+    "radius": 1.25,
+    "length": 8.0
+   },
+   "nodes": [
+    {
+     "id": "top",
+     "kind": "stack",
+     "position": [
+      0,
+      4.0,
+      0
+     ],
+     "direction": [
+      0,
+      1,
+      0
+     ],
+     "size": 2
+    },
+    {
+     "id": "bottom",
+     "kind": "stack",
+     "position": [
+      0,
+      -4.0,
+      0
+     ],
+     "direction": [
+      0,
+      -1,
+      0
+     ],
+     "size": 2
+    }
+   ],
+   "visual": {
+    "elements": [
+     {
+      "type": "lathe",
+      "profile": [
+       [
+        -4.0,
+        0
+       ],
+       [
+        -4.0,
+        1.1
+       ],
+       [
+        -3.95,
+        1.25
+       ],
+       [
+        3.95,
+        1.25
+       ],
+       [
+        4.0,
+        1.1
+       ],
+       [
+        4.0,
+        0
+       ]
+      ],
+      "material": "white",
+      "segments": 40,
+      "smooth": true,
+      "offset": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 1.2650000000000001,
+      "length": 0.07,
+      "material": "grey",
+      "offset": [
+       0,
+       -3.94,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 40,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 1.2650000000000001,
+      "length": 0.07,
+      "material": "grey",
+      "offset": [
+       0,
+       -2.955,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 40,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 1.2650000000000001,
+      "length": 0.07,
+      "material": "grey",
+      "offset": [
+       0,
+       -1.97,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 40,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 1.2650000000000001,
+      "length": 0.07,
+      "material": "grey",
+      "offset": [
+       0,
+       -0.9849999999999999,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 40,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 1.2650000000000001,
+      "length": 0.07,
+      "material": "grey",
+      "offset": [
+       0,
+       0.0,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 40,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 1.2650000000000001,
+      "length": 0.07,
+      "material": "grey",
+      "offset": [
+       0,
+       0.9849999999999999,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 40,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 1.2650000000000001,
+      "length": 0.07,
+      "material": "grey",
+      "offset": [
+       0,
+       1.9700000000000002,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 40,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 1.2650000000000001,
+      "length": 0.07,
+      "material": "grey",
+      "offset": [
+       0,
+       2.9549999999999996,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 40,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 1.2650000000000001,
+      "length": 0.07,
+      "material": "grey",
+      "offset": [
+       0,
+       3.94,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 40,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     }
+    ]
+   },
+   "resources": [
+    {
+     "name": "Propellant",
+     "capacity": 28800
+    }
+   ],
+   "acceptsRadial": true,
+   "crashTolerance": 8,
+   "aero": {
+    "cdTop": 0.8,
+    "cdBottom": 0.6,
+    "cdBase": 0.15,
+    "cdSide": 1.0
+   },
+   "jointStrength": 6500000.0,
+   "jointTorque": 2200000.0
+  },
+  {
+   "id": "tank_mono",
+   "name": "Pip Monoprop Tank",
+   "category": "Fuel",
+   "description": "1.25 m stack tank of monopropellant for RCS thrusters (300 kg).",
+   "dryMass": 40,
+   "cost": 120,
+   "shape": {
+    "kind": "cylinder",
+    "radius": 0.625,
+    "length": 0.6
+   },
+   "nodes": [
+    {
+     "id": "top",
+     "kind": "stack",
+     "position": [
+      0,
+      0.3,
+      0
+     ],
+     "direction": [
+      0,
+      1,
+      0
+     ],
+     "size": 1
+    },
+    {
+     "id": "bottom",
+     "kind": "stack",
+     "position": [
+      0,
+      -0.3,
+      0
+     ],
+     "direction": [
+      0,
+      -1,
+      0
+     ],
+     "size": 1
+    }
+   ],
+   "visual": {
+    "elements": [
+     {
+      "type": "lathe",
+      "profile": [
+       [
+        -0.3,
+        0
+       ],
+       [
+        -0.3,
+        0.55
+       ],
+       [
+        -0.25,
+        0.625
+       ],
+       [
+        0.25,
+        0.625
+       ],
+       [
+        0.3,
+        0.55
+       ],
+       [
+        0.3,
+        0
+       ]
+      ],
+      "material": "yellow",
+      "segments": 32,
+      "smooth": true,
+      "offset": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 0.63,
+      "length": 0.05,
+      "material": "dark",
+      "offset": [
+       0,
+       0,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 24,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     }
+    ]
+   },
+   "resources": [
+    {
+     "name": "Monopropellant",
+     "capacity": 300
+    }
+   ],
+   "acceptsRadial": true,
+   "crashTolerance": 6,
+   "aero": {
+    "cdTop": 0.8,
+    "cdBottom": 0.6,
+    "cdBase": 0.15,
+    "cdSide": 1.0
+   },
+   "jointStrength": 1600000.0,
+   "jointTorque": 450000.0
+  }
+ ]
+}

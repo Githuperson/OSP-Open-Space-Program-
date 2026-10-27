@@ -1,0 +1,320 @@
+{
+ "parts": [
+  {
+   "id": "dec_s",
+   "name": "Sep-1 Stack Decoupler",
+   "category": "Separation",
+   "description": "Explosive-bolt ring that separates everything below it when staged.",
+   "dryMass": 50,
+   "cost": 200,
+   "shape": {
+    "kind": "cylinder",
+    "radius": 0.625,
+    "length": 0.25
+   },
+   "nodes": [
+    {
+     "id": "top",
+     "kind": "stack",
+     "position": [
+      0,
+      0.125,
+      0
+     ],
+     "direction": [
+      0,
+      1,
+      0
+     ],
+     "size": 1
+    },
+    {
+     "id": "bottom",
+     "kind": "stack",
+     "position": [
+      0,
+      -0.125,
+      0
+     ],
+     "direction": [
+      0,
+      -1,
+      0
+     ],
+     "size": 1
+    }
+   ],
+   "visual": {
+    "elements": [
+     {
+      "type": "lathe",
+      "profile": [
+       [
+        -0.125,
+        0.5125
+       ],
+       [
+        -0.125,
+        0.625
+       ],
+       [
+        0.125,
+        0.625
+       ],
+       [
+        0.125,
+        0.5125
+       ],
+       [
+        -0.125,
+        0.5125
+       ]
+      ],
+      "material": "dark",
+      "segments": 32,
+      "smooth": true,
+      "offset": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 0.63375,
+      "length": 0.075,
+      "material": "yellow",
+      "offset": [
+       0,
+       0,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 32,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     }
+    ]
+   },
+   "decoupler": {
+    "separationImpulse": 4000,
+    "cutNode": "bottom"
+   },
+   "blocksFlow": true,
+   "acceptsRadial": true,
+   "crashTolerance": 7,
+   "jointStrength": 1600000.0,
+   "jointTorque": 450000.0
+  },
+  {
+   "id": "dec_l",
+   "name": "Sep-2 Heavy Stack Decoupler",
+   "category": "Separation",
+   "description": "2.5 m stack decoupler with stronger springs.",
+   "dryMass": 180,
+   "cost": 450,
+   "shape": {
+    "kind": "cylinder",
+    "radius": 1.25,
+    "length": 0.4
+   },
+   "nodes": [
+    {
+     "id": "top",
+     "kind": "stack",
+     "position": [
+      0,
+      0.2,
+      0
+     ],
+     "direction": [
+      0,
+      1,
+      0
+     ],
+     "size": 2
+    },
+    {
+     "id": "bottom",
+     "kind": "stack",
+     "position": [
+      0,
+      -0.2,
+      0
+     ],
+     "direction": [
+      0,
+      -1,
+      0
+     ],
+     "size": 2
+    }
+   ],
+   "visual": {
+    "elements": [
+     {
+      "type": "lathe",
+      "profile": [
+       [
+        -0.2,
+        1.025
+       ],
+       [
+        -0.2,
+        1.25
+       ],
+       [
+        0.2,
+        1.25
+       ],
+       [
+        0.2,
+        1.025
+       ],
+       [
+        -0.2,
+        1.025
+       ]
+      ],
+      "material": "dark",
+      "segments": 40,
+      "smooth": true,
+      "offset": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 1.2675,
+      "length": 0.12,
+      "material": "yellow",
+      "offset": [
+       0,
+       0,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 40,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     }
+    ]
+   },
+   "decoupler": {
+    "separationImpulse": 14000,
+    "cutNode": "bottom"
+   },
+   "blocksFlow": true,
+   "acceptsRadial": true,
+   "crashTolerance": 7,
+   "jointStrength": 6500000.0,
+   "jointTorque": 2200000.0
+  },
+  {
+   "id": "dec_radial",
+   "name": "Sep-R Radial Decoupler",
+   "category": "Separation",
+   "description": "Side-mounted decoupler for strap-on boosters. The booster mounts on its outer socket and leaves with it.",
+   "dryMass": 60,
+   "cost": 300,
+   "shape": {
+    "kind": "box",
+    "size": [
+     0.35,
+     0.5,
+     0.3
+    ]
+   },
+   "nodes": [
+    {
+     "id": "srf",
+     "kind": "surface",
+     "position": [
+      -0.175,
+      0,
+      0
+     ],
+     "direction": [
+      -1,
+      0,
+      0
+     ],
+     "size": 1
+    },
+    {
+     "id": "outer",
+     "kind": "socket",
+     "position": [
+      0.175,
+      0,
+      0
+     ],
+     "direction": [
+      1,
+      0,
+      0
+     ],
+     "size": 1
+    }
+   ],
+   "visual": {
+    "elements": [
+     {
+      "type": "box",
+      "size": [
+       0.35,
+       0.5,
+       0.3
+      ],
+      "material": "dark",
+      "offset": [
+       0,
+       0,
+       0
+      ],
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "box",
+      "size": [
+       0.1,
+       0.2,
+       0.34
+      ],
+      "material": "yellow",
+      "offset": [
+       0.05,
+       0,
+       0
+      ],
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     }
+    ]
+   },
+   "decoupler": {
+    "separationImpulse": 3000,
+    "cutNode": "srf"
+   },
+   "blocksFlow": true,
+   "crashTolerance": 7,
+   "jointStrength": 700000.0,
+   "jointTorque": 140000.0
+  }
+ ]
+}

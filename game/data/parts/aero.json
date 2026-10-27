@@ -1,0 +1,194 @@
+{
+ "parts": [
+  {
+   "id": "fin_delta",
+   "name": "Delta-F Stabiliser Fin",
+   "category": "Aerodynamics",
+   "description": "Fixed swept fin that pushes the centre of pressure aft so a rocket flies straight.",
+   "dryMass": 60,
+   "cost": 120,
+   "shape": {
+    "kind": "box",
+    "size": [
+     0.8,
+     1.2,
+     0.08
+    ]
+   },
+   "nodes": [
+    {
+     "id": "srf",
+     "kind": "surface",
+     "position": [
+      -0.0,
+      0,
+      0
+     ],
+     "direction": [
+      -1,
+      0,
+      0
+     ],
+     "size": 1
+    }
+   ],
+   "visual": {
+    "elements": [
+     {
+      "type": "box",
+      "size": [
+       0.8,
+       1.2,
+       0.08
+      ],
+      "material": "white",
+      "offset": [
+       0.35,
+       0,
+       0
+      ],
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "box",
+      "size": [
+       0.8,
+       0.5,
+       0.06
+      ],
+      "material": "red",
+      "offset": [
+       0.4,
+       -0.2,
+       0
+      ],
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     }
+    ]
+   },
+   "aeroSurface": {
+    "area": 0.9,
+    "normal": [
+     0,
+     0,
+     1
+    ],
+    "cd0": 0.03,
+    "control": false,
+    "maxDeflectionDeg": 0
+   },
+   "aero": {
+    "cdTop": 0.1,
+    "cdBottom": 0.1,
+    "cdBase": 0.0,
+    "cdSide": 0.1
+   },
+   "crashTolerance": 5,
+   "jointStrength": 300000.0,
+   "jointTorque": 60000.0
+  },
+  {
+   "id": "fin_ctrl",
+   "name": "Vane-C Control Surface",
+   "category": "Aerodynamics",
+   "description": "Motorised control surface: deflects with pitch/yaw/roll input to steer in atmosphere.",
+   "dryMass": 90,
+   "cost": 220,
+   "shape": {
+    "kind": "box",
+    "size": [
+     0.9,
+     0.8,
+     0.08
+    ]
+   },
+   "nodes": [
+    {
+     "id": "srf",
+     "kind": "surface",
+     "position": [
+      -0.0,
+      0,
+      0
+     ],
+     "direction": [
+      -1,
+      0,
+      0
+     ],
+     "size": 1
+    }
+   ],
+   "visual": {
+    "elements": [
+     {
+      "type": "box",
+      "size": [
+       0.9,
+       0.8,
+       0.08
+      ],
+      "material": "white",
+      "offset": [
+       0.4,
+       0,
+       0
+      ],
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "box",
+      "size": [
+       0.9,
+       0.12,
+       0.1
+      ],
+      "material": "orange",
+      "offset": [
+       0.4,
+       -0.35,
+       0
+      ],
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     }
+    ]
+   },
+   "aeroSurface": {
+    "area": 0.8,
+    "normal": [
+     0,
+     0,
+     1
+    ],
+    "cd0": 0.03,
+    "control": true,
+    "maxDeflectionDeg": 25
+   },
+   "aero": {
+    "cdTop": 0.1,
+    "cdBottom": 0.1,
+    "cdBase": 0.0,
+    "cdSide": 0.1
+   },
+   "crashTolerance": 5,
+   "jointStrength": 300000.0,
+   "jointTorque": 60000.0
+  }
+ ]
+}

@@ -1,0 +1,14 @@
+# .NET / Godot build output (generated; never commit)
+bin/
+obj/
+.godot/
+.mono/
+*.translation
+export/
+build/
+*.user
+.vs/
+.idea/
+TestResults/
+# macOS
+.DS_Store

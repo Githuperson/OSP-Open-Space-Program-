@@ -1,0 +1,310 @@
+{
+ "parts": [
+  {
+   "id": "rw_unit",
+   "name": "Gyro-1 Reaction Wheel",
+   "category": "Control",
+   "description": "Spinning-mass attitude controller: 15 kN m of torque without using propellant.",
+   "dryMass": 150,
+   "cost": 450,
+   "shape": {
+    "kind": "cylinder",
+    "radius": 0.625,
+    "length": 0.4
+   },
+   "nodes": [
+    {
+     "id": "top",
+     "kind": "stack",
+     "position": [
+      0,
+      0.2,
+      0
+     ],
+     "direction": [
+      0,
+      1,
+      0
+     ],
+     "size": 1
+    },
+    {
+     "id": "bottom",
+     "kind": "stack",
+     "position": [
+      0,
+      -0.2,
+      0
+     ],
+     "direction": [
+      0,
+      -1,
+      0
+     ],
+     "size": 1
+    }
+   ],
+   "visual": {
+    "elements": [
+     {
+      "type": "cylinder",
+      "radius": 0.625,
+      "length": 0.4,
+      "material": "grey",
+      "offset": [
+       0,
+       0,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 24,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 0.5,
+      "length": 0.42,
+      "material": "dark",
+      "offset": [
+       0,
+       0,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 24,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 0.63125,
+      "length": 0.05,
+      "material": "orange",
+      "offset": [
+       0,
+       0.15,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 24,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     }
+    ]
+   },
+   "reactionWheel": {
+    "torque": 15000,
+    "electricRate": 0.5
+   },
+   "acceptsRadial": true,
+   "crashTolerance": 7,
+   "aero": {
+    "cdTop": 0.7,
+    "cdBottom": 0.6,
+    "cdBase": 0.15,
+    "cdSide": 1.0
+   },
+   "jointStrength": 1600000.0,
+   "jointTorque": 450000.0
+  },
+  {
+   "id": "rcs_block",
+   "name": "Quad-R RCS Block",
+   "category": "Control",
+   "description": "Four-nozzle reaction-control block. Provides rotation and translation using monopropellant.",
+   "dryMass": 30,
+   "cost": 200,
+   "shape": {
+    "kind": "box",
+    "size": [
+     0.3,
+     0.3,
+     0.3
+    ]
+   },
+   "nodes": [
+    {
+     "id": "srf",
+     "kind": "surface",
+     "position": [
+      -0.15,
+      0,
+      0
+     ],
+     "direction": [
+      -1,
+      0,
+      0
+     ],
+     "size": 1
+    }
+   ],
+   "visual": {
+    "elements": [
+     {
+      "type": "box",
+      "size": [
+       0.3,
+       0.2,
+       0.3
+      ],
+      "material": "grey",
+      "offset": [
+       0,
+       0,
+       0
+      ],
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 0.07,
+      "length": 0.18,
+      "material": "metal",
+      "offset": [
+       0.1,
+       0,
+       0.2
+      ],
+      "radiusTop": -1,
+      "segments": 24,
+      "rotation": [
+       90,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 0.07,
+      "length": 0.18,
+      "material": "metal",
+      "offset": [
+       0.1,
+       0,
+       -0.2
+      ],
+      "radiusTop": -1,
+      "segments": 24,
+      "rotation": [
+       90,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 0.07,
+      "length": 0.18,
+      "material": "metal",
+      "offset": [
+       0.1,
+       0.2,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 24,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 0.07,
+      "length": 0.18,
+      "material": "metal",
+      "offset": [
+       0.1,
+       -0.2,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 24,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     }
+    ]
+   },
+   "rcs": {
+    "nozzles": [
+     {
+      "position": [
+       0.1,
+       0,
+       0.25
+      ],
+      "direction": [
+       0,
+       0,
+       -1
+      ],
+      "thrust": 1000
+     },
+     {
+      "position": [
+       0.1,
+       0,
+       -0.25
+      ],
+      "direction": [
+       0,
+       0,
+       1
+      ],
+      "thrust": 1000
+     },
+     {
+      "position": [
+       0.1,
+       0.25,
+       0
+      ],
+      "direction": [
+       0,
+       -1,
+       0
+      ],
+      "thrust": 1000
+     },
+     {
+      "position": [
+       0.1,
+       -0.25,
+       0
+      ],
+      "direction": [
+       0,
+       1,
+       0
+      ],
+      "thrust": 1000
+     }
+    ],
+    "isp": 240,
+    "propellant": "Monopropellant"
+   },
+   "crashTolerance": 5,
+   "jointStrength": 200000.0,
+   "jointTorque": 40000.0
+  }
+ ]
+}

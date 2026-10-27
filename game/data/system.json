@@ -1,0 +1,89 @@
+{
+  "name": "Vesper System",
+  "referenceDistance": 12.4e9,
+  "homeBodyId": "aldara",
+  "bodies": [
+    {
+      "id": "vesper",
+      "name": "Vesper",
+      "kind": "star",
+      "description": "A quiet yellow-white dwarf star.",
+      "mu": 1.05e18,
+      "radius": 2.6e8,
+      "rotationPeriod": 0,
+      "color": [1.0, 0.92, 0.75],
+      "solarFluxAtReference": 1360
+    },
+    {
+      "id": "aldara",
+      "name": "Aldara",
+      "kind": "planet",
+      "parentId": "vesper",
+      "description": "A temperate ocean-and-continent world with a breathable-density atmosphere. Home of the launch site.",
+      "mu": 3.5316e12,
+      "radius": 600000,
+      "rotationPeriod": 21600,
+      "rotationPhaseDeg": 0,
+      "orbitDef": { "semiMajorAxis": 12.4e9, "eccentricity": 0.012, "inclinationDeg": 0, "lanDeg": 0, "argPeriapsisDeg": 20, "meanAnomalyAtEpochDeg": 120 },
+      "atmosphere": {
+        "seaLevelPressure": 101325, "seaLevelDensity": 1.225, "scaleHeight": 5600, "height": 70000,
+        "seaLevelTemperature": 288, "temperatureLapse": 0.0065, "minTemperature": 190,
+        "scatterColor": [0.25, 0.5, 1.0]
+      },
+      "terrain": {
+        "seed": 4242, "amplitude": 7000, "continentFrequency": 1.6, "mountainFrequency": 7.0, "detailFrequency": 140.0,
+        "hasOcean": true, "landBias": 0.12,
+        "colorLow": [0.17, 0.33, 0.13], "colorMid": [0.36, 0.30, 0.20], "colorHigh": [0.62, 0.60, 0.58],
+        "colorPolar": [0.95, 0.97, 1.0], "colorShore": [0.74, 0.69, 0.47], "colorOcean": [0.03, 0.17, 0.40],
+        "polarLatitudeDeg": 72
+      },
+      "launchSites": [
+        { "id": "pioneer", "name": "Pioneer Field", "latitudeDeg": 0.0, "longitudeDeg": 0.0, "flatRadius": 1200, "height": 12 }
+      ],
+      "color": [0.2, 0.4, 0.7]
+    },
+    {
+      "id": "lumen",
+      "name": "Lumen",
+      "kind": "moon",
+      "parentId": "aldara",
+      "description": "Airless, heavily cratered moon of Aldara, tidally locked.",
+      "mu": 6.52e10,
+      "radius": 200000,
+      "rotationPeriod": 128680,
+      "orbitDef": { "semiMajorAxis": 11.4e6, "eccentricity": 0.0, "inclinationDeg": 0, "lanDeg": 0, "argPeriapsisDeg": 0, "meanAnomalyAtEpochDeg": 40 },
+      "terrain": {
+        "seed": 77, "amplitude": 2500, "continentFrequency": 2.0, "mountainFrequency": 5.0, "detailFrequency": 120.0,
+        "hasOcean": false, "landBias": 0.0, "craterStrength": 1.0,
+        "colorLow": [0.38, 0.38, 0.39], "colorMid": [0.50, 0.50, 0.51], "colorHigh": [0.72, 0.72, 0.73],
+        "colorPolar": [0.6, 0.6, 0.62], "colorShore": [0.5, 0.5, 0.5], "colorOcean": [0.3, 0.3, 0.3],
+        "polarLatitudeDeg": 90
+      },
+      "color": [0.6, 0.6, 0.62]
+    },
+    {
+      "id": "cinder",
+      "name": "Cinder",
+      "kind": "planet",
+      "parentId": "vesper",
+      "description": "A cold rust-red desert world with a thin atmosphere.",
+      "mu": 3.789e11,
+      "radius": 320000,
+      "rotationPeriod": 88000,
+      "orbitDef": { "semiMajorAxis": 19.8e9, "eccentricity": 0.09, "inclinationDeg": 2.0, "lanDeg": 40, "argPeriapsisDeg": 100, "meanAnomalyAtEpochDeg": 300 },
+      "atmosphere": {
+        "seaLevelPressure": 1500, "seaLevelDensity": 0.03, "scaleHeight": 4500, "height": 28000,
+        "seaLevelTemperature": 210, "temperatureLapse": 0.0035, "minTemperature": 120, "gasConstant": 189,
+        "specificHeatRatio": 1.3, "scatterColor": [0.8, 0.5, 0.35]
+      },
+      "terrain": {
+        "seed": 913, "amplitude": 5500, "continentFrequency": 2.2, "mountainFrequency": 6.0, "detailFrequency": 110.0,
+        "hasOcean": false, "landBias": 0.05, "craterStrength": 0.35,
+        "colorLow": [0.45, 0.22, 0.12], "colorMid": [0.55, 0.30, 0.17], "colorHigh": [0.70, 0.48, 0.33],
+        "colorPolar": [0.9, 0.88, 0.85], "colorShore": [0.5, 0.28, 0.16], "colorOcean": [0.3, 0.2, 0.1],
+        "polarLatitudeDeg": 80
+      },
+      "color": [0.7, 0.35, 0.2]
+    }
+  ]
+}

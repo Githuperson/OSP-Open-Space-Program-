@@ -1,0 +1,1676 @@
+{
+ "parts": [
+  {
+   "id": "eng_wren",
+   "name": "Wren-1 Thruster",
+   "category": "Engines",
+   "description": "Tiny pressure-fed engine for probes and landers. Low thrust, decent efficiency.",
+   "dryMass": 120,
+   "cost": 350,
+   "shape": {
+    "kind": "cylinder",
+    "radius": 0.625,
+    "length": 0.9,
+    "radiusTop": 0.625,
+    "radiusBottom": 0.3
+   },
+   "nodes": [
+    {
+     "id": "top",
+     "kind": "stack",
+     "position": [
+      0,
+      0.45,
+      0
+     ],
+     "direction": [
+      0,
+      1,
+      0
+     ],
+     "size": 1
+    },
+    {
+     "id": "bottom",
+     "kind": "stack",
+     "position": [
+      0,
+      -0.45,
+      0
+     ],
+     "direction": [
+      0,
+      -1,
+      0
+     ],
+     "size": 1
+    }
+   ],
+   "visual": {
+    "elements": [
+     {
+      "type": "lathe",
+      "profile": [
+       [
+        -0.45,
+        0.3
+       ],
+       [
+        -0.38304,
+        0.279
+       ],
+       [
+        -0.25470000000000004,
+        0.216
+       ],
+       [
+        -0.08729999999999999,
+        0.207
+       ],
+       [
+        0.10800000000000004,
+        0.11399999999999999
+       ]
+      ],
+      "material": "engine",
+      "segments": 32,
+      "smooth": true,
+      "offset": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "lathe",
+      "profile": [
+       [
+        0.10800000000000004,
+        0.11399999999999999
+       ],
+       [
+        0.21600000000000003,
+        0.165
+       ],
+       [
+        0.29000000000000004,
+        0.34375
+       ],
+       [
+        0.29000000000000004,
+        0.625
+       ],
+       [
+        0.39,
+        0.625
+       ],
+       [
+        0.45,
+        0.5750000000000001
+       ],
+       [
+        0.45,
+        0
+       ]
+      ],
+      "material": "dark",
+      "segments": 32,
+      "smooth": true,
+      "offset": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 0.11249999999999999,
+      "length": 0.28800000000000003,
+      "material": "metal",
+      "offset": [
+       0.3125,
+       0.010000000000000023,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 24,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 0.11249999999999999,
+      "length": 0.28800000000000003,
+      "material": "metal",
+      "offset": [
+       -0.3125,
+       0.010000000000000023,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 24,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 0.306,
+      "length": 0.05,
+      "material": "orange",
+      "offset": [
+       0,
+       -0.43,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 24,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     }
+    ]
+   },
+   "engine": {
+    "thrustVac": 18000,
+    "ispVac": 305,
+    "ispAtm": 240,
+    "propellant": "Propellant",
+    "solid": false,
+    "minThrottle": 0.0,
+    "gimbalDeg": 0,
+    "nozzlePosition": [
+     0,
+     -0.45,
+     0
+    ],
+    "thrustDirection": [
+     0,
+     1,
+     0
+    ],
+    "plumeLength": 1.6,
+    "plumeRadius": 0.3
+   },
+   "crashTolerance": 7,
+   "aero": {
+    "cdTop": 0.8,
+    "cdBottom": 0.45,
+    "cdBase": 0.3,
+    "cdSide": 1.0
+   },
+   "jointStrength": 1600000.0,
+   "jointTorque": 450000.0
+  },
+  {
+   "id": "eng_whisper",
+   "name": "Whisper-V Vacuum Engine",
+   "category": "Engines",
+   "description": "High expansion-ratio upper-stage engine: superb in vacuum, poor at sea level.",
+   "dryMass": 520,
+   "cost": 900,
+   "shape": {
+    "kind": "cylinder",
+    "radius": 0.625,
+    "length": 1.3,
+    "radiusTop": 0.625,
+    "radiusBottom": 0.52
+   },
+   "nodes": [
+    {
+     "id": "top",
+     "kind": "stack",
+     "position": [
+      0,
+      0.65,
+      0
+     ],
+     "direction": [
+      0,
+      1,
+      0
+     ],
+     "size": 1
+    },
+    {
+     "id": "bottom",
+     "kind": "stack",
+     "position": [
+      0,
+      -0.65,
+      0
+     ],
+     "direction": [
+      0,
+      -1,
+      0
+     ],
+     "size": 1
+    }
+   ],
+   "visual": {
+    "elements": [
+     {
+      "type": "lathe",
+      "profile": [
+       [
+        -0.65,
+        0.52
+       ],
+       [
+        -0.52832,
+        0.48360000000000003
+       ],
+       [
+        -0.29510000000000003,
+        0.3744
+       ],
+       [
+        0.009099999999999997,
+        0.3588
+       ],
+       [
+        0.364,
+        0.1976
+       ]
+      ],
+      "material": "engine",
+      "segments": 32,
+      "smooth": true,
+      "offset": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "lathe",
+      "profile": [
+       [
+        0.364,
+        0.1976
+       ],
+       [
+        0.52,
+        0.28600000000000003
+       ],
+       [
+        0.49,
+        0.34375
+       ],
+       [
+        0.49,
+        0.625
+       ],
+       [
+        0.5900000000000001,
+        0.625
+       ],
+       [
+        0.65,
+        0.5750000000000001
+       ],
+       [
+        0.65,
+        0
+       ]
+      ],
+      "material": "dark",
+      "segments": 32,
+      "smooth": true,
+      "offset": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 0.11249999999999999,
+      "length": 0.41600000000000004,
+      "material": "metal",
+      "offset": [
+       0.3125,
+       0.17000000000000004,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 24,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 0.11249999999999999,
+      "length": 0.41600000000000004,
+      "material": "metal",
+      "offset": [
+       -0.3125,
+       0.17000000000000004,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 24,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 0.5304,
+      "length": 0.05,
+      "material": "orange",
+      "offset": [
+       0,
+       -0.63,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 24,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     }
+    ]
+   },
+   "engine": {
+    "thrustVac": 62000,
+    "ispVac": 345,
+    "ispAtm": 85,
+    "propellant": "Propellant",
+    "solid": false,
+    "minThrottle": 0.0,
+    "gimbalDeg": 4,
+    "nozzlePosition": [
+     0,
+     -0.65,
+     0
+    ],
+    "thrustDirection": [
+     0,
+     1,
+     0
+    ],
+    "plumeLength": 3.2,
+    "plumeRadius": 0.52
+   },
+   "crashTolerance": 7,
+   "aero": {
+    "cdTop": 0.8,
+    "cdBottom": 0.45,
+    "cdBase": 0.3,
+    "cdSide": 1.0
+   },
+   "jointStrength": 1600000.0,
+   "jointTorque": 450000.0
+  },
+  {
+   "id": "eng_ember",
+   "name": "Ember-1 Lifter",
+   "category": "Engines",
+   "description": "Robust fixed-nozzle first-stage engine. No gimbal: needs fins or a steering partner.",
+   "dryMass": 1100,
+   "cost": 600,
+   "shape": {
+    "kind": "cylinder",
+    "radius": 0.625,
+    "length": 1.5,
+    "radiusTop": 0.625,
+    "radiusBottom": 0.45
+   },
+   "nodes": [
+    {
+     "id": "top",
+     "kind": "stack",
+     "position": [
+      0,
+      0.75,
+      0
+     ],
+     "direction": [
+      0,
+      1,
+      0
+     ],
+     "size": 1
+    },
+    {
+     "id": "bottom",
+     "kind": "stack",
+     "position": [
+      0,
+      -0.75,
+      0
+     ],
+     "direction": [
+      0,
+      -1,
+      0
+     ],
+     "size": 1
+    }
+   ],
+   "visual": {
+    "elements": [
+     {
+      "type": "lathe",
+      "profile": [
+       [
+        -0.75,
+        0.45
+       ],
+       [
+        -0.6384,
+        0.41850000000000004
+       ],
+       [
+        -0.42450000000000004,
+        0.324
+       ],
+       [
+        -0.14550000000000007,
+        0.3105
+       ],
+       [
+        0.17999999999999994,
+        0.171
+       ]
+      ],
+      "material": "engine",
+      "segments": 32,
+      "smooth": true,
+      "offset": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "lathe",
+      "profile": [
+       [
+        0.17999999999999994,
+        0.171
+       ],
+       [
+        0.35999999999999993,
+        0.24750000000000003
+       ],
+       [
+        0.59,
+        0.34375
+       ],
+       [
+        0.59,
+        0.625
+       ],
+       [
+        0.69,
+        0.625
+       ],
+       [
+        0.75,
+        0.5750000000000001
+       ],
+       [
+        0.75,
+        0
+       ]
+      ],
+      "material": "dark",
+      "segments": 32,
+      "smooth": true,
+      "offset": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 0.11249999999999999,
+      "length": 0.48,
+      "material": "metal",
+      "offset": [
+       0.3125,
+       0.25,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 24,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 0.11249999999999999,
+      "length": 0.48,
+      "material": "metal",
+      "offset": [
+       -0.3125,
+       0.25,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 24,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 0.459,
+      "length": 0.05,
+      "material": "orange",
+      "offset": [
+       0,
+       -0.73,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 24,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     }
+    ]
+   },
+   "engine": {
+    "thrustVac": 215000,
+    "ispVac": 295,
+    "ispAtm": 262,
+    "propellant": "Propellant",
+    "solid": false,
+    "minThrottle": 0.0,
+    "gimbalDeg": 0,
+    "nozzlePosition": [
+     0,
+     -0.75,
+     0
+    ],
+    "thrustDirection": [
+     0,
+     1,
+     0
+    ],
+    "plumeLength": 4.0,
+    "plumeRadius": 0.45
+   },
+   "crashTolerance": 7,
+   "aero": {
+    "cdTop": 0.8,
+    "cdBottom": 0.45,
+    "cdBase": 0.3,
+    "cdSide": 1.0
+   },
+   "jointStrength": 1600000.0,
+   "jointTorque": 450000.0
+  },
+  {
+   "id": "eng_swift",
+   "name": "Swift-2 Swivel",
+   "category": "Engines",
+   "description": "Gimballing all-rounder: good Isp across the atmosphere and the thrust-vector control a rocket needs.",
+   "dryMass": 1500,
+   "cost": 1200,
+   "shape": {
+    "kind": "cylinder",
+    "radius": 0.625,
+    "length": 1.5,
+    "radiusTop": 0.625,
+    "radiusBottom": 0.42
+   },
+   "nodes": [
+    {
+     "id": "top",
+     "kind": "stack",
+     "position": [
+      0,
+      0.75,
+      0
+     ],
+     "direction": [
+      0,
+      1,
+      0
+     ],
+     "size": 1
+    },
+    {
+     "id": "bottom",
+     "kind": "stack",
+     "position": [
+      0,
+      -0.75,
+      0
+     ],
+     "direction": [
+      0,
+      -1,
+      0
+     ],
+     "size": 1
+    }
+   ],
+   "visual": {
+    "elements": [
+     {
+      "type": "lathe",
+      "profile": [
+       [
+        -0.75,
+        0.42
+       ],
+       [
+        -0.6384,
+        0.3906
+       ],
+       [
+        -0.42450000000000004,
+        0.3024
+       ],
+       [
+        -0.14550000000000007,
+        0.2898
+       ],
+       [
+        0.17999999999999994,
+        0.1596
+       ]
+      ],
+      "material": "engine",
+      "segments": 32,
+      "smooth": true,
+      "offset": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "lathe",
+      "profile": [
+       [
+        0.17999999999999994,
+        0.1596
+       ],
+       [
+        0.35999999999999993,
+        0.231
+       ],
+       [
+        0.59,
+        0.34375
+       ],
+       [
+        0.59,
+        0.625
+       ],
+       [
+        0.69,
+        0.625
+       ],
+       [
+        0.75,
+        0.5750000000000001
+       ],
+       [
+        0.75,
+        0
+       ]
+      ],
+      "material": "dark",
+      "segments": 32,
+      "smooth": true,
+      "offset": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 0.11249999999999999,
+      "length": 0.48,
+      "material": "metal",
+      "offset": [
+       0.3125,
+       0.25,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 24,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 0.11249999999999999,
+      "length": 0.48,
+      "material": "metal",
+      "offset": [
+       -0.3125,
+       0.25,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 24,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 0.4284,
+      "length": 0.05,
+      "material": "orange",
+      "offset": [
+       0,
+       -0.73,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 24,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     }
+    ]
+   },
+   "engine": {
+    "thrustVac": 230000,
+    "ispVac": 320,
+    "ispAtm": 250,
+    "propellant": "Propellant",
+    "solid": false,
+    "minThrottle": 0.0,
+    "gimbalDeg": 3,
+    "nozzlePosition": [
+     0,
+     -0.75,
+     0
+    ],
+    "thrustDirection": [
+     0,
+     1,
+     0
+    ],
+    "plumeLength": 4.2,
+    "plumeRadius": 0.42
+   },
+   "crashTolerance": 7,
+   "aero": {
+    "cdTop": 0.8,
+    "cdBottom": 0.45,
+    "cdBase": 0.3,
+    "cdSide": 1.0
+   },
+   "jointStrength": 1600000.0,
+   "jointTorque": 450000.0
+  },
+  {
+   "id": "eng_aeon",
+   "name": "Aeon-V Vacuum Engine",
+   "category": "Engines",
+   "description": "Large 2.5 m vacuum engine for heavy upper stages and transfer burns.",
+   "dryMass": 2400,
+   "cost": 2600,
+   "shape": {
+    "kind": "cylinder",
+    "radius": 1.25,
+    "length": 2.8,
+    "radiusTop": 1.25,
+    "radiusBottom": 1.0
+   },
+   "nodes": [
+    {
+     "id": "top",
+     "kind": "stack",
+     "position": [
+      0,
+      1.4,
+      0
+     ],
+     "direction": [
+      0,
+      1,
+      0
+     ],
+     "size": 2
+    },
+    {
+     "id": "bottom",
+     "kind": "stack",
+     "position": [
+      0,
+      -1.4,
+      0
+     ],
+     "direction": [
+      0,
+      -1,
+      0
+     ],
+     "size": 2
+    }
+   ],
+   "visual": {
+    "elements": [
+     {
+      "type": "lathe",
+      "profile": [
+       [
+        -1.4,
+        1.0
+       ],
+       [
+        -1.1312,
+        0.93
+       ],
+       [
+        -0.616,
+        0.72
+       ],
+       [
+        0.05600000000000005,
+        0.69
+       ],
+       [
+        0.8399999999999999,
+        0.38
+       ]
+      ],
+      "material": "engine",
+      "segments": 40,
+      "smooth": true,
+      "offset": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "lathe",
+      "profile": [
+       [
+        0.8399999999999999,
+        0.38
+       ],
+       [
+        1.1759999999999997,
+        0.55
+       ],
+       [
+        1.24,
+        0.6875
+       ],
+       [
+        1.24,
+        1.25
+       ],
+       [
+        1.3399999999999999,
+        1.25
+       ],
+       [
+        1.4,
+        1.1500000000000001
+       ],
+       [
+        1.4,
+        0
+       ]
+      ],
+      "material": "dark",
+      "segments": 40,
+      "smooth": true,
+      "offset": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 0.22499999999999998,
+      "length": 0.8959999999999999,
+      "material": "metal",
+      "offset": [
+       0.625,
+       0.7699999999999998,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 24,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 0.22499999999999998,
+      "length": 0.8959999999999999,
+      "material": "metal",
+      "offset": [
+       -0.625,
+       0.7699999999999998,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 24,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 1.02,
+      "length": 0.05,
+      "material": "orange",
+      "offset": [
+       0,
+       -1.38,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 24,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     }
+    ]
+   },
+   "engine": {
+    "thrustVac": 360000,
+    "ispVac": 350,
+    "ispAtm": 90,
+    "propellant": "Propellant",
+    "solid": false,
+    "minThrottle": 0.0,
+    "gimbalDeg": 3,
+    "nozzlePosition": [
+     0,
+     -1.4,
+     0
+    ],
+    "thrustDirection": [
+     0,
+     1,
+     0
+    ],
+    "plumeLength": 6.0,
+    "plumeRadius": 1.0
+   },
+   "crashTolerance": 7,
+   "aero": {
+    "cdTop": 0.8,
+    "cdBottom": 0.45,
+    "cdBase": 0.3,
+    "cdSide": 1.0
+   },
+   "jointStrength": 6500000.0,
+   "jointTorque": 2200000.0
+  },
+  {
+   "id": "eng_comet",
+   "name": "Comet-L Heavy Lifter",
+   "category": "Engines",
+   "description": "Big 2.5 m booster engine: huge thrust for heavy launch vehicles.",
+   "dryMass": 5600,
+   "cost": 5600,
+   "shape": {
+    "kind": "cylinder",
+    "radius": 1.25,
+    "length": 3.0,
+    "radiusTop": 1.25,
+    "radiusBottom": 0.95
+   },
+   "nodes": [
+    {
+     "id": "top",
+     "kind": "stack",
+     "position": [
+      0,
+      1.5,
+      0
+     ],
+     "direction": [
+      0,
+      1,
+      0
+     ],
+     "size": 2
+    },
+    {
+     "id": "bottom",
+     "kind": "stack",
+     "position": [
+      0,
+      -1.5,
+      0
+     ],
+     "direction": [
+      0,
+      -1,
+      0
+     ],
+     "size": 2
+    }
+   ],
+   "visual": {
+    "elements": [
+     {
+      "type": "lathe",
+      "profile": [
+       [
+        -1.5,
+        0.95
+       ],
+       [
+        -1.2768,
+        0.8835
+       ],
+       [
+        -0.8490000000000001,
+        0.6839999999999999
+       ],
+       [
+        -0.29100000000000015,
+        0.6555
+       ],
+       [
+        0.3599999999999999,
+        0.361
+       ]
+      ],
+      "material": "engine",
+      "segments": 40,
+      "smooth": true,
+      "offset": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "lathe",
+      "profile": [
+       [
+        0.3599999999999999,
+        0.361
+       ],
+       [
+        0.7199999999999999,
+        0.5225
+       ],
+       [
+        1.34,
+        0.6875
+       ],
+       [
+        1.34,
+        1.25
+       ],
+       [
+        1.44,
+        1.25
+       ],
+       [
+        1.5,
+        1.1500000000000001
+       ],
+       [
+        1.5,
+        0
+       ]
+      ],
+      "material": "dark",
+      "segments": 40,
+      "smooth": true,
+      "offset": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 0.22499999999999998,
+      "length": 0.96,
+      "material": "metal",
+      "offset": [
+       0.625,
+       0.8499999999999999,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 24,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 0.22499999999999998,
+      "length": 0.96,
+      "material": "metal",
+      "offset": [
+       -0.625,
+       0.8499999999999999,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 24,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 0.969,
+      "length": 0.05,
+      "material": "orange",
+      "offset": [
+       0,
+       -1.48,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 24,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     }
+    ]
+   },
+   "engine": {
+    "thrustVac": 1500000,
+    "ispVac": 305,
+    "ispAtm": 270,
+    "propellant": "Propellant",
+    "solid": false,
+    "minThrottle": 0.0,
+    "gimbalDeg": 2,
+    "nozzlePosition": [
+     0,
+     -1.5,
+     0
+    ],
+    "thrustDirection": [
+     0,
+     1,
+     0
+    ],
+    "plumeLength": 8.0,
+    "plumeRadius": 0.95
+   },
+   "crashTolerance": 7,
+   "aero": {
+    "cdTop": 0.8,
+    "cdBottom": 0.45,
+    "cdBase": 0.3,
+    "cdSide": 1.0
+   },
+   "jointStrength": 6500000.0,
+   "jointTorque": 2200000.0
+  },
+  {
+   "id": "srb_hammer",
+   "name": "Hammer-1 Solid Booster",
+   "category": "Boosters",
+   "description": "Radial or stack solid motor. Cannot be throttled or shut down once lit.",
+   "dryMass": 900,
+   "cost": 400,
+   "shape": {
+    "kind": "cylinder",
+    "radius": 0.625,
+    "length": 4.2,
+    "radiusTop": 0.25,
+    "radiusBottom": 0.625
+   },
+   "nodes": [
+    {
+     "id": "top",
+     "kind": "stack",
+     "position": [
+      0,
+      2.1,
+      0
+     ],
+     "direction": [
+      0,
+      1,
+      0
+     ],
+     "size": 1
+    },
+    {
+     "id": "bottom",
+     "kind": "stack",
+     "position": [
+      0,
+      -2.1,
+      0
+     ],
+     "direction": [
+      0,
+      -1,
+      0
+     ],
+     "size": 1
+    },
+    {
+     "id": "srf",
+     "kind": "surface",
+     "position": [
+      -0.625,
+      0,
+      0
+     ],
+     "direction": [
+      -1,
+      0,
+      0
+     ],
+     "size": 1
+    }
+   ],
+   "visual": {
+    "elements": [
+     {
+      "type": "lathe",
+      "profile": [
+       [
+        -2.1,
+        0.4
+       ],
+       [
+        -1.9500000000000002,
+        0.34
+       ],
+       [
+        -1.6,
+        0.24
+       ],
+       [
+        -1.25,
+        0.22000000000000003
+       ]
+      ],
+      "material": "engine",
+      "segments": 32,
+      "smooth": true,
+      "offset": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "lathe",
+      "profile": [
+       [
+        -1.25,
+        0.22000000000000003
+       ],
+       [
+        -1.2000000000000002,
+        0.5625
+       ],
+       [
+        -1.1,
+        0.625
+       ],
+       [
+        1.75,
+        0.625
+       ],
+       [
+        1.98,
+        0.5
+       ],
+       [
+        2.08,
+        0.28125
+       ],
+       [
+        2.1,
+        0
+       ]
+      ],
+      "material": "white",
+      "segments": 32,
+      "smooth": true,
+      "offset": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 0.6325000000000001,
+      "length": 0.35,
+      "material": "red",
+      "offset": [
+       0,
+       0.9000000000000001,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 24,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 0.6325000000000001,
+      "length": 0.08,
+      "material": "dark",
+      "offset": [
+       0,
+       -1.0,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 24,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     }
+    ]
+   },
+   "engine": {
+    "thrustVac": 250000,
+    "ispVac": 215,
+    "ispAtm": 190,
+    "propellant": "SolidFuel",
+    "solid": true,
+    "minThrottle": 1.0,
+    "gimbalDeg": 0,
+    "nozzlePosition": [
+     0,
+     -2.1,
+     0
+    ],
+    "thrustDirection": [
+     0,
+     1,
+     0
+    ],
+    "plumeLength": 5.0,
+    "plumeRadius": 0.4
+   },
+   "resources": [
+    {
+     "name": "SolidFuel",
+     "capacity": 6000
+    }
+   ],
+   "acceptsRadial": true,
+   "crashTolerance": 7,
+   "aero": {
+    "cdTop": 0.35,
+    "cdBottom": 0.45,
+    "cdBase": 0.3,
+    "cdSide": 1.0
+   },
+   "jointStrength": 1600000.0,
+   "jointTorque": 450000.0
+  },
+  {
+   "id": "srb_anvil",
+   "name": "Anvil-2 Solid Booster",
+   "category": "Boosters",
+   "description": "Large 2.5 m solid motor for heavy first stages and strap-on boosters.",
+   "dryMass": 3500,
+   "cost": 1800,
+   "shape": {
+    "kind": "cylinder",
+    "radius": 1.25,
+    "length": 5.5,
+    "radiusTop": 0.5,
+    "radiusBottom": 1.25
+   },
+   "nodes": [
+    {
+     "id": "top",
+     "kind": "stack",
+     "position": [
+      0,
+      2.75,
+      0
+     ],
+     "direction": [
+      0,
+      1,
+      0
+     ],
+     "size": 2
+    },
+    {
+     "id": "bottom",
+     "kind": "stack",
+     "position": [
+      0,
+      -2.75,
+      0
+     ],
+     "direction": [
+      0,
+      -1,
+      0
+     ],
+     "size": 2
+    },
+    {
+     "id": "srf",
+     "kind": "surface",
+     "position": [
+      -1.25,
+      0,
+      0
+     ],
+     "direction": [
+      -1,
+      0,
+      0
+     ],
+     "size": 2
+    }
+   ],
+   "visual": {
+    "elements": [
+     {
+      "type": "lathe",
+      "profile": [
+       [
+        -2.75,
+        0.8
+       ],
+       [
+        -2.6,
+        0.68
+       ],
+       [
+        -2.25,
+        0.48
+       ],
+       [
+        -1.9,
+        0.44000000000000006
+       ]
+      ],
+      "material": "engine",
+      "segments": 32,
+      "smooth": true,
+      "offset": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "lathe",
+      "profile": [
+       [
+        -1.9,
+        0.44000000000000006
+       ],
+       [
+        -1.85,
+        1.125
+       ],
+       [
+        -1.75,
+        1.25
+       ],
+       [
+        2.4,
+        1.25
+       ],
+       [
+        2.63,
+        1.0
+       ],
+       [
+        2.73,
+        0.5625
+       ],
+       [
+        2.75,
+        0
+       ]
+      ],
+      "material": "white",
+      "segments": 32,
+      "smooth": true,
+      "offset": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 1.2650000000000001,
+      "length": 0.35,
+      "material": "red",
+      "offset": [
+       0,
+       1.55,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 24,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 1.2650000000000001,
+      "length": 0.08,
+      "material": "dark",
+      "offset": [
+       0,
+       -1.65,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 24,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     }
+    ]
+   },
+   "engine": {
+    "thrustVac": 1400000,
+    "ispVac": 210,
+    "ispAtm": 185,
+    "propellant": "SolidFuel",
+    "solid": true,
+    "minThrottle": 1.0,
+    "gimbalDeg": 0,
+    "nozzlePosition": [
+     0,
+     -2.75,
+     0
+    ],
+    "thrustDirection": [
+     0,
+     1,
+     0
+    ],
+    "plumeLength": 9.0,
+    "plumeRadius": 0.8
+   },
+   "resources": [
+    {
+     "name": "SolidFuel",
+     "capacity": 32000
+    }
+   ],
+   "acceptsRadial": true,
+   "crashTolerance": 7,
+   "aero": {
+    "cdTop": 0.35,
+    "cdBottom": 0.45,
+    "cdBase": 0.3,
+    "cdSide": 1.0
+   },
+   "jointStrength": 6500000.0,
+   "jointTorque": 2200000.0
+  }
+ ]
+}

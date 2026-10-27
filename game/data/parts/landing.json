@@ -1,0 +1,346 @@
+{
+ "parts": [
+  {
+   "id": "leg_strut",
+   "name": "Strider-L Landing Leg",
+   "category": "Landing",
+   "description": "Deployable shock-absorbing landing leg. Extend before touchdown (G).",
+   "dryMass": 55,
+   "cost": 300,
+   "shape": {
+    "kind": "box",
+    "size": [
+     0.25,
+     1.2,
+     0.25
+    ]
+   },
+   "nodes": [
+    {
+     "id": "srf",
+     "kind": "surface",
+     "position": [
+      -0.0,
+      0,
+      0
+     ],
+     "direction": [
+      -1,
+      0,
+      0
+     ],
+     "size": 1
+    }
+   ],
+   "visual": {
+    "elements": [
+     {
+      "type": "box",
+      "size": [
+       0.12,
+       2.0,
+       0.12
+      ],
+      "material": "dark",
+      "offset": [
+       0.05,
+       -0.6,
+       0
+      ],
+      "rotation": [
+       0,
+       0,
+       0
+      ],
+      "hinge": {
+       "pivot": [
+        0.05,
+        0.4,
+        0
+       ],
+       "axis": [
+        0,
+        0,
+        1
+       ],
+       "angleDeg": 32,
+       "driver": "leg"
+      }
+     },
+     {
+      "type": "box",
+      "size": [
+       0.45,
+       0.07,
+       0.45
+      ],
+      "material": "metal",
+      "offset": [
+       0.05,
+       -1.6,
+       0
+      ],
+      "rotation": [
+       0,
+       0,
+       0
+      ],
+      "hinge": {
+       "pivot": [
+        0.05,
+        0.4,
+        0
+       ],
+       "axis": [
+        0,
+        0,
+        1
+       ],
+       "angleDeg": 32,
+       "driver": "leg"
+      }
+     },
+     {
+      "type": "box",
+      "size": [
+       0.16,
+       0.16,
+       0.16
+      ],
+      "material": "grey",
+      "offset": [
+       0.07,
+       0.4,
+       0
+      ],
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     }
+    ]
+   },
+   "leg": {
+    "deployTime": 1.6,
+    "footPosition": [
+     1.1,
+     -1.3,
+     0
+    ],
+    "travel": 0.3,
+    "friction": 1.1
+   },
+   "crashTolerance": 14,
+   "jointStrength": 420000.0,
+   "jointTorque": 120000.0
+  },
+  {
+   "id": "chute_mk1",
+   "name": "Drift-1 Parachute",
+   "category": "Recovery",
+   "description": "Nose-mounted parachute pack for capsules. Arms with P; opens automatically at a safe altitude.",
+   "dryMass": 100,
+   "cost": 400,
+   "shape": {
+    "kind": "cylinder",
+    "radius": 0.3,
+    "length": 0.3
+   },
+   "nodes": [
+    {
+     "id": "bottom",
+     "kind": "stack",
+     "position": [
+      0,
+      -0.15,
+      0
+     ],
+     "direction": [
+      0,
+      -1,
+      0
+     ],
+     "size": 0
+    }
+   ],
+   "visual": {
+    "elements": [
+     {
+      "type": "cylinder",
+      "radius": 0.3,
+      "length": 0.3,
+      "material": "dark",
+      "offset": [
+       0,
+       0,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 24,
+      "rotation": [
+       0,
+       0,
+       0
+      ],
+      "tag": "pack"
+     },
+     {
+      "type": "cylinder",
+      "radius": 0.31,
+      "length": 0.05,
+      "material": "red",
+      "offset": [
+       0,
+       0.12,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 24,
+      "rotation": [
+       0,
+       0,
+       0
+      ],
+      "tag": "pack"
+     },
+     {
+      "type": "sphere",
+      "radius": 8.0,
+      "material": "chute",
+      "offset": [
+       0,
+       11.0,
+       0
+      ],
+      "size": [
+       1,
+       0.55,
+       1
+      ],
+      "segments": 24,
+      "tag": "canopy"
+     }
+    ]
+   },
+   "parachute": {
+    "fullDragArea": 160,
+    "semiDragArea": 14,
+    "fullDeployAltitude": 800,
+    "minPressure": 4000,
+    "maxDynamicPressure": 9000,
+    "semiDeployTime": 1.5,
+    "fullDeployTime": 5.0
+   },
+   "crashTolerance": 7,
+   "jointStrength": 600000.0,
+   "jointTorque": 120000.0
+  },
+  {
+   "id": "chute_radial",
+   "name": "Drift-R Radial Parachute",
+   "category": "Recovery",
+   "description": "Side-mounted parachute for boosters and landers. Arms with P.",
+   "dryMass": 90,
+   "cost": 380,
+   "shape": {
+    "kind": "box",
+    "size": [
+     0.3,
+     0.5,
+     0.3
+    ]
+   },
+   "nodes": [
+    {
+     "id": "srf",
+     "kind": "surface",
+     "position": [
+      -0.15,
+      0,
+      0
+     ],
+     "direction": [
+      -1,
+      0,
+      0
+     ],
+     "size": 1
+    }
+   ],
+   "visual": {
+    "elements": [
+     {
+      "type": "box",
+      "size": [
+       0.3,
+       0.5,
+       0.3
+      ],
+      "material": "dark",
+      "offset": [
+       0,
+       0,
+       0
+      ],
+      "rotation": [
+       0,
+       0,
+       0
+      ],
+      "tag": "pack"
+     },
+     {
+      "type": "box",
+      "size": [
+       0.1,
+       0.3,
+       0.32
+      ],
+      "material": "red",
+      "offset": [
+       0.08,
+       0,
+       0
+      ],
+      "rotation": [
+       0,
+       0,
+       0
+      ],
+      "tag": "pack"
+     },
+     {
+      "type": "sphere",
+      "radius": 7.0,
+      "material": "chute",
+      "offset": [
+       0.3,
+       9.0,
+       0
+      ],
+      "size": [
+       1,
+       0.55,
+       1
+      ],
+      "segments": 24,
+      "tag": "canopy"
+     }
+    ]
+   },
+   "parachute": {
+    "fullDragArea": 120,
+    "semiDragArea": 10,
+    "fullDeployAltitude": 700,
+    "minPressure": 4000,
+    "maxDynamicPressure": 8000,
+    "semiDeployTime": 1.5,
+    "fullDeployTime": 5.0
+   },
+   "crashTolerance": 7,
+   "jointStrength": 300000.0,
+   "jointTorque": 60000.0
+  }
+ ]
+}

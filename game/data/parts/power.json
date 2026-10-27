@@ -1,0 +1,332 @@
+{
+ "parts": [
+  {
+   "id": "solar_flat",
+   "name": "Sunfold-2 Solar Panel",
+   "category": "Power",
+   "description": "Radially-mounted deployable sun-tracking solar array. Extend with U.",
+   "dryMass": 25,
+   "cost": 280,
+   "shape": {
+    "kind": "box",
+    "size": [
+     0.15,
+     0.7,
+     0.1
+    ]
+   },
+   "nodes": [
+    {
+     "id": "srf",
+     "kind": "surface",
+     "position": [
+      -0.0,
+      0,
+      0
+     ],
+     "direction": [
+      -1,
+      0,
+      0
+     ],
+     "size": 1
+    }
+   ],
+   "visual": {
+    "elements": [
+     {
+      "type": "box",
+      "size": [
+       0.12,
+       0.6,
+       0.1
+      ],
+      "material": "dark",
+      "offset": [
+       0.06,
+       0,
+       0
+      ],
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "box",
+      "size": [
+       1.5,
+       0.05,
+       0.9
+      ],
+      "material": "solar",
+      "offset": [
+       0.75,
+       0,
+       0.55
+      ],
+      "rotation": [
+       0,
+       0,
+       0
+      ],
+      "hinge": {
+       "pivot": [
+        0.1,
+        0,
+        0
+       ],
+       "axis": [
+        0,
+        1,
+        0
+       ],
+       "angleDeg": 90,
+       "driver": "solar"
+      }
+     },
+     {
+      "type": "box",
+      "size": [
+       1.5,
+       0.05,
+       0.9
+      ],
+      "material": "solar",
+      "offset": [
+       0.75,
+       0,
+       -0.55
+      ],
+      "rotation": [
+       0,
+       0,
+       0
+      ],
+      "hinge": {
+       "pivot": [
+        0.1,
+        0,
+        0
+       ],
+       "axis": [
+        0,
+        1,
+        0
+       ],
+       "angleDeg": -90,
+       "driver": "solar"
+      }
+     }
+    ]
+   },
+   "solar": {
+    "chargeRate": 1.6,
+    "tracking": true,
+    "normal": [
+     0,
+     1,
+     0
+    ],
+    "deployTime": 3.0
+   },
+   "crashTolerance": 4,
+   "jointStrength": 150000.0,
+   "jointTorque": 30000.0
+  },
+  {
+   "id": "battery_s",
+   "name": "Cell-S Radial Battery",
+   "category": "Power",
+   "description": "Small radially-mounted battery (100 EC).",
+   "dryMass": 20,
+   "cost": 80,
+   "shape": {
+    "kind": "cylinder",
+    "radius": 0.14,
+    "length": 0.4
+   },
+   "nodes": [
+    {
+     "id": "srf",
+     "kind": "surface",
+     "position": [
+      -0.14,
+      0,
+      0
+     ],
+     "direction": [
+      -1,
+      0,
+      0
+     ],
+     "size": 1
+    }
+   ],
+   "visual": {
+    "elements": [
+     {
+      "type": "cylinder",
+      "radius": 0.14,
+      "length": 0.4,
+      "material": "yellow",
+      "offset": [
+       0,
+       0,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 24,
+      "rotation": [
+       0,
+       0,
+       90
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 0.145,
+      "length": 0.05,
+      "material": "dark",
+      "offset": [
+       0,
+       0.1,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 24,
+      "rotation": [
+       0,
+       0,
+       90
+      ]
+     }
+    ]
+   },
+   "resources": [
+    {
+     "name": "ElectricCharge",
+     "capacity": 100,
+     "initial": 100
+    }
+   ],
+   "crashTolerance": 6,
+   "jointStrength": 200000.0,
+   "jointTorque": 40000.0
+  },
+  {
+   "id": "battery_l",
+   "name": "Cell-L Battery Bank",
+   "category": "Power",
+   "description": "1.25 m stack battery module (500 EC).",
+   "dryMass": 120,
+   "cost": 300,
+   "shape": {
+    "kind": "cylinder",
+    "radius": 0.625,
+    "length": 0.4
+   },
+   "nodes": [
+    {
+     "id": "top",
+     "kind": "stack",
+     "position": [
+      0,
+      0.2,
+      0
+     ],
+     "direction": [
+      0,
+      1,
+      0
+     ],
+     "size": 1
+    },
+    {
+     "id": "bottom",
+     "kind": "stack",
+     "position": [
+      0,
+      -0.2,
+      0
+     ],
+     "direction": [
+      0,
+      -1,
+      0
+     ],
+     "size": 1
+    }
+   ],
+   "visual": {
+    "elements": [
+     {
+      "type": "cylinder",
+      "radius": 0.625,
+      "length": 0.4,
+      "material": "dark",
+      "offset": [
+       0,
+       0,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 24,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 0.63125,
+      "length": 0.08,
+      "material": "yellow",
+      "offset": [
+       0,
+       0.1,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 24,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 0.63125,
+      "length": 0.04,
+      "material": "yellow",
+      "offset": [
+       0,
+       -0.12,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 24,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     }
+    ]
+   },
+   "resources": [
+    {
+     "name": "ElectricCharge",
+     "capacity": 500
+    }
+   ],
+   "acceptsRadial": true,
+   "crashTolerance": 6,
+   "jointStrength": 1600000.0,
+   "jointTorque": 450000.0
+  }
+ ]
+}

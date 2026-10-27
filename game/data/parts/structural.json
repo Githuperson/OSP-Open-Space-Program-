@@ -1,0 +1,378 @@
+{
+ "parts": [
+  {
+   "id": "adapter_21",
+   "name": "Taper T-21 Adapter",
+   "category": "Structural",
+   "description": "Conical adapter from a 2.5 m stack down to a 1.25 m stack. Can also hold radial parts.",
+   "dryMass": 300,
+   "cost": 350,
+   "shape": {
+    "kind": "cylinder",
+    "radius": 1.25,
+    "length": 1.0,
+    "radiusTop": 0.625,
+    "radiusBottom": 1.25
+   },
+   "nodes": [
+    {
+     "id": "top",
+     "kind": "stack",
+     "position": [
+      0,
+      0.5,
+      0
+     ],
+     "direction": [
+      0,
+      1,
+      0
+     ],
+     "size": 1
+    },
+    {
+     "id": "bottom",
+     "kind": "stack",
+     "position": [
+      0,
+      -0.5,
+      0
+     ],
+     "direction": [
+      0,
+      -1,
+      0
+     ],
+     "size": 2
+    }
+   ],
+   "visual": {
+    "elements": [
+     {
+      "type": "lathe",
+      "profile": [
+       [
+        -0.5,
+        0
+       ],
+       [
+        -0.5,
+        1.125
+       ],
+       [
+        -0.45,
+        1.25
+       ],
+       [
+        -0.35,
+        1.25
+       ],
+       [
+        0.35,
+        0.625
+       ],
+       [
+        0.5,
+        0.625
+       ],
+       [
+        0.5,
+        0
+       ]
+      ],
+      "material": "white",
+      "segments": 40,
+      "smooth": true,
+      "offset": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "cylinder",
+      "radius": 1.2625,
+      "length": 0.06,
+      "material": "grey",
+      "offset": [
+       0,
+       -0.38,
+       0
+      ],
+      "radiusTop": -1,
+      "segments": 40,
+      "rotation": [
+       0,
+       0,
+       0
+      ]
+     }
+    ]
+   },
+   "acceptsRadial": true,
+   "crashTolerance": 7,
+   "aero": {
+    "cdTop": 0.45,
+    "cdBottom": 0.8,
+    "cdBase": 0.15,
+    "cdSide": 0.9
+   },
+   "jointStrength": 6500000.0,
+   "jointTorque": 2200000.0
+  },
+  {
+   "id": "nose_s",
+   "name": "Needle-1 Nose Cone",
+   "category": "Aerodynamics",
+   "description": "Streamlined ogive that dramatically reduces drag on a 1.25 m stack.",
+   "dryMass": 45,
+   "cost": 100,
+   "shape": {
+    "kind": "cylinder",
+    "radius": 0.625,
+    "length": 1.3,
+    "radiusTop": 0.05,
+    "radiusBottom": 0.625
+   },
+   "nodes": [
+    {
+     "id": "bottom",
+     "kind": "stack",
+     "position": [
+      0,
+      -0.65,
+      0
+     ],
+     "direction": [
+      0,
+      -1,
+      0
+     ],
+     "size": 1
+    }
+   ],
+   "visual": {
+    "elements": [
+     {
+      "type": "lathe",
+      "profile": [
+       [
+        -0.65,
+        0
+       ],
+       [
+        -0.65,
+        0.625
+       ],
+       [
+        -0.4,
+        0.6
+       ],
+       [
+        0.0,
+        0.43
+       ],
+       [
+        0.35,
+        0.26
+       ],
+       [
+        0.55,
+        0.12
+       ],
+       [
+        0.65,
+        0.0
+       ]
+      ],
+      "material": "white",
+      "segments": 32,
+      "smooth": true,
+      "offset": [
+       0,
+       0,
+       0
+      ]
+     }
+    ]
+   },
+   "crashTolerance": 5,
+   "aero": {
+    "cdTop": 0.12,
+    "cdBottom": 0.8,
+    "cdBase": 0.15,
+    "cdSide": 0.7
+   },
+   "jointStrength": 1600000.0,
+   "jointTorque": 450000.0
+  },
+  {
+   "id": "nose_l",
+   "name": "Needle-2 Nose Cone",
+   "category": "Aerodynamics",
+   "description": "Large 2.5 m ogive nose cone.",
+   "dryMass": 160,
+   "cost": 250,
+   "shape": {
+    "kind": "cylinder",
+    "radius": 1.25,
+    "length": 2.6,
+    "radiusTop": 0.1,
+    "radiusBottom": 1.25
+   },
+   "nodes": [
+    {
+     "id": "bottom",
+     "kind": "stack",
+     "position": [
+      0,
+      -1.3,
+      0
+     ],
+     "direction": [
+      0,
+      -1,
+      0
+     ],
+     "size": 2
+    }
+   ],
+   "visual": {
+    "elements": [
+     {
+      "type": "lathe",
+      "profile": [
+       [
+        -1.3,
+        0
+       ],
+       [
+        -1.3,
+        1.25
+       ],
+       [
+        -0.8,
+        1.2
+       ],
+       [
+        0.0,
+        0.88
+       ],
+       [
+        0.7,
+        0.5
+       ],
+       [
+        1.1,
+        0.22
+       ],
+       [
+        1.3,
+        0.0
+       ]
+      ],
+      "material": "white",
+      "segments": 40,
+      "smooth": true,
+      "offset": [
+       0,
+       0,
+       0
+      ]
+     }
+    ]
+   },
+   "crashTolerance": 5,
+   "aero": {
+    "cdTop": 0.12,
+    "cdBottom": 0.8,
+    "cdBase": 0.15,
+    "cdSide": 0.7
+   },
+   "jointStrength": 6500000.0,
+   "jointTorque": 2200000.0
+  },
+  {
+   "id": "nose_radial",
+   "name": "Needle-R Radial Cone",
+   "category": "Aerodynamics",
+   "description": "Small cone for the front of a strap-on booster; in stack form attaches on top of any 1.25 m part.",
+   "dryMass": 30,
+   "cost": 80,
+   "shape": {
+    "kind": "cylinder",
+    "radius": 0.625,
+    "length": 0.9,
+    "radiusTop": 0.05,
+    "radiusBottom": 0.625
+   },
+   "nodes": [
+    {
+     "id": "bottom",
+     "kind": "stack",
+     "position": [
+      0,
+      -0.45,
+      0
+     ],
+     "direction": [
+      0,
+      -1,
+      0
+     ],
+     "size": 1
+    }
+   ],
+   "visual": {
+    "elements": [
+     {
+      "type": "lathe",
+      "profile": [
+       [
+        -0.45,
+        0
+       ],
+       [
+        -0.45,
+        0.625
+       ],
+       [
+        -0.2,
+        0.55
+       ],
+       [
+        0.1,
+        0.33
+       ],
+       [
+        0.3,
+        0.12
+       ],
+       [
+        0.45,
+        0.0
+       ]
+      ],
+      "material": "red",
+      "segments": 32,
+      "smooth": true,
+      "offset": [
+       0,
+       0,
+       0
+      ]
+     }
+    ]
+   },
+   "crashTolerance": 5,
+   "aero": {
+    "cdTop": 0.15,
+    "cdBottom": 0.8,
+    "cdBase": 0.15,
+    "cdSide": 0.7
+   },
+   "jointStrength": 1600000.0,
+   "jointTorque": 450000.0
+  }
+ ]
+}

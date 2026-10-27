@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>OSP.Core</RootNamespace>
+    <AssemblyName>OSP.Core</AssemblyName>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <!-- Core must never depend on Godot: it is the headless, unit-tested simulation. -->
+    <EnableDefaultCompileItems>true</EnableDefaultCompileItems>
+  </PropertyGroup>
+
+</Project>
