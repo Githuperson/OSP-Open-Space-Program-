@@ -205,3 +205,52 @@ public class VehicleTests
         Assert.Equal(-1, StagingController.NextStage(craft));
     }
 }
+
+public class SubtreeTests
+{
+    private static readonly PartCatalog Cat = TestEnv.Catalog;
+
+    [Fact]
+    public void ExtractAndReattachPreservesStructureAndMass()
+    {
+        var b = new RocketBuilder().Root("pod_aster").Below("tank_s2").Below("tank_s1").Below("eng_ember");
+        var d = b.Design; var ed = new VehicleEditor(Cat);
+        double massBefore = Craft.FromDesign(d, Cat).TotalMass;
+        int firstTank = d.Parts[1].Id;
+        var sub = ed.ExtractSubtree(d, firstTank);
+        Assert.Equal(3, sub.Parts.Count);
+        Assert.Equal(-1, sub.Root!.ParentId);
+        ed.RemoveSubtree(d, firstTank);
+        Assert.Single(d.Parts);
+        var cand = ed.FindNodeCandidates(d, sub).First(x => x.ParentNode == "bottom" && x.ChildNode == "top");
+        ed.AttachDesign(d, sub, cand);
+        Assert.Equal(4, d.Parts.Count);
+        Assert.Equal(massBefore, Craft.FromDesign(d, Cat).TotalMass, 6);
+        Assert.Empty(VehicleValidator.Validate(d, Cat).Where(i => i.Severity == IssueSeverity.Error));
+    }
+
+    [Fact]
+    public void HeldSubtreeWithOccupiedNodeCannotUseThatNode()
+    {
+        var b = new RocketBuilder().Root("tank_s2").Below("tank_s1");
+        var d = b.Design; var ed = new VehicleEditor(Cat);
+        var sub = ed.ExtractSubtree(d, d.Parts[0].Id);        // tank_s2 with a tank below it: its bottom is occupied
+        var target = new RocketBuilder().Root("pod_aster").Design;
+        var cands = ed.FindNodeCandidates(target, sub);
+        Assert.All(cands, c => Assert.Equal("top", c.ChildNode));
+    }
+
+    [Fact]
+    public void RadialSubtreeSymmetryCopiesWholeBranch()
+    {
+        var b = new RocketBuilder().Root("tank_s4");
+        var ed = new VehicleEditor(Cat);
+        // booster = srb with nose cone
+        var held = new RocketBuilder().Root("srb_hammer").Above("nose_radial", null, "bottom").Design;
+        var cand = ed.RadialCandidate(b.Design, b.Design.Parts[0].Id, "srb_hammer", 0, 0)!;
+        ed.AttachDesign(b.Design, held, cand, 3);
+        Assert.Equal(3, b.Design.Parts.Count(p => p.PartId == "srb_hammer"));
+        Assert.Equal(3, b.Design.Parts.Count(p => p.PartId == "nose_radial"));
+        Assert.Empty(VehicleValidator.Validate(b.Design, Cat).Where(i => i.Severity == IssueSeverity.Error));
+    }
+}

@@ -1,0 +1,18 @@
+<Project Sdk="Godot.NET.Sdk/4.3.0">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <RootNamespace>OSP.Game</RootNamespace>
+    <AssemblyName>OSP</AssemblyName>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>disable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- The simulation library is plain .NET and is shared with the unit-test project. -->
+    <ProjectReference Include="..\src\OSP.Core\OSP.Core.csproj" />
+  </ItemGroup>
+
+</Project>

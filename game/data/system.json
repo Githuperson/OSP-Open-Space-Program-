@@ -33,8 +33,8 @@
       "terrain": {
         "seed": 4242, "amplitude": 7000, "continentFrequency": 1.6, "mountainFrequency": 7.0, "detailFrequency": 140.0,
         "hasOcean": true, "landBias": 0.12,
-        "colorLow": [0.17, 0.33, 0.13], "colorMid": [0.36, 0.30, 0.20], "colorHigh": [0.62, 0.60, 0.58],
-        "colorPolar": [0.95, 0.97, 1.0], "colorShore": [0.74, 0.69, 0.47], "colorOcean": [0.03, 0.17, 0.40],
+        "colorLow": [0.13, 0.27, 0.09], "colorMid": [0.28, 0.23, 0.15], "colorHigh": [0.5, 0.48, 0.46],
+        "colorPolar": [0.95, 0.97, 1.0], "colorShore": [0.52, 0.47, 0.30], "colorOcean": [0.03, 0.17, 0.40],
         "polarLatitudeDeg": 72
       },
       "launchSites": [
